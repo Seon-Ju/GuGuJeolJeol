@@ -45,6 +45,18 @@ class LocationViewController: UIViewController {
                         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func touchUpSearchBtn(_ sender: UIButton) {
+        print("touchUpSearchBtn")
+        CommonNavi.popVC()
+        CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
+    }
+    
+    @IBAction func touchUpUserBtn(_ sender: UIButton) {
+        print("touchUpUserBtn")
+        CommonNavi.popVC()
+        CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
+    }
 
 }
 
