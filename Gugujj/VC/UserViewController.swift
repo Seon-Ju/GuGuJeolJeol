@@ -27,12 +27,11 @@ class UserViewController: UIViewController {
     
     @IBAction func touchUpLocationBtn(_ sender: UIButton) {
         print("touchUpLocationBtn")
-        CommonNavi.popToRootVC()
+        CommonNavi.pushVC(sbName: "Main", vcName: "LocationVC")
     }
     
     @IBAction func touchUpSearchBtn(_ sender: UIButton) {
         print("touchUpSearchBtn")
-        CommonNavi.popVC()
         CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
     }
     

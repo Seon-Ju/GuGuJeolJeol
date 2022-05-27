@@ -31,6 +31,7 @@ class LocationViewController: UIViewController {
         
     }
     
+    
     @IBAction func touchUpAreaBtn(_ sender: UIButton) {
         let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
         
@@ -48,13 +49,11 @@ class LocationViewController: UIViewController {
     
     @IBAction func touchUpSearchBtn(_ sender: UIButton) {
         print("touchUpSearchBtn")
-        CommonNavi.popVC()
         CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
     }
     
     @IBAction func touchUpUserBtn(_ sender: UIButton) {
         print("touchUpUserBtn")
-        CommonNavi.popVC()
         CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
     }
 
@@ -113,4 +112,3 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-

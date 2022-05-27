@@ -23,6 +23,16 @@ class SearchViewController: UIViewController {
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
     }
     
+    @IBAction func touchUpLocationBtn(_ sender: UIButton) {
+        print("touchUpLocationBtn")
+        CommonNavi.pushVC(sbName: "Main", vcName: "LocationVC")
+    }
+    
+    @IBAction func touchUpUserBtn(_ sender: UIButton) {
+        print("touchUpUserBtn")
+        CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
+    }
+    
 }
 
 // MARK: - TableView
