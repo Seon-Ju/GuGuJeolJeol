@@ -1,16 +1,12 @@
 //
-//  Extensions.swift
+//  UIView + Extension.swift
 //  Gugujj
 //
-//  Created by Seonju Kim on 2022/05/26.
+//  Created by EunTak Oh on 2022/05/27.
 //
 
 import Foundation
 import UIKit
-
-class Extensions: UIViewController {
-    
-}
 
 extension UIView {
     func addGradient(color1: UIColor, color2: UIColor) {
