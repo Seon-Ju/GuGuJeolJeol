@@ -16,31 +16,32 @@ class LocationViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
+    @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var templeTableView: UITableView!
     
     // MARK: - IBActions
     @IBAction func touchUpAreaBtn(_ sender: UIButton) {
-            let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
+        let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
             
-            pickerView.frame = CGRect(x: 0, y: 50, width: 270, height: 130)
-            pickerView.delegate = self
-            pickerView.dataSource = self
-            alert.view.addSubview(pickerView)
+        pickerView.frame = CGRect(x: 0, y: 50, width: 270, height: 130)
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        alert.view.addSubview(pickerView)
             
-            alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-                self.locationText.setTitle(self.selectedLocation, for: .normal)
-            })
+        alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+            self.locationText.setTitle(self.selectedLocation, for: .normal)
+        })
                             
-            self.present(alert, animated: true, completion: nil)
-        }
+        self.present(alert, animated: true, completion: nil)
+    }
         
-        @IBAction func touchUpSearchBtn(_ sender: UIButton) {
-            CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
-        }
+    @IBAction func touchUpSearchBtn(_ sender: UIButton) {
+        CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
+    }
         
-        @IBAction func touchUpUserBtn(_ sender: UIButton) {
-            CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
-        }
+    @IBAction func touchUpUserBtn(_ sender: UIButton) {
+        CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
+    }
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -51,6 +52,8 @@ class LocationViewController: UIViewController {
         }
         
         locationText.setTitle("서울", for: .normal)
+        
+        searchBar.layer.cornerRadius = 20
         
         templeTableView.delegate = self
         templeTableView.dataSource = self
