@@ -11,7 +11,6 @@
 		5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */; };
 		5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */; };
 		5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */; };
-		5A4C3B31283F0B300081B7C1 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B30283F0B300081B7C1 /* CustomTabBar.swift */; };
 		5A4C3B36283F38E50081B7C1 /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B34283F38E50081B7C1 /* SquareCollectionViewCell.swift */; };
 		5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */; };
 		5A4C3B39283F3B380081B7C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B38283F3B380081B7C1 /* Extensions.swift */; };
@@ -30,7 +29,6 @@
 		5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleTableViewCell.xib; sourceTree = "<group>"; };
 		5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleViewController.swift; sourceTree = "<group>"; };
 		5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavi.swift; sourceTree = "<group>"; };
-		5A4C3B30283F0B300081B7C1 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		5A4C3B34283F38E50081B7C1 /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
 		5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCollectionViewCell.xib; sourceTree = "<group>"; };
 		5A4C3B38283F3B380081B7C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				5AE55B0E283B116E00D19FFF /* AppDelegate.swift */,
 				5AE55B10283B116E00D19FFF /* SceneDelegate.swift */,
 				5AE55B14283B116E00D19FFF /* Main.storyboard */,
-				5A4C3B30283F0B300081B7C1 /* CustomTabBar.swift */,
 				5A40BCE9283CA1F500DB7FC4 /* Common */,
 				5A4C3B3A283F48110081B7C1 /* VC */,
 				5A4C3B3B283F48240081B7C1 /* Cell */,
@@ -201,7 +198,6 @@
 				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,
 				5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */,
 				5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */,
-				5A4C3B31283F0B300081B7C1 /* CustomTabBar.swift in Sources */,
 				5A4C3B36283F38E50081B7C1 /* SquareCollectionViewCell.swift in Sources */,
 				5A4C3B39283F3B380081B7C1 /* Extensions.swift in Sources */,
 				5AE55B11283B116E00D19FFF /* SceneDelegate.swift in Sources */,

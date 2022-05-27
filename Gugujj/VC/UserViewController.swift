@@ -9,11 +9,27 @@ import UIKit
 
 class UserViewController: UIViewController {
     
+    // MARK: - Properties
+    var isSwipedFlag: Bool = false
+    
+    // MARK: IBOutlets
     @IBOutlet weak var starredCollectionView: UICollectionView!
     @IBOutlet weak var recentCollectionView: UICollectionView!
+    @IBOutlet var screenEdgePanGesture: UIScreenEdgePanGestureRecognizer!
     
+    // MARK: - IBActions
+    @IBAction func executeScreenEdgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
+        if !isSwipedFlag {
+            CommonNavi.popVC()
+            isSwipedFlag = true
+        }
+    }
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        screenEdgePanGesture.edges = .left
 
         starredCollectionView.delegate = self
         starredCollectionView.dataSource = self
@@ -25,18 +41,14 @@ class UserViewController: UIViewController {
         
     }
     
-    @IBAction func touchUpLocationBtn(_ sender: UIButton) {
-        print("touchUpLocationBtn")
-        CommonNavi.pushVC(sbName: "Main", vcName: "LocationVC")
-    }
-    
-    @IBAction func touchUpSearchBtn(_ sender: UIButton) {
-        print("touchUpSearchBtn")
-        CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        isSwipedFlag = false
     }
     
 }
 
+// MARK: - CollectionView
 extension UserViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

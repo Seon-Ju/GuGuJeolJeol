@@ -9,13 +9,40 @@ import UIKit
 
 class LocationViewController: UIViewController {
     
+    // MARK: - Properties
     let location = ["서울", "인천", "대전", "대구", "광주", "부산", "울산", "세종", "경기도", "강원도", "충청북도", "충청남도", "경상북도", "경상남도", "전라북도", "전라남도", "제주도"]
     let pickerView = UIPickerView()
     var selectedLocation = ""
 
+    // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
     @IBOutlet weak var templeTableView: UITableView!
     
+    // MARK: - IBActions
+    @IBAction func touchUpAreaBtn(_ sender: UIButton) {
+            let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
+            
+            pickerView.frame = CGRect(x: 0, y: 50, width: 270, height: 130)
+            pickerView.delegate = self
+            pickerView.dataSource = self
+            alert.view.addSubview(pickerView)
+            
+            alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+                self.locationText.setTitle(self.selectedLocation, for: .normal)
+            })
+                            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        @IBAction func touchUpSearchBtn(_ sender: UIButton) {
+            CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
+        }
+        
+        @IBAction func touchUpUserBtn(_ sender: UIButton) {
+            CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
+        }
+
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,33 +55,6 @@ class LocationViewController: UIViewController {
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
-        
-    }
-    
-    
-    @IBAction func touchUpAreaBtn(_ sender: UIButton) {
-        let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
-        
-        pickerView.frame = CGRect(x: 0, y: 50, width: 270, height: 130)
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        alert.view.addSubview(pickerView)
-        
-        alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-            self.locationText.setTitle(self.selectedLocation, for: .normal)
-        })
-                        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func touchUpSearchBtn(_ sender: UIButton) {
-        print("touchUpSearchBtn")
-        CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
-    }
-    
-    @IBAction func touchUpUserBtn(_ sender: UIButton) {
-        print("touchUpUserBtn")
-        CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
     }
 
 }

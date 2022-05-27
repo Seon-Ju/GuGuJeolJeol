@@ -9,8 +9,22 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    @IBOutlet weak var templeTableView: UITableView!
+    // MARK: - Properties
+    var isSwipedFlag: Bool = false
     
+    // MARK: IBOutlets
+    @IBOutlet weak var templeTableView: UITableView!
+    @IBOutlet var screenEdgePanGesture: UIScreenEdgePanGestureRecognizer!
+    
+    // MARK: - IBActions
+    @IBAction func executeScreenEdgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
+        if !isSwipedFlag {
+            CommonNavi.popVC()
+            isSwipedFlag = true
+        }
+    }
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,19 +32,16 @@ class SearchViewController: UIViewController {
             delegate.navigationController = self.navigationController
         }
         
+        screenEdgePanGesture.edges = .left
+        
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
     }
     
-    @IBAction func touchUpLocationBtn(_ sender: UIButton) {
-        print("touchUpLocationBtn")
-        CommonNavi.pushVC(sbName: "Main", vcName: "LocationVC")
-    }
-    
-    @IBAction func touchUpUserBtn(_ sender: UIButton) {
-        print("touchUpUserBtn")
-        CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        isSwipedFlag = false
     }
     
 }
