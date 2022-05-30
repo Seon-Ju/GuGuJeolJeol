@@ -25,6 +25,7 @@
 		5AE55B1B283B116F00D19FFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */; };
 		5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B22283B5F6900D19FFF /* UserViewController.swift */; };
 		5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B24283B5F7000D19FFF /* SearchViewController.swift */; };
+		94396C9028448EC50088F303 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94396C8F28448EC50088F303 /* BaseViewController.swift */; };
 		94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BD92840BE9300D57CDE /* CommonHttp.swift */; };
 		94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BDB2840BEA400D57CDE /* CommonURL.swift */; };
 		94B16BDE2840BEB900D57CDE /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */; };
@@ -51,6 +52,7 @@
 		5AE55B1C283B116F00D19FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE55B22283B5F6900D19FFF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		5AE55B24283B5F7000D19FFF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		94396C8F28448EC50088F303 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		94B16BD92840BE9300D57CDE /* CommonHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHttp.swift; sourceTree = "<group>"; };
 		94B16BDB2840BEA400D57CDE /* CommonURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonURL.swift; sourceTree = "<group>"; };
 		94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				5AE55B24283B5F7000D19FFF /* SearchViewController.swift */,
 				5AE55B22283B5F6900D19FFF /* UserViewController.swift */,
 				5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */,
+				94396C8F28448EC50088F303 /* BaseViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				5A1F03AE28445D9B005622FF /* DetailCommon.swift in Sources */,
 				5A1F03B4284468A1005622FF /* DetailImage.swift in Sources */,
 				5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */,
+				94396C9028448EC50088F303 /* BaseViewController.swift in Sources */,
 				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,
 				5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */,
 				94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */,

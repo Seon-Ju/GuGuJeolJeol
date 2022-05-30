@@ -7,28 +7,16 @@
 
 import UIKit
 
-class TempleViewController: UIViewController {
+class TempleViewController: BaseViewController {
 
     // MARK: - Properties
-    var isSwipedFlag: Bool = false
     
     // MARK: IBOutlets
     @IBOutlet var nearSightCollectionView: UICollectionView!
-    @IBOutlet var screenEdgePanGesture: UIScreenEdgePanGestureRecognizer!
-    
-    // MARK: - IBActions
-    @IBAction func executeScreenEdgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
-        if !isSwipedFlag {
-            CommonNavi.popVC()
-            isSwipedFlag = true
-        }
-    }
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        screenEdgePanGesture.edges = .left
         
         navigationController?.isNavigationBarHidden = true
         

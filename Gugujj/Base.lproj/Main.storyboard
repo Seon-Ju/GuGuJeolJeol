@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTA-xl-HvG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTA-xl-HvG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -274,23 +274,14 @@
                             <constraint firstItem="tfO-wT-Cjc" firstAttribute="top" secondItem="hwy-n8-7ci" secondAttribute="bottom" constant="20" id="n6K-2h-ct4"/>
                             <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" secondItem="3Oh-1A-wUL" secondAttribute="trailing" constant="30" id="nEO-dE-pPe"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="gcF-En-iXw" appends="YES" id="Z6z-3W-F96"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="QA6-Oo-zrF"/>
                     <navigationItem key="navigationItem" id="osw-Dd-PIa"/>
                     <connections>
-                        <outlet property="screenEdgePanGesture" destination="gcF-En-iXw" id="6WN-cx-7nM"/>
                         <outlet property="templeTableView" destination="tfO-wT-Cjc" id="enc-9j-3GT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cc6-Qv-p16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="gcF-En-iXw">
-                    <connections>
-                        <action selector="executeScreenEdgePanGesture:" destination="Zff-4H-KgV" id="8AI-ff-kQf"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="808.69565217391312" y="1184.5982142857142"/>
         </scene>
@@ -429,24 +420,15 @@
                             <constraint firstItem="aZQ-59-TJc" firstAttribute="leading" secondItem="NdC-Og-F8I" secondAttribute="leading" constant="30" id="x8D-iD-SjS"/>
                             <constraint firstItem="7T2-qD-Dkz" firstAttribute="top" secondItem="ejW-1E-Pw5" secondAttribute="bottom" constant="40" id="zk2-zc-Mcw"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="i9a-45-bWw" appends="YES" id="4ao-Jc-dxR"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="qcz-oy-10N"/>
                     <navigationItem key="navigationItem" id="hGJ-pC-Vxk"/>
                     <connections>
                         <outlet property="recentCollectionView" destination="ZNq-ty-I5Q" id="Tsg-H2-OFg"/>
-                        <outlet property="screenEdgePanGesture" destination="i9a-45-bWw" id="m3t-6W-qbF"/>
                         <outlet property="starredCollectionView" destination="vDa-Mj-BcO" id="iXH-m8-b7G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpz-We-lPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="i9a-45-bWw">
-                    <connections>
-                        <action selector="executeScreenEdgePanGesture:" destination="grO-Bh-KU6" id="fxE-Bi-coC"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1680" y="1185"/>
         </scene>
@@ -824,9 +806,6 @@
                                     <constraint firstItem="QtU-Ix-x0C" firstAttribute="top" secondItem="Btu-kf-MrV" secondAttribute="top" id="s1H-K1-aCr"/>
                                     <constraint firstAttribute="trailing" secondItem="QtU-Ix-x0C" secondAttribute="trailing" id="so4-7J-FJW"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="PGh-SL-zGH" appends="YES" id="2Bt-1M-4j4"/>
-                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VkK-cs-Vrz" propertyAccessControl="none"/>
@@ -842,15 +821,9 @@
                     <size key="freeformSize" width="414" height="1600"/>
                     <connections>
                         <outlet property="nearSightCollectionView" destination="U4E-Tr-ZeW" id="PlV-CB-llC"/>
-                        <outlet property="screenEdgePanGesture" destination="PGh-SL-zGH" id="JAr-2N-F5Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qm1-UB-VLn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="PGh-SL-zGH">
-                    <connections>
-                        <action selector="executeScreenEdgePanGesture:" destination="Ogj-LZ-wP8" id="Xdh-2c-vLh"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2527.536231884058" y="949.55357142857133"/>
         </scene>

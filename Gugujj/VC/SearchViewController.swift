@@ -7,22 +7,12 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
 
     // MARK: - Properties
-    var isSwipedFlag: Bool = false
     
     // MARK: IBOutlets
     @IBOutlet weak var templeTableView: UITableView!
-    @IBOutlet var screenEdgePanGesture: UIScreenEdgePanGestureRecognizer!
-    
-    // MARK: - IBActions
-    @IBAction func executeScreenEdgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
-        if !isSwipedFlag {
-            CommonNavi.popVC()
-            isSwipedFlag = true
-        }
-    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -31,9 +21,7 @@ class SearchViewController: UIViewController {
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.navigationController = self.navigationController
         }
-        
-        screenEdgePanGesture.edges = .left
-        
+                
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
