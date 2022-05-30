@@ -58,6 +58,8 @@ class LocationViewController: UIViewController {
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
+        
+        CommonHttp.getDetailIntro()
     }
 
 }
