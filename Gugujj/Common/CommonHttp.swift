@@ -112,16 +112,14 @@ class CommonHttp {
     
     static private func dataTask(baseUrl: String, category: String, params: [String:String], completion: @escaping (Data) -> (Void)) {
         let fullUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/\(category)\(getParameterString(params: params))";
-        // print(fullUrl)
         
         URLSession.shared.dataTask(with: URLRequest(url: URL(string: fullUrl)!)) { data, response, error in
-            // let dataString = String(data: data!, encoding: .utf8) ?? ""
-            // print(dataString)
-            
-            completion(data!)
-            
-            // print(response?.description)
-            // print(error)
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+            if let data = data {
+                completion(data)
+            }
         }.resume()
     }
     

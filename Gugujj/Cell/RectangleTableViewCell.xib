@@ -23,14 +23,14 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해동용궁사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oF-7q-9ze">
-                        <rect key="frame" x="35" y="157.5" width="112.5" height="31.5"/>
+                        <rect key="frame" x="35" y="157.5" width="310" height="31.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부산광역시 기장군 기장읍 용궁길 86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WP-na-U3b">
-                        <rect key="frame" x="35" y="191" width="216.5" height="18"/>
+                        <rect key="frame" x="35" y="191" width="310" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -42,10 +42,12 @@
                     <constraint firstItem="5WP-na-U3b" firstAttribute="top" secondItem="2oF-7q-9ze" secondAttribute="bottom" constant="2" id="5XG-Nr-pXe"/>
                     <constraint firstItem="5WP-na-U3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="6Lr-kJ-sbf"/>
                     <constraint firstItem="N7d-kW-qTc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8eZ-wL-twf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2oF-7q-9ze" secondAttribute="trailing" constant="15" id="EjB-LI-HCs"/>
                     <constraint firstAttribute="trailing" secondItem="N7d-kW-qTc" secondAttribute="trailing" id="NKz-3c-cDg"/>
                     <constraint firstAttribute="bottomMargin" secondItem="5WP-na-U3b" secondAttribute="bottom" constant="20" id="Na1-aa-gE6"/>
                     <constraint firstAttribute="bottom" secondItem="N7d-kW-qTc" secondAttribute="bottom" id="VQq-6s-CsY"/>
                     <constraint firstItem="2oF-7q-9ze" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="iZS-BV-jg7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5WP-na-U3b" secondAttribute="trailing" constant="15" id="pFK-s4-mLO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -31,8 +31,22 @@ class RectangleTableViewCell: UITableViewCell {
         // 셀간 간격 설정
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0))
         
-        // 셀
+        // 셀 radius 설정
         contentView.layer.cornerRadius = 20
+    }
+    
+    func configure(templeList: [Temple], tableView: UITableView, indexPath: IndexPath) {
+        
+        let temple = templeList[indexPath.row]
+        print(temple)
+        
+        DispatchQueue.main.async {
+            self.title.text = temple.title
+            self.address.text = "\(temple.addr1 ?? "") \(temple.addr2 ?? "")"
+            
+            let data = try? Data(contentsOf: URL(string: temple.firstimage!)!)
+            self.thumbnail.image = UIImage(data: data!)
+        }
     }
     
 }

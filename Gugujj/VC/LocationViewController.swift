@@ -62,20 +62,8 @@ class LocationViewController: UIViewController {
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
-        
-        CommonHttp.getAreaBasedList() { data in
-            
-            let parser = XMLParser(data: data)
-            parser.delegate = self
-            parser.parse()
-
-            for temple in self.templeList {
-                print(temple)
-            }
-        }
-        
     }
-
+    
 }
 
 // MARK: - XMLParserDelegate
@@ -150,6 +138,14 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
+        
+        CommonHttp.getAreaBasedList() { xmlData in
+            let parser = XMLParser(data: xmlData)
+            parser.delegate = self
+            parser.parse()
+
+            cell.configure(templeList: self.templeList, tableView: self.templeTableView, indexPath: indexPath)
+        }
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
