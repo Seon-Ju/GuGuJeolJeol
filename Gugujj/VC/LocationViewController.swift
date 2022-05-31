@@ -13,6 +13,10 @@ class LocationViewController: UIViewController {
     let location = ["서울", "인천", "대전", "대구", "광주", "부산", "울산", "세종", "경기도", "강원도", "충청북도", "충청남도", "경상북도", "경상남도", "전라북도", "전라남도", "제주도"]
     let pickerView = UIPickerView()
     var selectedLocation = ""
+    
+    var currentElement = ""
+    var temple = Temple(contentid: 0, contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
+    var templeList = [Temple]()
 
     // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
@@ -59,9 +63,56 @@ class LocationViewController: UIViewController {
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
         
-        CommonHttp.getDetailIntro()
+        CommonHttp.getAreaBasedList() { data in
+            
+            let parser = XMLParser(data: data)
+            parser.delegate = self
+            parser.parse()
+
+            for temple in self.templeList {
+                print(temple)
+            }
+        }
+        
     }
 
+}
+
+// MARK: - XMLParserDelegate
+extension LocationViewController: XMLParserDelegate {
+    
+    // parser가 시작 태그를 만나면 호출 Ex) <name>
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        currentElement = elementName
+        if (elementName == "item") {
+            temple = Temple(contentid: 0, contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
+        }
+    }
+
+    // 현재 태그에 담겨있는 string이 전달됨
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        switch currentElement {
+        case "title":
+            temple.title = string
+        case "addr1":
+            temple.addr1 = string
+        case "areacode":
+            temple.areacode = Int(string)
+        case "firstimage":
+            temple.firstimage = string
+        case "readcount":
+            temple.readcount = Int(string)
+        default:
+            break
+        }
+    }
+
+    // parser가 종료 태그를 만나면 호출 Ex) </name>
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if (elementName == "item") {
+            templeList.append(temple)
+        }
+    }
 }
 
 // MARK: - PickerView
@@ -98,7 +149,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
@@ -112,7 +163,6 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
     }
     

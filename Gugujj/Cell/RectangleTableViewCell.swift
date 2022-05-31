@@ -9,14 +9,16 @@ import UIKit
 
 class RectangleTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var templeImage: UIImageView!
+    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var address: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         layer.cornerRadius = 20
         
-        templeImage.addGradient(color1: UIColor.clear, color2: UIColor.black)
+        thumbnail.addGradient(color1: UIColor.clear, color2: UIColor.black)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
