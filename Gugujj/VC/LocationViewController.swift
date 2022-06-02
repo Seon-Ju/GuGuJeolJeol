@@ -15,7 +15,7 @@ class LocationViewController: UIViewController {
     var selectedLocation = ""
     
     var currentElement = ""
-    var temple = Temple(contentid: "", contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
+    var temple = Temple(id: "", title: "")
     var templeList = [Temple]()
 
     // MARK: IBOutlets
@@ -73,7 +73,7 @@ extension LocationViewController: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
         if (elementName == "item") {
-            temple = Temple(contentid: "", contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
+            temple = Temple(id: "", title: "")
         }
     }
 
@@ -81,15 +81,21 @@ extension LocationViewController: XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
         case "contentid":
-            temple.contentid = string
+            temple.id = string
         case "title":
             temple.title = string
         case "addr1":
             temple.addr1 = string
+        case "addr2":
+            if temple.addr2 != nil {
+                temple.addr2! += string
+            } else {
+                temple.addr2 = string
+            }
         case "areacode":
             temple.areacode = Int(string)
         case "firstimage":
-            temple.firstimage = string
+            temple.imageUrl = string
         case "readcount":
             temple.readcount = Int(string)
         default:
@@ -162,7 +168,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
-        TempleViewController.contentId = templeList[indexPath.row].contentid
+        TempleViewController.contentId = templeList[indexPath.row].id
     }
     
 }

@@ -473,7 +473,7 @@
                                                             <backgroundConfiguration key="background" image="house.circle.fill" catalog="system"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="touchUpHomepageBtn:" destination="Ogj-LZ-wP8" eventType="touchUpInside" id="FO8-Bm-SYY"/>
+                                                            <action selector="touchUpHomepageButton:" destination="Ogj-LZ-wP8" eventType="touchUpInside" id="Aet-L9-ILE"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnZ-FW-6yt" userLabel="즐겨찾기 Button">
@@ -519,7 +519,7 @@
                                                                     <fragment content="정보 없음">
                                                                         <attributes>
                                                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                            <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                                            <font key="NSFont" metaFont="system" size="15"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
@@ -573,7 +573,7 @@
                                                                     <fragment content="정보 없음">
                                                                         <attributes>
                                                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                            <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                                            <font key="NSFont" metaFont="system" size="15"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
@@ -625,7 +625,7 @@
                                                                                 </constraints>
                                                                                 <color key="tintColor" red="1" green="0.52244961869999995" blue="0.23367001470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                                <state key="normal" title="Button" image="house" catalog="system"/>
+                                                                                <state key="normal" image="toilet"/>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owX-YI-TsT">
                                                                                 <rect key="frame" x="35" y="0.0" width="90" height="25"/>
@@ -690,7 +690,7 @@
                                                                                 </constraints>
                                                                                 <color key="tintColor" red="1" green="0.52244961869999995" blue="0.23367001470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                                <state key="normal" image="tortoise.fill" catalog="system"/>
+                                                                                <state key="normal" image="footprint"/>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6f-I6-gFx">
                                                                                 <rect key="frame" x="35" y="0.0" width="90" height="25"/>
@@ -856,20 +856,20 @@
                     <navigationItem key="navigationItem" id="ghd-eC-gXc"/>
                     <size key="freeformSize" width="414" height="1600"/>
                     <connections>
-                        <outlet property="address" destination="f9t-sA-rXC" id="Car-K5-eCy"/>
-                        <outlet property="call" destination="3Fe-Y7-o0Z" id="dki-fP-8aG"/>
-                        <outlet property="creditCard" destination="o3P-rh-Nid" id="2QI-ek-7PK"/>
-                        <outlet property="homepageBtn" destination="PFw-Op-zJx" id="9x1-Oy-gRj"/>
-                        <outlet property="name" destination="QUG-24-rQq" id="Mn2-N8-mtm"/>
+                        <outlet property="addressLabel" destination="f9t-sA-rXC" id="X42-DH-ZRh"/>
+                        <outlet property="creditCardLabel" destination="o3P-rh-Nid" id="bnv-lQ-Urj"/>
+                        <outlet property="descTextView" destination="QaB-nN-Nyt" id="F9W-PW-cEc"/>
+                        <outlet property="descTitleLabel" destination="eNq-Xq-9AI" id="jXz-da-S2e"/>
+                        <outlet property="homepageButton" destination="PFw-Op-zJx" id="Je1-21-T6G"/>
                         <outlet property="nearSightCollectionView" destination="U4E-Tr-ZeW" id="PlV-CB-llC"/>
-                        <outlet property="overview" destination="QaB-nN-Nyt" id="n6e-iH-RgK"/>
-                        <outlet property="overviewTitle" destination="eNq-Xq-9AI" id="GCe-8M-XbZ"/>
-                        <outlet property="parking" destination="mGD-bh-HNX" id="QAw-1j-DeA"/>
-                        <outlet property="pet" destination="O6f-I6-gFx" id="uEE-cG-bhr"/>
-                        <outlet property="restDate" destination="EBz-fh-Sm7" id="OeI-mv-CyK"/>
-                        <outlet property="thumbnail" destination="Plx-u8-koi" id="SA4-cV-tji"/>
-                        <outlet property="toilet" destination="owX-YI-TsT" id="YGY-bF-iRT"/>
-                        <outlet property="useTime" destination="dFo-gP-Hc0" id="wIZ-7e-hGB"/>
+                        <outlet property="parkingLabel" destination="mGD-bh-HNX" id="gQw-VQ-pOq"/>
+                        <outlet property="petLabel" destination="O6f-I6-gFx" id="ZJg-g1-zYo"/>
+                        <outlet property="restDateLabel" destination="EBz-fh-Sm7" id="vWI-p8-QfG"/>
+                        <outlet property="telLabel" destination="3Fe-Y7-o0Z" id="1bm-6y-Gut"/>
+                        <outlet property="thumbnailImageView" destination="Plx-u8-koi" id="lMc-1W-BRg"/>
+                        <outlet property="titleLabel" destination="QUG-24-rQq" id="6lZ-mf-YHR"/>
+                        <outlet property="toiletLabel" destination="owX-YI-TsT" id="f36-HQ-FBT"/>
+                        <outlet property="useTimeLabel" destination="dFo-gP-Hc0" id="Wj5-1Z-z70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qm1-UB-VLn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -900,8 +900,8 @@
         <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="creditcard.fill" catalog="system" width="128" height="88"/>
+        <image name="footprint" width="569" height="540"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.circle.fill" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
         <image name="location" catalog="system" width="128" height="118"/>
@@ -912,7 +912,7 @@
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="temple01" width="1600" height="1066"/>
-        <image name="tortoise.fill" catalog="system" width="128" height="66"/>
+        <image name="toilet" width="539" height="549"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

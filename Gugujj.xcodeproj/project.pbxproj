@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A1F03AE28445D9B005622FF /* DetailCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03AD28445D9B005622FF /* DetailCommon.swift */; };
-		5A1F03B228446719005622FF /* DetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03B128446719005622FF /* DetailInfo.swift */; };
-		5A1F03B4284468A1005622FF /* DetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03B3284468A1005622FF /* DetailImage.swift */; };
-		5A1F03B628447D95005622FF /* DetailIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03B528447D95005622FF /* DetailIntro.swift */; };
 		5A1F03BB28449AD9005622FF /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03BA28449AD9005622FF /* Temple.swift */; };
 		5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */; };
 		5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */; };
@@ -33,10 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A1F03AD28445D9B005622FF /* DetailCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommon.swift; sourceTree = "<group>"; };
-		5A1F03B128446719005622FF /* DetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfo.swift; sourceTree = "<group>"; };
-		5A1F03B3284468A1005622FF /* DetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImage.swift; sourceTree = "<group>"; };
-		5A1F03B528447D95005622FF /* DetailIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntro.swift; sourceTree = "<group>"; };
 		5A1F03BA28449AD9005622FF /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
 		5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleTableViewCell.swift; sourceTree = "<group>"; };
 		5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleTableViewCell.xib; sourceTree = "<group>"; };
@@ -75,10 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				5A1F03BA28449AD9005622FF /* Temple.swift */,
-				5A1F03AD28445D9B005622FF /* DetailCommon.swift */,
-				5A1F03B528447D95005622FF /* DetailIntro.swift */,
-				5A1F03B128446719005622FF /* DetailInfo.swift */,
-				5A1F03B3284468A1005622FF /* DetailImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,12 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A1F03B228446719005622FF /* DetailInfo.swift in Sources */,
 				5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */,
 				5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */,
 				5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */,
-				5A1F03AE28445D9B005622FF /* DetailCommon.swift in Sources */,
-				5A1F03B4284468A1005622FF /* DetailImage.swift in Sources */,
 				5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */,
 				94396C9028448EC50088F303 /* BaseViewController.swift in Sources */,
 				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,
@@ -236,7 +221,6 @@
 				94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */,
 				94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */,
 				5A1F03BB28449AD9005622FF /* Temple.swift in Sources */,
-				5A1F03B628447D95005622FF /* DetailIntro.swift in Sources */,
 				94B16BDE2840BEB900D57CDE /* UIView + Extension.swift in Sources */,
 				5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */,
 				5A4C3B36283F38E50081B7C1 /* SquareCollectionViewCell.swift in Sources */,

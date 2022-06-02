@@ -15,27 +15,28 @@ class TempleViewController: BaseViewController {
     private var currentElement: String = ""
     private var infoName: String = ""
     private var homepageUrl: String = ""
-    private var mapx: String = ""
-    private var mapy: String = ""
     
     // MARK: IBOutlets
-    @IBOutlet weak var thumbnail: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var homepageBtn: UIButton!
-    @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var call: UILabel!
-    @IBOutlet weak var restDate: UILabel!
-    @IBOutlet weak var useTime: UILabel!
-    @IBOutlet weak var parking: UILabel!
-    @IBOutlet weak var creditCard: UILabel!
-    @IBOutlet weak var pet: UILabel!
-    @IBOutlet weak var toilet: UILabel!
-    @IBOutlet weak var overviewTitle: UILabel!
-    @IBOutlet weak var overview: UITextView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var homepageButton: UIButton!
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    @IBOutlet weak var telLabel: UILabel!
+    @IBOutlet weak var restDateLabel: UILabel!
+    @IBOutlet weak var useTimeLabel: UILabel!
+    @IBOutlet weak var parkingLabel: UILabel!
+    @IBOutlet weak var toiletLabel: UILabel!
+    @IBOutlet weak var creditCardLabel: UILabel!
+    @IBOutlet weak var petLabel: UILabel!
+    
+    @IBOutlet weak var descTitleLabel: UILabel!
+    @IBOutlet weak var descTextView: UITextView!
+    
     @IBOutlet var nearSightCollectionView: UICollectionView!
     
     // MARK: - IBActions
-    @IBAction func touchUpHomepageBtn(_ sender: UIButton) {
+    @IBAction func touchUpHomepageButton(_ sender: UIButton) {
         if let url = URL(string: homepageUrl) {
             UIApplication.shared.open(url, options: [:])
         }
@@ -51,15 +52,13 @@ class TempleViewController: BaseViewController {
         nearSightCollectionView.dataSource = self
         nearSightCollectionView.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "templeSquareCell")
         
-        homepageBtn.layer.isHidden = true
+        homepageButton.layer.isHidden = true
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isSwipedFlag = false
-        
-        print(TempleViewController.contentId)
         
         CommonHttp.getDetailCommon(contentId: TempleViewController.contentId) { data in
             self.parseData(data: data)
@@ -96,60 +95,59 @@ extension TempleViewController: XMLParserDelegate {
         switch currentElement {
             
         case "title":
-            name.text = string
-            overviewTitle.text = "\(string) 이야기"
+            titleLabel.text = string
+            descTitleLabel.text = "\(string) 이야기"
             
         case "firstimage":
             let data = try? Data(contentsOf: URL(string: string)!)
-            thumbnail.image = UIImage(data: data!)
+            thumbnailImageView.image = UIImage(data: data!)
             
         case "homepage":
             if string.contains("http") && homepageUrl.isEmpty {
-                print(string)
                 homepageUrl = string
                 DispatchQueue.main.async {
-                    self.homepageBtn.layer.isHidden = false
+                    self.homepageButton.layer.isHidden = false
                 }
             }
             
         case "addr1":
-            address.text = string
+            addressLabel.text = "\(string) "
         
         case "addr2":
-            address.text! += string
+            addressLabel.text! += string
             
         case "infocenter":
-            call.text = string
+            telLabel.text = string
             
         case "restdate":
-            restDate.text = string
+            restDateLabel.text = string
             
         case "usetime":
-            if useTime.text == "정보 없음" {
-                useTime.text = string
-            } else if let useTimeText = useTime.text, useTimeText.count > 0 {
-                useTime.text! += string
+            if useTimeLabel.text == "정보 없음" {
+                useTimeLabel.text = string
+            } else if let useTimeText = useTimeLabel.text, useTimeText.count > 0 {
+                useTimeLabel.text! += string
             }
             
         case "parking":
-            if parking.text == "정보 없음" {
-                parking.text = string
-            } else if let parkingText = parking.text, parkingText.count > 0 {
-                parking.text! += string
+            if parkingLabel.text == "정보 없음" {
+                parkingLabel.text = string
+            } else if let parkingText = parkingLabel.text, parkingText.count > 0 {
+                parkingLabel.text! += string
             }
             
         case "chkcreditcard":
             if string == "없음" {
                 break
             } else {
-                creditCard.text = string
+                creditCardLabel.text = string
             }
             
         case "chkpet":
             if string == "없음" {
                  break
             } else {
-                pet.text = string
+                petLabel.text = string
             }
             
         case "infoname":
@@ -157,25 +155,19 @@ extension TempleViewController: XMLParserDelegate {
             
         case "infotext":
             if infoName == "화장실" {
-                toilet.text = string
+                toiletLabel.text = string
             }
             
         case "overview":
             if string.contains("<") || string.contains(">") || string.contains("strong") {
                 break
             } else if string.contains("br") {
-                overview.text += "\n"
-            } else if overview.text.count > 0 {
-                overview.text += string
+                descTextView.text += "\n"
+            } else if descTextView.text.count > 0 {
+                descTextView.text += string
             } else {
-                overview.text = string
+                descTextView.text = string
             }
-            
-        case "mapx":
-            mapx = string
-            
-        case "mapy":
-            mapy = string
             
         default:
             break

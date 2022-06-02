@@ -38,13 +38,12 @@ class RectangleTableViewCell: UITableViewCell {
     func configure(templeList: [Temple], tableView: UITableView, indexPath: IndexPath) {
         
         let temple = templeList[indexPath.row]
-        print(temple)
         
         DispatchQueue.main.async {
             self.title.text = temple.title
-            self.address.text = "\(temple.addr1 ?? "") \(temple.addr2 ?? "")"
+            self.address.text = temple.addr1
             
-            let data = try? Data(contentsOf: URL(string: temple.firstimage!)!)
+            let data = try? Data(contentsOf: URL(string: temple.imageUrl!)!)
             self.thumbnail.image = UIImage(data: data!)
         }
     }
