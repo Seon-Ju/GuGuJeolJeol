@@ -15,7 +15,7 @@ class LocationViewController: UIViewController {
     var selectedLocation = ""
     
     var currentElement = ""
-    var temple = Temple(contentid: 0, contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
+    var temple = Temple(contentid: "", contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
     var templeList = [Temple]()
 
     // MARK: IBOutlets
@@ -73,13 +73,15 @@ extension LocationViewController: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
         if (elementName == "item") {
-            temple = Temple(contentid: 0, contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
+            temple = Temple(contentid: "", contenttypeid: 0, createdtime: 0, modifiedtime: 0, title: "")
         }
     }
 
     // 현재 태그에 담겨있는 string이 전달됨
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
+        case "contentid":
+            temple.contentid = string
         case "title":
             temple.title = string
         case "addr1":
@@ -133,7 +135,7 @@ extension LocationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,6 +162,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
+        TempleViewController.contentId = templeList[indexPath.row].contentid
     }
     
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Temple {
-    var contentid: Int
+    var contentid: String
     var contenttypeid: Int
     var createdtime: Int
     var modifiedtime: Int
