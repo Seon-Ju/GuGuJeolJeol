@@ -14,12 +14,14 @@ class TempleViewController: BaseViewController {
     
     private var currentElement: String = ""
     private var infoName: String = ""
+    private var homepageUrl: String = ""
     private var mapx: String = ""
     private var mapy: String = ""
     
     // MARK: IBOutlets
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var homepageBtn: UIButton!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var call: UILabel!
     @IBOutlet weak var restDate: UILabel!
@@ -31,7 +33,14 @@ class TempleViewController: BaseViewController {
     @IBOutlet weak var overviewTitle: UILabel!
     @IBOutlet weak var overview: UITextView!
     @IBOutlet var nearSightCollectionView: UICollectionView!
-
+    
+    // MARK: - IBActions
+    @IBAction func touchUpHomepageBtn(_ sender: UIButton) {
+        if let url = URL(string: homepageUrl) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +50,8 @@ class TempleViewController: BaseViewController {
         nearSightCollectionView.delegate = self
         nearSightCollectionView.dataSource = self
         nearSightCollectionView.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "templeSquareCell")
+        
+        homepageBtn.layer.isHidden = true
         
     }
     
@@ -63,6 +74,7 @@ class TempleViewController: BaseViewController {
         }
     }
     
+    // MARK: - Privates
     private func parseData(data: Data) {
         let parser = XMLParser(data: data)
         parser.delegate = self
@@ -82,36 +94,72 @@ extension TempleViewController: XMLParserDelegate {
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
+            
         case "title":
             name.text = string
             overviewTitle.text = "\(string) 이야기"
+            
         case "firstimage":
             let data = try? Data(contentsOf: URL(string: string)!)
             thumbnail.image = UIImage(data: data!)
+            
+        case "homepage":
+            if string.contains("http") && homepageUrl.isEmpty {
+                print(string)
+                homepageUrl = string
+                DispatchQueue.main.async {
+                    self.homepageBtn.layer.isHidden = false
+                }
+            }
+            
         case "addr1":
             address.text = string
+        
+        case "addr2":
+            address.text! += string
+            
         case "infocenter":
             call.text = string
+            
         case "restdate":
             restDate.text = string
+            
         case "usetime":
-            useTime.text = string
+            if useTime.text == "정보 없음" {
+                useTime.text = string
+            } else if let useTimeText = useTime.text, useTimeText.count > 0 {
+                useTime.text! += string
+            }
+            
         case "parking":
             if parking.text == "정보 없음" {
                 parking.text = string
             } else if let parkingText = parking.text, parkingText.count > 0 {
                 parking.text! += string
             }
+            
         case "chkcreditcard":
-            creditCard.text = string
+            if string == "없음" {
+                break
+            } else {
+                creditCard.text = string
+            }
+            
         case "chkpet":
-            pet.text = string
+            if string == "없음" {
+                 break
+            } else {
+                pet.text = string
+            }
+            
         case "infoname":
             infoName = string
+            
         case "infotext":
             if infoName == "화장실" {
                 toilet.text = string
             }
+            
         case "overview":
             if string.contains("<") || string.contains(">") || string.contains("strong") {
                 break
@@ -122,10 +170,13 @@ extension TempleViewController: XMLParserDelegate {
             } else {
                 overview.text = string
             }
+            
         case "mapx":
             mapx = string
+            
         case "mapy":
             mapy = string
+            
         default:
             break
         }
