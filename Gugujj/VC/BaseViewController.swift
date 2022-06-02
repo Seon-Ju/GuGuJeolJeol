@@ -20,12 +20,12 @@ class BaseViewController: UIViewController {
     }
     
     private func setScreenEdgePanGestureRecognizer() {
-        screenLeftEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(rotateBall(_:)))
+        screenLeftEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(tabGestureScreenEdge(_:)))
         screenLeftEdgeRecognizer.edges = .left
         view.addGestureRecognizer(screenLeftEdgeRecognizer)
     }
     
-    @objc func rotateBall(_ sender: UIScreenEdgePanGestureRecognizer) {
+    @objc func tabGestureScreenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
         if !isSwipedFlag {
             CommonNavi.popVC()
             isSwipedFlag = true

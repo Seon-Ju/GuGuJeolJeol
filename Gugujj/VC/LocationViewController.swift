@@ -10,9 +10,9 @@ import UIKit
 class LocationViewController: UIViewController {
     
     // MARK: - Properties
-    let location = ["서울", "인천", "대전", "대구", "광주", "부산", "울산", "세종", "경기도", "강원도", "충청북도", "충청남도", "경상북도", "경상남도", "전라북도", "전라남도", "제주도"]
+    //let location = ["서울", "인천", "대전", "대구", "광주", "부산", "울산", "세종", "경기도", "강원도", "충청북도", "충청남도", "경상북도", "경상남도", "전라북도", "전라남도", "제주도"]
     let pickerView = UIPickerView()
-    var selectedLocation = ""
+    //var selectedLocation = ""
     
     var currentElement = ""
     var temple = Temple(id: "", title: "")
@@ -33,7 +33,7 @@ class LocationViewController: UIViewController {
         alert.view.addSubview(pickerView)
             
         alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-            self.locationText.setTitle(self.selectedLocation, for: .normal)
+            //self.locationText.setTitle(self.selectedLocation, for: .normal)
         })
                             
         self.present(alert, animated: true, completion: nil)
@@ -62,6 +62,19 @@ class LocationViewController: UIViewController {
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
+        
+        loadData(areaCode: Location.SEOUL.areaCode)
+    }
+    
+    private func loadData(areaCode: String? = nil) {
+        CommonHttp.getAreaBasedList(areaCode: areaCode) { xmlData in
+            let parser = XMLParser(data: xmlData)
+            parser.delegate = self
+            parser.parse()
+            DispatchQueue.main.async {
+                self.templeTableView.reloadData()
+            }
+        }
     }
     
 }
@@ -119,15 +132,24 @@ extension LocationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return location.count
+        return Location.totalCount
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return location[row]
+        var location: Location = .SEOUL // enum 객체는 () 방식으로 초기화 할 수 없어서 임의의 값 Seoul을 이용해 Locatioin 객체를 생성하였습니다.
+        var locationName = location.getLocation(index: row).name    // 여기선 실제 row의 숫자에 해당하는 Location의 name 값이 들어갑니다.
+
+        return locationName    // 여기선 실제 row의 숫자에 해당하는 Location의 name 값이 들어갑니다.
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedLocation = location[row]
+        var location: Location = .SEOUL // enum 객체는 () 방식으로 초기화 할 수 없어서 임의의 값 Seoul을 이용해 Locatioin 객체를 생성하였습니다.
+        self.templeList.removeAll()
+        self.templeTableView.reloadData()
+        self.loadData(areaCode: location.getLocation(index: row).areaCode)    // 여기선 실제 row의 숫자에 해당하는 Location의 name 값이 들어갑니다.
+        
+        var locationName = location.getLocation(index: row).name    // 여기선 실제 row의 숫자에 해당하는 Location의 name 값이 들어갑니다.
+        self.locationText.setTitle(locationName, for: .normal)
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat
@@ -141,19 +163,21 @@ extension LocationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.templeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
         
-        CommonHttp.getAreaBasedList() { xmlData in
-            let parser = XMLParser(data: xmlData)
-            parser.delegate = self
-            parser.parse()
+//        CommonHttp.getAreaBasedList() { xmlData in
+//            let parser = XMLParser(data: xmlData)
+//            parser.delegate = self
+//            parser.parse()
+//
+//            cell.configure(templeList: self.templeList, tableView: self.templeTableView, indexPath: indexPath)
+//        }
+        cell.configure(templeList: self.templeList, tableView: self.templeTableView, indexPath: indexPath)
 
-            cell.configure(templeList: self.templeList, tableView: self.templeTableView, indexPath: indexPath)
-        }
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
