@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F67681D2848EADE00F58EE6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F67681C2848EADE00F58EE6 /* Location.swift */; };
 		5A1F03BB28449AD9005622FF /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03BA28449AD9005622FF /* Temple.swift */; };
 		5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */; };
 		5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F67681C2848EADE00F58EE6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5A1F03BA28449AD9005622FF /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
 		5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleTableViewCell.swift; sourceTree = "<group>"; };
 		5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleTableViewCell.xib; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1F03BA28449AD9005622FF /* Temple.swift */,
+				2F67681C2848EADE00F58EE6 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				94396C9028448EC50088F303 /* BaseViewController.swift in Sources */,
 				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,
 				5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */,
+				2F67681D2848EADE00F58EE6 /* Location.swift in Sources */,
 				94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */,
 				94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */,
 				5A1F03BB28449AD9005622FF /* Temple.swift in Sources */,
@@ -373,7 +377,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7HH6MYUS98;
+				DEVELOPMENT_TEAM = 68YKCTN88M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gugujj/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -401,7 +405,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7HH6MYUS98;
+				DEVELOPMENT_TEAM = 68YKCTN88M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gugujj/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

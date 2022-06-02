@@ -43,8 +43,10 @@ class RectangleTableViewCell: UITableViewCell {
             self.title.text = temple.title
             self.address.text = temple.addr1
             
-            let data = try? Data(contentsOf: URL(string: temple.imageUrl!)!)
-            self.thumbnail.image = UIImage(data: data!)
+            if let imageUrl = temple.imageUrl {
+                let data = try? Data(contentsOf: URL(string: temple.imageUrl!)!)
+                self.thumbnail.image = UIImage(data: data!)
+            }
         }
     }
     
