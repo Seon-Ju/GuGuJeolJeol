@@ -11,7 +11,7 @@ class CommonHttp {
     
     // 지역기반 관광정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=P&cat1=A02&contentTypeId=12&cat2=A0201&cat3=A02010800&listYN=Y
-    static func getAreaBasedList(completion: @escaping (Data) -> (Void)) {
+    static func getAreaBasedList(areaCode: String? = nil, completion: @escaping (Data) -> (Void)) {
         var params: [String:String] = [:]
         params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
         params.updateValue("1", forKey: "pageNo")
@@ -24,6 +24,10 @@ class CommonHttp {
         params.updateValue("A0201", forKey: "cat2")
         params.updateValue("A02010800", forKey: "cat3")
         params.updateValue("Y", forKey: "listYN")
+        
+        if let areaCode = areaCode {
+            params.updateValue(areaCode, forKey: "areaCode")
+        }
 
         dataTask(baseUrl: CommonURL.AREA_BASED_URL, category: "areaBasedList", params: params) { passingData in
             completion(passingData)
@@ -111,7 +115,7 @@ class CommonHttp {
     }
     
     static private func dataTask(baseUrl: String, category: String, params: [String:String], completion: @escaping (Data) -> (Void)) {
-        let fullUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/\(category)\(getParameterString(params: params))";
+        let fullUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/\(category)\(getParameterString(params: params))"
         
         URLSession.shared.dataTask(with: URLRequest(url: URL(string: fullUrl)!)) { data, response, error in
             if let error = error {
@@ -133,7 +137,6 @@ class CommonHttp {
                 result += "\(key)=\(value)&"
             }
         }
-        //result.dropLast()
         return result
     }
 }
