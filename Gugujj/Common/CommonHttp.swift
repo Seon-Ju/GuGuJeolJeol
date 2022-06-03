@@ -37,12 +37,7 @@ class CommonHttp {
     // 공통정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&contentTypeId=12&contentId=294452&MobileOS=ETC&MobileApp=AppTest&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y
     static func getDetailCommon(contentId: String, completion: @escaping (Data) -> (Void)) {
-        var params: [String:String] = [:]
-        params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
-        params.updateValue("10", forKey: "numOfRows")
-        params.updateValue("1", forKey: "pageNo")
-        params.updateValue("ETC", forKey: "MobileOS")
-        params.updateValue("AppTest", forKey: "MobileApp")
+        var params: [String:String] = getCommonParams()
         params.updateValue(contentId, forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
         params.updateValue("Y", forKey: "defaultYN")
@@ -63,12 +58,7 @@ class CommonHttp {
     // 유모차 대여 여부, 신용카드 가능 여부, 애완동물 동반 가능 여부, 문의 및 안내 전화번호, 주차시설, 쉬는 날, 이용시간
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=294452&contentTypeId=12
     static func getDetailIntro(contentId: String, completion: @escaping (Data) -> (Void)) {
-        var params: [String:String] = [:]
-        params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
-        params.updateValue("10", forKey: "numOfRows")
-        params.updateValue("1", forKey: "pageNo")
-        params.updateValue("ETC", forKey: "MobileOS")
-        params.updateValue("AppTest", forKey: "MobileApp")
+        var params: [String:String] = getCommonParams()
         params.updateValue(contentId, forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
         
@@ -82,12 +72,7 @@ class CommonHttp {
     // 입장료, 화장실, 외국어 안내서비스 등
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=294452&contentTypeId=12
     static func getDetailInfo(contentId: String, completion: @escaping (Data) -> (Void)) {
-        var params: [String:String] = [:]
-        params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
-        params.updateValue("10", forKey: "numOfRows")
-        params.updateValue("1", forKey: "pageNo")
-        params.updateValue("ETC", forKey: "MobileOS")
-        params.updateValue("AppTest", forKey: "MobileApp")
+        var params: [String:String] = getCommonParams()
         params.updateValue(contentId, forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
         
@@ -99,12 +84,7 @@ class CommonHttp {
     // 이미지정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=294452&imageYN=Y&subImageYN=Y
     static func getDetailImage(contentId: String, completion: @escaping (Data) -> (Void)) {
-        var params: [String:String] = [:]
-        params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
-        params.updateValue("10", forKey: "numOfRows")
-        params.updateValue("1", forKey: "pageNo")
-        params.updateValue("ETC", forKey: "MobileOS")
-        params.updateValue("AppTest", forKey: "MobileApp")
+        var params: [String:String] = getCommonParams()
         params.updateValue(contentId, forKey: "contentId")
         params.updateValue("Y", forKey: "imageYN")
         params.updateValue("Y", forKey: "subImageYN")
@@ -139,4 +119,14 @@ class CommonHttp {
         }
         return result
     }
+    
+    static private func getCommonParams() -> [String:String] {
+            var params: [String:String] = [:]
+            params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
+            params.updateValue("10", forKey: "numOfRows")
+            params.updateValue("1", forKey: "pageNo")
+            params.updateValue("ETC", forKey: "MobileOS")
+            params.updateValue("AppTest", forKey: "MobileApp")
+            return params
+        }
 }
