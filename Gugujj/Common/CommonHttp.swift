@@ -11,13 +11,8 @@ class CommonHttp {
     
     // 지역기반 관광정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=P&cat1=A02&contentTypeId=12&cat2=A0201&cat3=A02010800&listYN=Y
-    static func getAreaBasedList(areaCode: String? = nil, completion: @escaping (Data) -> (Void)) {
-        var params: [String:String] = [:]
-        params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
-        params.updateValue("1", forKey: "pageNo")
-        params.updateValue("10", forKey: "numOfRows")
-        params.updateValue("AppTest", forKey: "MobileApp")
-        params.updateValue("ETC", forKey: "MobileOS")
+    static func getAreaBasedList(areaCode: String? = nil, pageNo: String, completion: @escaping (Data) -> (Void)) {
+        var params: [String:String] = getCommonParams(pageNo: pageNo)
         params.updateValue("P", forKey: "arrange")
         params.updateValue("A02", forKey: "cat1")
         params.updateValue("12", forKey: "contentTypeId")
@@ -120,11 +115,11 @@ class CommonHttp {
         return result
     }
     
-    static private func getCommonParams() -> [String:String] {
+    static private func getCommonParams(pageNo: String = "1") -> [String:String] {
             var params: [String:String] = [:]
             params.updateValue(CommonURL.API_KEY, forKey: "serviceKey")
             params.updateValue("10", forKey: "numOfRows")
-            params.updateValue("1", forKey: "pageNo")
+            params.updateValue(pageNo, forKey: "pageNo")
             params.updateValue("ETC", forKey: "MobileOS")
             params.updateValue("AppTest", forKey: "MobileApp")
             return params

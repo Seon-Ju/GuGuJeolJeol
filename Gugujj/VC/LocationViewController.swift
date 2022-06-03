@@ -15,8 +15,12 @@ class LocationViewController: UIViewController {
     var selectedAreaCode: String? = nil
     
     var currentElement: String = ""
+    var currentPage: String = "1"
+    
     var temple: Temple = Temple(id: "", title: "")
     var templeList: [Temple] = [Temple]()
+    var templeTotalCount: Int = 0
+    var templeCurrentCount: Int = 0
 
     // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
@@ -33,10 +37,13 @@ class LocationViewController: UIViewController {
         alert.view.addSubview(pickerView)
             
         alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+            self.currentPage = "1"
+            
             self.locationText.setTitle(self.selectedLocation, for: .normal)
             self.selectedAreaCode = Location(rawValue: self.selectedLocation)?.code
             
             self.templeList = [Temple]()
+            self.templeCurrentCount = 0
             self.loadData()
         })
                             
@@ -72,7 +79,7 @@ class LocationViewController: UIViewController {
     
     // MARK: - Privates
     private func loadData() {
-        CommonHttp.getAreaBasedList(areaCode: selectedAreaCode) { xmlData in
+        CommonHttp.getAreaBasedList(areaCode: selectedAreaCode, pageNo: currentPage) { xmlData in
             let parser = XMLParser(data: xmlData)
             parser.delegate = self
             parser.parse()
@@ -116,6 +123,8 @@ extension LocationViewController: XMLParserDelegate {
             temple.imageUrl = string
         case "readcount":
             temple.readcount = Int(string)
+        case "totalCount":
+            templeTotalCount = Int(string)!
         default:
             break
         }
@@ -125,6 +134,7 @@ extension LocationViewController: XMLParserDelegate {
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if (elementName == "item") {
             templeList.append(temple)
+            templeCurrentCount += 1
         }
     }
 }
@@ -187,6 +197,13 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
         TempleViewController.contentId = templeList[indexPath.row].id
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == templeList.count && templeCurrentCount < templeTotalCount {
+            currentPage = "\(Int(currentPage)! + 1)"
+            loadData()
+        }
     }
     
 }
