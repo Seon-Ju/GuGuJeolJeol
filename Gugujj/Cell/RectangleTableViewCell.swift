@@ -46,6 +46,8 @@ class RectangleTableViewCell: UITableViewCell {
             if let imageUrl = temple.imageUrl {
                 let data = try? Data(contentsOf: URL(string: imageUrl)!)
                 self.thumbnail.image = UIImage(data: data!)
+            } else {
+                self.thumbnail.image = UIImage(named: "placeholder")
             }
         }
     }

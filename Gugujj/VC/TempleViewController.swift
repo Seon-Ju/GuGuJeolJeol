@@ -48,11 +48,12 @@ class TempleViewController: BaseViewController {
         
         navigationController?.isNavigationBarHidden = true
         
+        thumbnailImageView.addGradient(color1: UIColor.clear, color2: UIColor.black)
+        homepageButton.layer.isHidden = true
+        
         nearSightCollectionView.delegate = self
         nearSightCollectionView.dataSource = self
         nearSightCollectionView.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "templeSquareCell")
-        
-        homepageButton.layer.isHidden = true
         
     }
     
