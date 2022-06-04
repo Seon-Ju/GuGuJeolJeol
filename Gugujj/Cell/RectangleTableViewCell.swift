@@ -21,6 +21,12 @@ class RectangleTableViewCell: UITableViewCell {
         
         thumbnail.addGradient(color1: UIColor.clear, color2: UIColor.black)
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageData = nil
+        thumbnail.image = UIImage(named: "placeholder")
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
