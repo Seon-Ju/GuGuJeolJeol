@@ -11,8 +11,9 @@ class LocationViewController: UIViewController {
     
     // MARK: - Properties
     let pickerView: UIPickerView = UIPickerView()
-    var selectedLocation: String = ""
+    var selectedLocation: String = "전국"
     var selectedAreaCode: String? = nil
+    var selectedArrange: String = "B"
     
     var currentElement: String = ""
     var currentPage: String = "1"
@@ -24,6 +25,7 @@ class LocationViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
+    @IBOutlet weak var arrangeButton: UIButton!
     @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var templeTableView: UITableView!
     
@@ -70,6 +72,19 @@ class LocationViewController: UIViewController {
         
         searchBar.layer.cornerRadius = 20
         
+        let arrangeByTitle = UIAction(title: "이름순") { _ in
+            self.selectedArrange = "A"
+            self.templeList = [Temple]()
+            self.loadData()
+        }
+        let arrangeByReadCount = UIAction(title: "조회순") { _ in
+            self.selectedArrange = "B"
+            self.templeList = [Temple]()
+            self.loadData()
+        }
+        arrangeButton.menu = UIMenu(title: "정렬 기준", children: [arrangeByTitle, arrangeByReadCount])
+        arrangeButton.showsMenuAsPrimaryAction = true
+        
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
@@ -79,7 +94,7 @@ class LocationViewController: UIViewController {
     
     // MARK: - Privates
     private func loadData() {
-        CommonHttp.getAreaBasedList(areaCode: selectedAreaCode, pageNo: currentPage) { xmlData in
+        CommonHttp.getAreaBasedList(areaCode: selectedAreaCode, pageNo: currentPage, arrange: selectedArrange) { xmlData in
             let parser = XMLParser(data: xmlData)
             parser.delegate = self
             parser.parse()

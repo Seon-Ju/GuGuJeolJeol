@@ -11,9 +11,10 @@ class CommonHttp {
     
     // 지역기반 관광정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=P&cat1=A02&contentTypeId=12&cat2=A0201&cat3=A02010800&listYN=Y
-    static func getAreaBasedList(areaCode: String? = nil, pageNo: String, completion: @escaping (Data) -> (Void)) {
+    static func getAreaBasedList(areaCode: String?, pageNo: String, arrange: String, completion: @escaping (Data) -> (Void)) {
+        print(arrange)
         var params: [String:String] = getCommonParams(pageNo: pageNo)
-        params.updateValue("P", forKey: "arrange")
+        params.updateValue(arrange, forKey: "arrange")
         params.updateValue("A02", forKey: "cat1")
         params.updateValue("12", forKey: "contentTypeId")
         params.updateValue("A0201", forKey: "cat2")

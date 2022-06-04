@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTA-xl-HvG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTA-xl-HvG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,7 +107,7 @@
                                         <rect key="frame" x="30" y="160" width="354" height="45"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7P-ln-0rb" userLabel="Search Bar">
-                                                <rect key="frame" x="0.0" y="0.0" width="319" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사찰 이름을 검색해보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJC-pN-wO5">
                                                         <rect key="frame" x="15" y="13.5" width="154.5" height="18"/>
@@ -115,7 +116,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ris-sd-p4j" userLabel="Search Button">
-                                                        <rect key="frame" x="281" y="10" width="28" height="25"/>
+                                                        <rect key="frame" x="280" y="10" width="28" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="o1L-xp-ZEf"/>
                                                             <constraint firstAttribute="width" constant="28" id="zIf-0p-wiI"/>
@@ -137,7 +138,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7x-WX-27J" userLabel="Search Bar Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="319" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="PwM-hg-si9"/>
                                                 </constraints>
@@ -147,32 +148,34 @@
                                                     <action selector="touchUpSearchBtn:" destination="LeV-bQ-38w" eventType="touchUpInside" id="HS9-BD-IbP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-Ay-9xc" userLabel="Sort Button">
-                                                <rect key="frame" x="329" y="15" width="25" height="15"/>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuN-3f-cFe" userLabel="Arrange Button">
+                                                <rect key="frame" x="328" y="14" width="26" height="17"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="mdg-Ci-rxz"/>
-                                                    <constraint firstAttribute="height" constant="15" id="oxo-hg-Lu6"/>
+                                                    <constraint firstAttribute="width" constant="26" id="NJ3-vm-50R"/>
+                                                    <constraint firstAttribute="height" constant="25" id="xrg-Z9-pmg"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" image="line.3.horizontal.decrease" catalog="system"/>
-                                                </buttonConfiguration>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <menu key="menu" id="Knl-b4-MGD">
+                                                    <children>
+                                                        <command title="Item 1" id="E1B-Vn-WnS"/>
+                                                        <command title="Item 2" id="cSc-vT-wdt"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" backgroundImage="line.3.horizontal.decrease" catalog="system"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="U9O-Ay-9xc" firstAttribute="centerY" secondItem="1X9-Vs-am7" secondAttribute="centerY" id="Bz5-Va-bOi"/>
                                             <constraint firstItem="x7x-WX-27J" firstAttribute="top" secondItem="1X9-Vs-am7" secondAttribute="top" id="Ome-cx-Mcv"/>
-                                            <constraint firstItem="U9O-Ay-9xc" firstAttribute="leading" secondItem="e7P-ln-0rb" secondAttribute="trailing" constant="10" id="QiP-Vi-u1s"/>
                                             <constraint firstItem="x7x-WX-27J" firstAttribute="leading" secondItem="1X9-Vs-am7" secondAttribute="leading" id="SOH-3J-xyT"/>
                                             <constraint firstItem="e7P-ln-0rb" firstAttribute="leading" secondItem="1X9-Vs-am7" secondAttribute="leading" id="Xa9-Mo-6PZ"/>
                                             <constraint firstItem="e7P-ln-0rb" firstAttribute="top" secondItem="1X9-Vs-am7" secondAttribute="top" id="aUw-3b-1vo"/>
+                                            <constraint firstAttribute="trailing" secondItem="NuN-3f-cFe" secondAttribute="trailing" id="ad2-Oj-qsG"/>
                                             <constraint firstAttribute="bottom" secondItem="e7P-ln-0rb" secondAttribute="bottom" id="cTU-Wj-ad7"/>
+                                            <constraint firstItem="NuN-3f-cFe" firstAttribute="leading" secondItem="e7P-ln-0rb" secondAttribute="trailing" constant="10" id="dGO-Ke-zq6"/>
                                             <constraint firstAttribute="height" constant="45" id="e1i-WO-Cnm"/>
+                                            <constraint firstItem="NuN-3f-cFe" firstAttribute="centerY" secondItem="1X9-Vs-am7" secondAttribute="centerY" id="jiO-V0-MSg"/>
                                             <constraint firstAttribute="bottom" secondItem="x7x-WX-27J" secondAttribute="bottom" id="jpc-LQ-y4A"/>
-                                            <constraint firstAttribute="trailing" secondItem="U9O-Ay-9xc" secondAttribute="trailing" id="tYZ-0J-cw4"/>
-                                            <constraint firstItem="U9O-Ay-9xc" firstAttribute="leading" secondItem="x7x-WX-27J" secondAttribute="trailing" constant="10" id="vql-pZ-HxS"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uJE-l7-OQI">
@@ -217,6 +220,7 @@
                     <tabBarItem key="tabBarItem" title="지역" image="location" catalog="system" selectedImage="location.fill" id="jHd-ka-18R"/>
                     <navigationItem key="navigationItem" id="V3E-6I-GRc"/>
                     <connections>
+                        <outlet property="arrangeButton" destination="NuN-3f-cFe" id="OfT-Nx-2Bs"/>
                         <outlet property="locationText" destination="w8y-GO-gKN" id="qx3-FC-DdG"/>
                         <outlet property="searchBar" destination="e7P-ln-0rb" id="1Zz-Ai-Xga"/>
                         <outlet property="templeTableView" destination="uJE-l7-OQI" id="76U-YQ-yvn"/>
