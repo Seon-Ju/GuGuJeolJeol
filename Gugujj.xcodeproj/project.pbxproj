@@ -16,6 +16,7 @@
 		5A4C3B36283F38E50081B7C1 /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B34283F38E50081B7C1 /* SquareCollectionViewCell.swift */; };
 		5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */; };
 		5A601974284C3E4F000617A4 /* NearSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601973284C3E4F000617A4 /* NearSight.swift */; };
+		5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */; };
 		5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B0E283B116E00D19FFF /* AppDelegate.swift */; };
 		5AE55B11283B116E00D19FFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B10283B116E00D19FFF /* SceneDelegate.swift */; };
 		5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B12283B116E00D19FFF /* LocationViewController.swift */; };
@@ -40,6 +41,7 @@
 		5A4C3B34283F38E50081B7C1 /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
 		5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCollectionViewCell.xib; sourceTree = "<group>"; };
 		5A601973284C3E4F000617A4 /* NearSight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSight.swift; sourceTree = "<group>"; };
+		5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSightCollectionViewController.swift; sourceTree = "<group>"; };
 		5AE55B0B283B116E00D19FFF /* Gugujj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gugujj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE55B0E283B116E00D19FFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AE55B10283B116E00D19FFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				5AE55B24283B5F7000D19FFF /* SearchViewController.swift */,
 				5AE55B22283B5F6900D19FFF /* UserViewController.swift */,
 				5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */,
+				5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */,
 				94396C8F28448EC50088F303 /* BaseViewController.swift */,
 			);
 			path = VC;
@@ -224,6 +227,7 @@
 				94396C9028448EC50088F303 /* BaseViewController.swift in Sources */,
 				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,
 				5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */,
+				5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */,
 				5A29EDA82848A15300513D7A /* Location.swift in Sources */,
 				94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */,
 				94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */,

@@ -35,8 +35,6 @@ class TempleViewController: BaseViewController {
     @IBOutlet weak var descTitleLabel: UILabel!
     @IBOutlet weak var descTextView: UITextView!
     
-    @IBOutlet var nearSightCollectionView: UICollectionView!
-    
     // MARK: - IBActions
     @IBAction func touchUpHomepageButton(_ sender: UIButton) {
         if let url = URL(string: homepageUrl) {
@@ -53,9 +51,6 @@ class TempleViewController: BaseViewController {
         thumbnailImageView.addGradient(color1: UIColor.clear, color2: UIColor.black)
         homepageButton.layer.isHidden = true
         
-        nearSightCollectionView.delegate = self
-        nearSightCollectionView.dataSource = self
-        nearSightCollectionView.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "templeSquareCell")
         
     }
     
@@ -183,18 +178,4 @@ extension TempleViewController: XMLParserDelegate {
         }
     }
 
-}
-
-// MARK: - CollectionView
-extension TempleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "templeSquareCell", for: indexPath)
-        return cell
-    }
-    
 }
