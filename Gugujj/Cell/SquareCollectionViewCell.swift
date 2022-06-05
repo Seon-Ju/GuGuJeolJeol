@@ -9,14 +9,16 @@ import UIKit
 
 class SquareCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var templeImage: UIImageView!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var dist: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         layer.cornerRadius = 20
         
-        templeImage.addGradient(color1: UIColor.clear, color2: UIColor.black)
+        image.addGradient(color1: UIColor.clear, color2: UIColor.black)
     }
     
 }

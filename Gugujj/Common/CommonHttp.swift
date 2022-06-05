@@ -12,7 +12,6 @@ class CommonHttp {
     // 지역기반 관광정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=P&cat1=A02&contentTypeId=12&cat2=A0201&cat3=A02010800&listYN=Y
     static func getAreaBasedList(areaCode: String?, pageNo: String, arrange: String, completion: @escaping (Data) -> (Void)) {
-        print(arrange)
         var params: [String:String] = getCommonParams(pageNo: pageNo)
         params.updateValue(arrange, forKey: "arrange")
         params.updateValue("A02", forKey: "cat1")
@@ -86,6 +85,21 @@ class CommonHttp {
         params.updateValue("Y", forKey: "subImageYN")
         
         dataTask(baseUrl: CommonURL.DETAIL_IMAGE_URL, category: "detailImage", params: params) { passingData in
+            completion(passingData)
+        }
+    }
+    
+    // 위치기반 관광정보
+    // http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=E&listYN=Y&mapX=127.9827574248&mapY=34.7518848204&radius=10000
+    static func getLocationBasedList(pageNo: String, mapX: String, mapY: String, completion: @escaping (Data) -> (Void)) {
+        var params: [String:String] = getCommonParams(pageNo: pageNo)
+        params.updateValue("E", forKey: "arrange")
+        params.updateValue("Y", forKey: "listYN")
+        params.updateValue(mapX, forKey: "mapX")
+        params.updateValue(mapY, forKey: "mapY")
+        params.updateValue("10000", forKey: "radius")
+        
+        dataTask(baseUrl: CommonURL.LOCATION_BASED_URL, category: "locationBasedList", params: params) { passingData in
             completion(passingData)
         }
     }

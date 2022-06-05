@@ -15,6 +15,8 @@ class TempleViewController: BaseViewController {
     private var currentElement: String = ""
     private var infoName: String = ""
     private var homepageUrl: String = ""
+    private var mapX: String = ""
+    private var mapY: String = ""
     
     // MARK: IBOutlets
     @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -158,6 +160,12 @@ extension TempleViewController: XMLParserDelegate {
             if infoName == "화장실" {
                 toiletLabel.text = string
             }
+            
+        case "mapx":
+            mapX = string
+            
+        case "mapy":
+            mapY = string
             
         case "overview":
             if string.contains("<") || string.contains(">") || string.contains("strong") {

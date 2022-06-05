@@ -14,6 +14,7 @@ class CommonURL {
     static let DOMAIN = "http://api.visitkorea.or.kr/openapi/service/rest/KorService"
     
     static let AREA_BASED_URL = DOMAIN + "/areaBasedList"
+    static let LOCATION_BASED_URL = DOMAIN + "/locationBasedList"
     static let DETAIL_COMMON_URL = DOMAIN + "/detailCommon"
     static let DETAIL_INTRO_URL = DOMAIN + "/detailIntro"
     static let DETAIL_INFO_URL = DOMAIN + "/detailInfo"

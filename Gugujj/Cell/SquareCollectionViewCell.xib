@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,25 +23,42 @@
                             <constraint firstAttribute="width" constant="160" id="ene-LK-tNE"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="해동용궁사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-nU-bmQ">
-                        <rect key="frame" x="20" y="116" width="86.5" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-nU-bmQ">
+                        <rect key="frame" x="20" y="116" width="87" height="24"/>
+                        <attributedString key="attributedText">
+                            <fragment content="해동용궁사">
+                                <attributes>
+                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <font key="NSFont" size="20" name="AppleSDGothicNeo-Bold"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf8-bq-2LC">
+                        <rect key="frame" x="20" y="98" width="35" height="18"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="4tG-oH-M9D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5xq-Fw-ri3"/>
+                <constraint firstItem="cMR-nU-bmQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Qtn-Da-Npa"/>
+                <constraint firstAttribute="bottom" secondItem="cMR-nU-bmQ" secondAttribute="bottom" constant="20" id="Smo-SQ-ZXI"/>
                 <constraint firstItem="4tG-oH-M9D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TRf-z9-wFY"/>
+                <constraint firstItem="cMR-nU-bmQ" firstAttribute="top" secondItem="uf8-bq-2LC" secondAttribute="bottom" id="d6o-kV-dUo"/>
                 <constraint firstAttribute="bottom" secondItem="4tG-oH-M9D" secondAttribute="bottom" id="gTj-yF-MR1"/>
                 <constraint firstAttribute="trailing" secondItem="4tG-oH-M9D" secondAttribute="trailing" id="iJp-3R-zGU"/>
+                <constraint firstItem="uf8-bq-2LC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="wNA-gz-ALF"/>
             </constraints>
             <connections>
-                <outlet property="templeImage" destination="4tG-oH-M9D" id="RGB-xB-b3V"/>
+                <outlet property="dist" destination="uf8-bq-2LC" id="bOK-6K-UCo"/>
+                <outlet property="image" destination="4tG-oH-M9D" id="3Zd-EY-iEv"/>
+                <outlet property="title" destination="cMR-nU-bmQ" id="jye-QR-vl5"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="87.723214285714278"/>
         </collectionViewCell>
