@@ -74,11 +74,13 @@ class LocationViewController: UIViewController {
         
         let arrangeByTitle = UIAction(title: "이름순") { _ in
             self.selectedArrange = "A"
+            self.currentPage = "1"
             self.templeList = [Temple]()
             self.loadData()
         }
         let arrangeByReadCount = UIAction(title: "조회순") { _ in
             self.selectedArrange = "B"
+            self.currentPage = "1"
             self.templeList = [Temple]()
             self.loadData()
         }
