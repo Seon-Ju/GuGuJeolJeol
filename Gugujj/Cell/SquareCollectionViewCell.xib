@@ -43,13 +43,13 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="4tG-oH-M9D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5xq-Fw-ri3"/>
+                <constraint firstItem="4tG-oH-M9D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" priority="999" id="5xq-Fw-ri3"/>
                 <constraint firstItem="cMR-nU-bmQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Qtn-Da-Npa"/>
                 <constraint firstAttribute="bottom" secondItem="cMR-nU-bmQ" secondAttribute="bottom" constant="20" id="Smo-SQ-ZXI"/>
-                <constraint firstItem="4tG-oH-M9D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TRf-z9-wFY"/>
+                <constraint firstItem="4tG-oH-M9D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" priority="999" id="TRf-z9-wFY"/>
                 <constraint firstItem="cMR-nU-bmQ" firstAttribute="top" secondItem="uf8-bq-2LC" secondAttribute="bottom" id="d6o-kV-dUo"/>
-                <constraint firstAttribute="bottom" secondItem="4tG-oH-M9D" secondAttribute="bottom" id="gTj-yF-MR1"/>
-                <constraint firstAttribute="trailing" secondItem="4tG-oH-M9D" secondAttribute="trailing" id="iJp-3R-zGU"/>
+                <constraint firstAttribute="bottom" secondItem="4tG-oH-M9D" secondAttribute="bottom" priority="999" id="gTj-yF-MR1"/>
+                <constraint firstAttribute="trailing" secondItem="4tG-oH-M9D" secondAttribute="trailing" priority="999" id="iJp-3R-zGU"/>
                 <constraint firstItem="uf8-bq-2LC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="wNA-gz-ALF"/>
                 <constraint firstAttribute="trailing" secondItem="cMR-nU-bmQ" secondAttribute="trailing" constant="20" id="yl9-Ok-K2J"/>
             </constraints>
