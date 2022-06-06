@@ -9,6 +9,6 @@ import Foundation
 
 struct NearSight {
     var title: String
-    var image: String?
+    var imageURL: String?
     var dist: String
 }

@@ -16,20 +16,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temple01" translatesAutoresizingMaskIntoConstraints="NO" id="4tG-oH-M9D">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temple01" id="4tG-oH-M9D">
                         <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="160" id="Jd0-4f-qtN"/>
-                            <constraint firstAttribute="width" constant="160" id="ene-LK-tNE"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-nU-bmQ">
-                        <rect key="frame" x="20" y="116" width="87" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-nU-bmQ">
+                        <rect key="frame" x="20" y="120.5" width="120" height="19.5"/>
                         <attributedString key="attributedText">
                             <fragment content="해동용궁사">
                                 <attributes>
                                     <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <font key="NSFont" size="20" name="AppleSDGothicNeo-Bold"/>
+                                    <font key="NSFont" size="16" name="AppleSDGothicNeo-Bold"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
@@ -37,8 +34,8 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf8-bq-2LC">
-                        <rect key="frame" x="20" y="98" width="35" height="18"/>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
+                        <rect key="frame" x="20" y="103.5" width="32" height="17"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -54,6 +51,7 @@
                 <constraint firstAttribute="bottom" secondItem="4tG-oH-M9D" secondAttribute="bottom" id="gTj-yF-MR1"/>
                 <constraint firstAttribute="trailing" secondItem="4tG-oH-M9D" secondAttribute="trailing" id="iJp-3R-zGU"/>
                 <constraint firstItem="uf8-bq-2LC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="wNA-gz-ALF"/>
+                <constraint firstAttribute="trailing" secondItem="cMR-nU-bmQ" secondAttribute="trailing" constant="20" id="yl9-Ok-K2J"/>
             </constraints>
             <connections>
                 <outlet property="dist" destination="uf8-bq-2LC" id="bOK-6K-UCo"/>

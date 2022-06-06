@@ -15,6 +15,8 @@ class TempleViewController: BaseViewController {
     private var currentElement: String = ""
     private var infoName: String = ""
     private var homepageUrl: String = ""
+    
+    private var nearSightVC: NearSightCollectionViewController?
     private var mapX: String = ""
     private var mapY: String = ""
     
@@ -51,7 +53,7 @@ class TempleViewController: BaseViewController {
         thumbnailImageView.addGradient(color1: UIColor.clear, color2: UIColor.black)
         homepageButton.layer.isHidden = true
         
-        
+        nearSightVC = children.last as? NearSightCollectionViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -161,6 +163,7 @@ extension TempleViewController: XMLParserDelegate {
             
         case "mapy":
             mapY = string
+            self.nearSightVC?.sendMapData(mapX: mapX, mapY: mapY)
             
         case "overview":
             if string.contains("<") || string.contains(">") || string.contains("strong") {

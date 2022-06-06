@@ -93,6 +93,7 @@ class CommonHttp {
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=E&listYN=Y&mapX=127.9827574248&mapY=34.7518848204&radius=10000
     static func getLocationBasedList(pageNo: String, mapX: String, mapY: String, completion: @escaping (Data) -> (Void)) {
         var params: [String:String] = getCommonParams(pageNo: pageNo)
+        params.updateValue("12", forKey: "contentTypeId")
         params.updateValue("E", forKey: "arrange")
         params.updateValue("Y", forKey: "listYN")
         params.updateValue(mapX, forKey: "mapX")
