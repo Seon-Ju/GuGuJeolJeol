@@ -68,7 +68,12 @@ extension NearSightCollectionViewController: XMLParserDelegate {
         case "title":
             nearSight?.title = string
         case "dist":
-            nearSight?.dist = string
+            let dist: Int = Int(string)!
+            if dist >= 1000 {
+                nearSight?.dist = "\(dist/1000).\(dist%1000)km"
+            } else {
+                nearSight?.dist = "\(dist)m"
+            }
         case "firstimage":
             nearSight?.imageURL = string
         default:

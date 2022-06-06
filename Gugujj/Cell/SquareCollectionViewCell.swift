@@ -40,7 +40,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
                 }
                 DispatchQueue.main.async {
                     self.title.text = nearSight.title
-                    self.dist.text = "\(nearSight.dist)m"
+                    self.dist.text = nearSight.dist
                     if let imageData = self.imageData {
                         self.image.image = UIImage(data: imageData)
                     } else {
