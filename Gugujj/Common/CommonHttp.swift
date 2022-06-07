@@ -106,7 +106,7 @@ class CommonHttp {
     }
     
     static private func dataTask(baseUrl: String, category: String, params: [String:String], completion: @escaping (Data) -> (Void)) {
-        let fullUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/\(category)\(getParameterString(params: params))"
+        let fullUrl = "\(CommonURL.DOMAIN)\(category)\(getParameterString(params: params))"
         
         URLSession.shared.dataTask(with: URLRequest(url: URL(string: fullUrl)!)) { data, response, error in
             if let error = error {

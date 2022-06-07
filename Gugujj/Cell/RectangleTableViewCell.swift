@@ -12,19 +12,19 @@ class RectangleTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var address: UILabel!
-    private var imageData: Data?
+    
+    private var currentElement: String?
+    private var temple: Temple?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         layer.cornerRadius = 20
-        
         thumbnail.addGradient(color1: UIColor.clear, color2: UIColor.black)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageData = nil
         thumbnail.image = UIImage(named: "placeholder")
     }
 
@@ -35,31 +35,54 @@ class RectangleTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // 셀간 간격 설정
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0))
-        
-        // 셀 radius 설정
         contentView.layer.cornerRadius = 20
     }
     
     func configure(templeList: [Temple], tableView: UITableView, indexPath: IndexPath) {
         
-        let temple = templeList[indexPath.row]
-        
-        DispatchQueue.global(qos: .userInitiated).async {   // Multi Thread Scope Create
-            if let imageUrl = temple.imageUrl, let data = try? Data(contentsOf: URL(string: imageUrl)!) {
-                self.imageData = data
+        temple = templeList[indexPath.row]
+        DispatchQueue.main.async {
+            self.title.text = self.temple!.title
+            self.address.text = self.temple!.addr1
+            if self.temple!.imageUrl == nil {
+                self.thumbnail.image = UIImage(named: "placeholder")
             }
-            DispatchQueue.main.async {  // View 변경 작업은 Main Thread Scope 내 선언.
-                self.title.text = temple.title
-                self.address.text = temple.addr1
-                if let imageData = self.imageData {
-                    self.thumbnail.image = UIImage(data: imageData)
-                } else {
-                    self.thumbnail.image = UIImage(named: "placeholder")
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let imageURL = self.temple!.imageUrl, let data = try? Data(contentsOf: URL(string: imageURL)!) {
+                DispatchQueue.main.async {
+                    self.thumbnail.image = UIImage(data: data)
+                }
+            }
+            else {
+                CommonHttp.getDetailImage(contentId: self.temple!.id) { data in
+                    let parser = XMLParser(data: data)
+                    parser.delegate = self
+                    parser.parse()
                 }
             }
         }
     }
-    
+}
+
+extension RectangleTableViewCell: XMLParserDelegate {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        currentElement = elementName
+    }
+
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        switch currentElement {
+        case "originimgurl":
+            if self.temple!.imageUrl == nil, let data = try? Data(contentsOf: URL(string: string)!) {
+                self.temple!.imageUrl = string
+                DispatchQueue.main.async {
+                    self.thumbnail.image = UIImage(data: data)
+                }
+            }
+        default:
+            break
+        }
+    }
 }
