@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class TempleViewController: BaseViewController {
 
@@ -25,6 +26,7 @@ class TempleViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var homepageButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var mapView: UIView!
     
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var restDateLabel: UILabel!
@@ -80,6 +82,21 @@ class TempleViewController: BaseViewController {
         DispatchQueue.main.async {
             parser.parse()
         }
+    }
+    
+    private func addMapView() {
+        let camera = GMSCameraPosition.camera(withLatitude: Double(mapY)!, longitude: Double(mapX)!, zoom: 15.0)
+        let map = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
+        self.mapView.addSubview(map)
+        map.translatesAutoresizingMaskIntoConstraints = false
+        map.topAnchor.constraint(equalTo: mapView.topAnchor).isActive = true
+        map.leftAnchor.constraint(equalTo: mapView.leftAnchor).isActive = true
+        map.bottomAnchor.constraint(equalTo: mapView.bottomAnchor).isActive = true
+        map.rightAnchor.constraint(equalTo: mapView.rightAnchor).isActive = true
+
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: Double(mapY)!, longitude: Double(mapX)!)
+        marker.map = map
     }
     
 }
@@ -164,6 +181,7 @@ extension TempleViewController: XMLParserDelegate {
         case "mapy":
             mapY = string
             self.nearSightVC?.sendMapData(mapX: mapX, mapY: mapY)
+            self.addMapView()
             
         case "overview":
             if string.contains("<") || string.contains(">") || string.contains("strong") {
