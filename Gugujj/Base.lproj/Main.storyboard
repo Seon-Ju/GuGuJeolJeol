@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTA-xl-HvG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTA-xl-HvG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -138,7 +138,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7x-WX-27J" userLabel="Search Bar Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="24" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="328" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="PwM-hg-si9"/>
                                                 </constraints>
@@ -176,6 +176,7 @@
                                             <constraint firstAttribute="height" constant="45" id="e1i-WO-Cnm"/>
                                             <constraint firstItem="NuN-3f-cFe" firstAttribute="centerY" secondItem="1X9-Vs-am7" secondAttribute="centerY" id="jiO-V0-MSg"/>
                                             <constraint firstAttribute="bottom" secondItem="x7x-WX-27J" secondAttribute="bottom" id="jpc-LQ-y4A"/>
+                                            <constraint firstItem="NuN-3f-cFe" firstAttribute="leading" secondItem="x7x-WX-27J" secondAttribute="trailing" id="wf6-dq-aT5"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uJE-l7-OQI">
