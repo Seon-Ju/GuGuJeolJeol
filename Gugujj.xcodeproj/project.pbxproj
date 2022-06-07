@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A100579284F2AF000C45C74 /* GoogleService-Info.plist */; };
 		5A1F03BB28449AD9005622FF /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03BA28449AD9005622FF /* Temple.swift */; };
 		5A29EDA82848A15300513D7A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29EDA72848A15300513D7A /* Location.swift */; };
 		5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */; };
@@ -25,6 +26,7 @@
 		5AE55B1B283B116F00D19FFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */; };
 		5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B22283B5F6900D19FFF /* UserViewController.swift */; };
 		5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B24283B5F7000D19FFF /* SearchViewController.swift */; };
+		6B163D330AD4A287616D8E91 /* Pods_Gugujj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */; };
 		94396C9028448EC50088F303 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94396C8F28448EC50088F303 /* BaseViewController.swift */; };
 		94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BD92840BE9300D57CDE /* CommonHttp.swift */; };
 		94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BDB2840BEA400D57CDE /* CommonURL.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B897FD15562A4F511443933 /* Pods-Gugujj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gugujj.release.xcconfig"; path = "Target Support Files/Pods-Gugujj/Pods-Gugujj.release.xcconfig"; sourceTree = "<group>"; };
+		5A100579284F2AF000C45C74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A1F03BA28449AD9005622FF /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
 		5A29EDA72848A15300513D7A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleTableViewCell.swift; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		5AE55B1C283B116F00D19FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE55B22283B5F6900D19FFF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		5AE55B24283B5F7000D19FFF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gugujj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F51592B675C1E87F79774C5 /* Pods-Gugujj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gugujj.debug.xcconfig"; path = "Target Support Files/Pods-Gugujj/Pods-Gugujj.debug.xcconfig"; sourceTree = "<group>"; };
 		94396C8F28448EC50088F303 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		94B16BD92840BE9300D57CDE /* CommonHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHttp.swift; sourceTree = "<group>"; };
 		94B16BDB2840BEA400D57CDE /* CommonURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonURL.swift; sourceTree = "<group>"; };
@@ -63,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B163D330AD4A287616D8E91 /* Pods_Gugujj.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +126,8 @@
 			children = (
 				5AE55B0D283B116E00D19FFF /* Gugujj */,
 				5AE55B0C283B116E00D19FFF /* Products */,
+				98C7938FA52C315B86E487F7 /* Pods */,
+				8D9B903FAB6C79FC22BFA890 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,8 +152,26 @@
 				5AE55B17283B116F00D19FFF /* Assets.xcassets */,
 				5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */,
 				5AE55B1C283B116F00D19FFF /* Info.plist */,
+				5A100579284F2AF000C45C74 /* GoogleService-Info.plist */,
 			);
 			path = Gugujj;
+			sourceTree = "<group>";
+		};
+		8D9B903FAB6C79FC22BFA890 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98C7938FA52C315B86E487F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F51592B675C1E87F79774C5 /* Pods-Gugujj.debug.xcconfig */,
+				3B897FD15562A4F511443933 /* Pods-Gugujj.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AE55B1F283B116F00D19FFF /* Build configuration list for PBXNativeTarget "Gugujj" */;
 			buildPhases = (
+				E8B1B32B395328337C483AC9 /* [CP] Check Pods Manifest.lock */,
 				5AE55B07283B116E00D19FFF /* Sources */,
 				5AE55B08283B116E00D19FFF /* Frameworks */,
 				5AE55B09283B116E00D19FFF /* Resources */,
+				44B2196CC9C31BFA4A855D0F /* [CP] Embed Pods Frameworks */,
+				5528A43FB95F00CE3C91B284 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,10 +240,70 @@
 				5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */,
 				5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */,
 				5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */,
+				5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44B2196CC9C31BFA4A855D0F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gugujj/Pods-Gugujj-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gugujj/Pods-Gugujj-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gugujj/Pods-Gugujj-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5528A43FB95F00CE3C91B284 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gugujj/Pods-Gugujj-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gugujj/Pods-Gugujj-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gugujj/Pods-Gugujj-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8B1B32B395328337C483AC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gugujj-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5AE55B07283B116E00D19FFF /* Sources */ = {
@@ -380,6 +470,7 @@
 		};
 		5AE55B20283B116F00D19FFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F51592B675C1E87F79774C5 /* Pods-Gugujj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -408,6 +499,7 @@
 		};
 		5AE55B21283B116F00D19FFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B897FD15562A4F511443933 /* Pods-Gugujj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

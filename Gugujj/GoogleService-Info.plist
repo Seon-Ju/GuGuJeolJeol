@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>571853208037-jsnocica4tm6krcmludmu4s82ir4capk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.571853208037-jsnocica4tm6krcmludmu4s82ir4capk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBaBIXzKIqm1lweBgRQ2lD2T9B_WN0Q4_4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>571853208037</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>seonju.Gugujj</string>
+	<key>PROJECT_ID</key>
+	<string>gugujeoljeol-6f201</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gugujeoljeol-6f201.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:571853208037:ios:9d70e743ecaab89259970c</string>
+	<key>DATABASE_URL</key>
+	<string>https://gugujeoljeol-6f201-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
