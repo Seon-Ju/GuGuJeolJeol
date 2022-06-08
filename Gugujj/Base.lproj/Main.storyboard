@@ -65,21 +65,9 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1T5-vv-KQg">
-                                                        <rect key="frame" x="321" y="0.5" width="33" height="39"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="MY"/>
-                                                        <connections>
-                                                            <action selector="touchUpUserBtn:" destination="LeV-bQ-38w" eventType="touchUpInside" id="uJG-ah-Vqw"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="LaO-Ay-uu2" firstAttribute="leading" secondItem="0Wa-QC-h58" secondAttribute="trailing" constant="10" id="3cn-KM-Bnu"/>
-                                                    <constraint firstAttribute="trailing" secondItem="1T5-vv-KQg" secondAttribute="trailing" id="Rly-T5-eMR"/>
-                                                    <constraint firstItem="1T5-vv-KQg" firstAttribute="centerY" secondItem="jJn-wk-lmh" secondAttribute="centerY" id="d8X-CZ-zSH"/>
                                                     <constraint firstAttribute="height" constant="40" id="ftP-48-4hE"/>
                                                     <constraint firstItem="0Wa-QC-h58" firstAttribute="centerY" secondItem="jJn-wk-lmh" secondAttribute="centerY" id="nLB-h6-ouW"/>
                                                     <constraint firstItem="LaO-Ay-uu2" firstAttribute="centerY" secondItem="jJn-wk-lmh" secondAttribute="centerY" id="sx1-q6-bzh"/>

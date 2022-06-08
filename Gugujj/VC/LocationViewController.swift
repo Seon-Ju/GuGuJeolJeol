@@ -54,10 +54,6 @@ class LocationViewController: UIViewController {
     @IBAction func touchUpSearchBtn(_ sender: UIButton) {
         CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
     }
-        
-    @IBAction func touchUpUserBtn(_ sender: UIButton) {
-        CommonNavi.pushVC(sbName: "Main", vcName: "UserVC")
-    }
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
