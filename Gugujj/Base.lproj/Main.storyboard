@@ -249,7 +249,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-ZN-Uhk">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="parkingButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-ZN-Uhk">
                                 <rect key="frame" x="30" y="173" width="149" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -269,8 +269,11 @@
                                         <real key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="touchUpCategoryButton:" destination="Zff-4H-KgV" eventType="touchUpInside" id="NRx-K3-8Nt"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1k-aP-6py">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="creditCardButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1k-aP-6py">
                                 <rect key="frame" x="30" y="235" width="175" height="42"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -289,8 +292,11 @@
                                         <real key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="touchUpCategoryButton:" destination="Zff-4H-KgV" eventType="touchUpInside" id="kwT-Z2-wDj"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T4-Uj-Z1Y">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="petButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T4-Uj-Z1Y">
                                 <rect key="frame" x="30" y="297" width="205" height="42"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -309,8 +315,11 @@
                                         <color key="value" systemColor="systemGray6Color"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="touchUpCategoryButton:" destination="Zff-4H-KgV" eventType="touchUpInside" id="o2O-56-3sV"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V47-1a-Ge8">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="heritageButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V47-1a-Ge8">
                                 <rect key="frame" x="30" y="359" width="214" height="42"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
@@ -330,6 +339,9 @@
                                         <color key="value" systemColor="systemGray6Color"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="touchUpCategoryButton:" destination="Zff-4H-KgV" eventType="touchUpInside" id="Kag-gu-3EO"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIi-Ln-1cs" userLabel="Search Bar">
                                 <rect key="frame" x="30" y="64" width="354" height="45"/>
@@ -404,6 +416,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cc6-Qv-p16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="808.69565217391312" y="1184.5982142857142"/>
+        </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="HpG-dC-Y8X">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultVC" id="LG8-me-FD4" customClass="SearchResultViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tfk-No-oTG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRS-y5-eG2">
+                                <rect key="frame" x="30" y="64" width="354" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zcc-iO-3Sk">
+                                <rect key="frame" x="30" y="108" width="354" height="788"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kTJ-eU-Met" customClass="RectangleTableViewCell" customModule="Gugujj" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="354" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kTJ-eU-Met" id="r2O-WK-PZ8">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="isz-NC-LZf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bRS-y5-eG2" firstAttribute="top" secondItem="isz-NC-LZf" secondAttribute="top" constant="20" id="7pz-T2-SPJ"/>
+                            <constraint firstItem="Zcc-iO-3Sk" firstAttribute="top" secondItem="bRS-y5-eG2" secondAttribute="bottom" constant="20" id="AH9-ZJ-uur"/>
+                            <constraint firstItem="isz-NC-LZf" firstAttribute="trailing" secondItem="bRS-y5-eG2" secondAttribute="trailing" constant="30" id="bcN-q8-hJ8"/>
+                            <constraint firstItem="bRS-y5-eG2" firstAttribute="leading" secondItem="isz-NC-LZf" secondAttribute="leading" constant="30" id="d5Z-Fj-5o2"/>
+                            <constraint firstAttribute="bottom" secondItem="Zcc-iO-3Sk" secondAttribute="bottom" id="gKK-Yu-gh9"/>
+                            <constraint firstItem="Zcc-iO-3Sk" firstAttribute="leading" secondItem="isz-NC-LZf" secondAttribute="leading" constant="30" id="hra-jU-GiZ"/>
+                            <constraint firstItem="isz-NC-LZf" firstAttribute="trailing" secondItem="Zcc-iO-3Sk" secondAttribute="trailing" constant="30" id="m7U-3f-Qvs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Zcc-iO-3Sk" id="DU4-ox-vvK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAq-kR-7Si" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1652" y="1185"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="emv-d6-Ux2">
@@ -550,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpz-We-lPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="1185"/>
+            <point key="canvasLocation" x="1742" y="320"/>
         </scene>
         <!--사찰-->
         <scene sceneID="BPL-rN-URh">

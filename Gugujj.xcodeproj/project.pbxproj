@@ -10,6 +10,7 @@
 		5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A100579284F2AF000C45C74 /* GoogleService-Info.plist */; };
 		5A1F03BB28449AD9005622FF /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03BA28449AD9005622FF /* Temple.swift */; };
 		5A29EDA82848A15300513D7A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29EDA72848A15300513D7A /* Location.swift */; };
+		5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */; };
 		5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */; };
 		5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */; };
 		5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */; };
@@ -38,6 +39,7 @@
 		5A100579284F2AF000C45C74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A1F03BA28449AD9005622FF /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
 		5A29EDA72848A15300513D7A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleTableViewCell.swift; sourceTree = "<group>"; };
 		5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleTableViewCell.xib; sourceTree = "<group>"; };
 		5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */,
 				5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */,
 				94396C8F28448EC50088F303 /* BaseViewController.swift */,
+				5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */,
 				5A29EDA82848A15300513D7A /* Location.swift in Sources */,
 				94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */,
+				5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */,
 				94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */,
 				5A1F03BB28449AD9005622FF /* Temple.swift in Sources */,
 				94B16BDE2840BEB900D57CDE /* UIView + Extension.swift in Sources */,

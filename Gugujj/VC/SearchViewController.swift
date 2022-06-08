@@ -19,6 +19,7 @@ class SearchViewController: BaseViewController {
     private var availablePetTemples: [Temple] = [Temple]()
     private var isHeritageTemples: [Temple] = [Temple]()
     
+    private var isLoadedJSONData: Bool = false
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -34,9 +35,28 @@ class SearchViewController: BaseViewController {
         super.viewWillAppear(animated)
         isSwipedFlag = false
         
-        downloadJSONData() { allTemples in
-            self.classifyTemplesByCategory(allTemples: allTemples)
+        if !isLoadedJSONData {
+            downloadJSONData() { allTemples in
+                self.classifyTemplesByCategory(allTemples: allTemples)
+            }
         }
+    }
+    
+    // MARK: - IBActions
+    @IBAction func touchUpCategoryButton(_ sender: UIButton) {
+        switch sender.restorationIdentifier {
+        case "parkingButton":
+            SearchResultViewController.temples = availableParkingTemples
+        case "creditCardButton":
+            SearchResultViewController.temples = availableCreditCardTemples
+        case "petButton":
+            SearchResultViewController.temples = availablePetTemples
+        case "heritageButton":
+            SearchResultViewController.temples = isHeritageTemples
+        default:
+            break
+        }
+        CommonNavi.pushVC(sbName: "Main", vcName: "SearchResultVC")
     }
     
     // MARK: - Privates
@@ -57,16 +77,19 @@ class SearchViewController: BaseViewController {
         for temple in allTemples {
             if temple.parking == 1 {
                 availableParkingTemples.append(temple)
-            } else if temple.creditcard == 1 {
+            }
+            if temple.creditcard == 1 {
                 availableCreditCardTemples.append(temple)
-            } else if temple.pet == 1 {
+            }
+            if temple.pet == 1 {
                 availablePetTemples.append(temple)
-            } else if temple.heritage == 1 {
+            }
+            if temple.heritage == 1 {
                 isHeritageTemples.append(temple)
             }
         }
-
-        print(availableCreditCardTemples)
+        isLoadedJSONData = true
+        print("\(allTemples.count)개 로딩 및 분류 완료")
     }
     
 }

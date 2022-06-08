@@ -45,13 +45,13 @@ class RectangleTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.title.text = self.temple!.title
             self.address.text = self.temple!.addr1
-            if self.temple!.imageUrl == nil {
+            if self.temple!.imageUrl == nil || self.temple!.imageUrl == "" {
                 self.thumbnail.image = UIImage(named: "placeholder")
             }
         }
         
         DispatchQueue.global(qos: .userInitiated).async {
-            if let imageURL = self.temple!.imageUrl, let data = try? Data(contentsOf: URL(string: imageURL)!) {
+            if let imageURL = self.temple!.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
                 DispatchQueue.main.async {
                     self.thumbnail.image = UIImage(data: data)
                 }
