@@ -362,6 +362,11 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="magnifyingglass" catalog="system"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="searchButton:" destination="5xg-mz-3z3" eventType="touchUpInside" id="goR-LK-Wq0"/>
+                                            <action selector="touchUpSearchButton:" destination="Zff-4H-KgV" eventType="touchUpInside" id="0AA-Pc-XWk"/>
+                                            <action selector="touchUpSearchButton:" destination="5xg-mz-3z3" eventType="touchUpInside" id="TSb-lz-oO0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -379,12 +384,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tlN-bX-RwF">
-                                <rect key="frame" x="184" y="69" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q3A-Xg-jg7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -412,8 +411,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="QA6-Oo-zrF"/>
                     <navigationItem key="navigationItem" id="osw-Dd-PIa"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="jX2-zo-cf7" id="gFO-h0-QQN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cc6-Qv-p16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="5xg-mz-3z3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="808.69565217391312" y="1184.5982142857142"/>
         </scene>
