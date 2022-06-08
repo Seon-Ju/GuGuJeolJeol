@@ -7,12 +7,16 @@
 
 import Foundation
 
-struct Temple {
-    var id: String
+struct Temple: Codable {
+    var id: Int
     var title: String
     var addr1: String?
     var addr2: String?
     var areacode: Int?
     var imageUrl: String?
     var readcount: Int?
+    var creditcard: Int?
+    var pet: Int?
+    var parking: Int?
+    var heritage: Int?
 }

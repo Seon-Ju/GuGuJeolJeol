@@ -11,7 +11,7 @@ import GoogleMaps
 class TempleViewController: BaseViewController {
 
     // MARK: - Properties
-    public static var contentId: String = "" // shared
+    public static var contentId: Int = 0 // shared
     
     private var currentElement: String = ""
     private var infoName: String = ""

@@ -18,7 +18,7 @@ class LocationViewController: UIViewController {
     var currentElement: String = ""
     var currentPage: String = "1"
     
-    var temple: Temple = Temple(id: "", title: "")
+    var temple: Temple = Temple(id: 0, title: "")
     var templeList: [Temple] = [Temple]()
     var templeTotalCount: Int = 0
     var templeCurrentCount: Int = 0
@@ -26,7 +26,6 @@ class LocationViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
     @IBOutlet weak var arrangeButton: UIButton!
-    @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var templeTableView: UITableView!
     
     // MARK: - IBActions
@@ -69,8 +68,6 @@ class LocationViewController: UIViewController {
         }
         
         locationText.setTitle("전국", for: .normal)
-        
-        searchBar.layer.cornerRadius = 20
         
         let arrangeByTitle = UIAction(title: "이름순") { _ in
             self.selectedArrange = "A"
@@ -115,7 +112,7 @@ extension LocationViewController: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
         if (elementName == "item") {
-            temple = Temple(id: "", title: "")
+            temple = Temple(id: 0, title: "")
         }
     }
 
@@ -123,7 +120,7 @@ extension LocationViewController: XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
         case "contentid":
-            temple.id = string
+            temple.id = Int(string)!
         case "title":
             temple.title = string
         case "addr1":

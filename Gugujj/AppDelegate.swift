@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseStorage
 import GoogleMaps
 
 @main
@@ -14,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Firebase
+        FirebaseApp.configure()
         
         // Google Map API
         GMSServices.provideAPIKey("API_KEY")

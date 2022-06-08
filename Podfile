@@ -8,6 +8,6 @@ target 'Gugujj' do
   # Pods for Gugujj
   pod 'FirebaseRemoteConfig', '~> 9.1.0'
   pod 'FirebaseStorage', '~> 9.1.0'
-  pod 'FirebaseAuth', '~> 9.1.0'
+  pod 'FirebaseAuth', '~> 9.0.0'
   pod 'GoogleMaps', '~> 6.2.1'
 end
