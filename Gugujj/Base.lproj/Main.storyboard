@@ -109,12 +109,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7P-ln-0rb" userLabel="Search Bar">
                                                 <rect key="frame" x="0.0" y="0.0" width="318" height="45"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사찰 이름을 검색해보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJC-pN-wO5">
-                                                        <rect key="frame" x="15" y="13.5" width="154.5" height="18"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="사찰 이름을 검색해보세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WHJ-qA-YGV">
+                                                        <rect key="frame" x="15" y="13.5" width="265" height="18.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ris-sd-p4j" userLabel="Search Button">
                                                         <rect key="frame" x="280" y="10" width="28" height="25"/>
                                                         <constraints>
@@ -130,12 +129,18 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
+                                                    <constraint firstItem="WHJ-qA-YGV" firstAttribute="centerY" secondItem="e7P-ln-0rb" secondAttribute="centerY" id="5p9-io-FaJ"/>
                                                     <constraint firstAttribute="height" constant="45" id="I3P-VL-fuZ"/>
-                                                    <constraint firstItem="HJC-pN-wO5" firstAttribute="leading" secondItem="e7P-ln-0rb" secondAttribute="leading" constant="15" id="RkN-71-6eX"/>
                                                     <constraint firstItem="ris-sd-p4j" firstAttribute="centerY" secondItem="e7P-ln-0rb" secondAttribute="centerY" id="dud-RY-5tJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="ris-sd-p4j" secondAttribute="trailing" constant="10" id="fZ9-uQ-Ju3"/>
-                                                    <constraint firstItem="HJC-pN-wO5" firstAttribute="centerY" secondItem="e7P-ln-0rb" secondAttribute="centerY" id="lFV-Mw-pDm"/>
+                                                    <constraint firstItem="WHJ-qA-YGV" firstAttribute="leading" secondItem="e7P-ln-0rb" secondAttribute="leading" constant="15" id="tPs-gt-cCh"/>
+                                                    <constraint firstItem="ris-sd-p4j" firstAttribute="leading" secondItem="WHJ-qA-YGV" secondAttribute="trailing" id="xRY-sP-DA2"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7x-WX-27J" userLabel="Search Bar Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="328" height="45"/>
@@ -223,7 +228,6 @@
                     <connections>
                         <outlet property="arrangeButton" destination="NuN-3f-cFe" id="OfT-Nx-2Bs"/>
                         <outlet property="locationText" destination="w8y-GO-gKN" id="qx3-FC-DdG"/>
-                        <outlet property="searchBar" destination="e7P-ln-0rb" id="1Zz-Ai-Xga"/>
                         <outlet property="templeTableView" destination="uJE-l7-OQI" id="76U-YQ-yvn"/>
                     </connections>
                 </viewController>
@@ -239,52 +243,163 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3Oh-1A-wUL">
-                                <rect key="frame" x="30" y="64" width="354" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기 사찰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwy-n8-7ci">
-                                <rect key="frame" x="30" y="135" width="354" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwy-n8-7ci">
+                                <rect key="frame" x="30" y="129" width="354" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tfO-wT-Cjc">
-                                <rect key="frame" x="30" y="176" width="354" height="720"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="templeRectangleCell" id="Aj8-SM-khU">
-                                        <rect key="frame" x="0.0" y="44.5" width="354" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aj8-SM-khU" id="sWO-NS-vFQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="354" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-ZN-Uhk">
+                                <rect key="frame" x="30" y="173" width="149" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="주차 가능한 사찰">
+                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="25" bottom="12" trailing="25"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="systemGray6Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1k-aP-6py">
+                                <rect key="frame" x="30" y="235" width="175" height="42"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="신용카드 가능한 사찰">
+                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="25" bottom="12" trailing="25"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="systemGray6Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T4-Uj-Z1Y">
+                                <rect key="frame" x="30" y="297" width="205" height="42"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="애완동물 동반 가능한 사찰">
+                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="25" bottom="12" trailing="25"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="systemGray6Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V47-1a-Ge8">
+                                <rect key="frame" x="30" y="359" width="214" height="42"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="세계문화유산에 등재된 사찰">
+                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="25" bottom="12" trailing="25"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="systemGray6Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIi-Ln-1cs" userLabel="Search Bar">
+                                <rect key="frame" x="30" y="64" width="354" height="45"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="사찰 이름을 검색해보세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jX2-zo-cf7">
+                                        <rect key="frame" x="15" y="13.5" width="301" height="18.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o17-cY-FxD" userLabel="Search Button">
+                                        <rect key="frame" x="316" y="10" width="28" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="m1s-nX-DlJ"/>
+                                            <constraint firstAttribute="height" constant="25" id="xv4-xW-9F9"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="magnifyingglass" catalog="system"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstItem="jX2-zo-cf7" firstAttribute="leading" secondItem="YIi-Ln-1cs" secondAttribute="leading" constant="15" id="1u9-V6-hJg"/>
+                                    <constraint firstAttribute="trailing" secondItem="o17-cY-FxD" secondAttribute="trailing" constant="10" id="32c-sz-goZ"/>
+                                    <constraint firstItem="jX2-zo-cf7" firstAttribute="centerY" secondItem="YIi-Ln-1cs" secondAttribute="centerY" id="VPA-kg-LMU"/>
+                                    <constraint firstAttribute="height" constant="45" id="VvC-A2-0uG"/>
+                                    <constraint firstItem="o17-cY-FxD" firstAttribute="centerY" secondItem="YIi-Ln-1cs" secondAttribute="centerY" id="b57-PO-W23"/>
+                                    <constraint firstItem="o17-cY-FxD" firstAttribute="leading" secondItem="jX2-zo-cf7" secondAttribute="trailing" id="sK7-nh-m6q"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tlN-bX-RwF">
+                                <rect key="frame" x="184" y="69" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q3A-Xg-jg7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="3Oh-1A-wUL" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="CJW-zG-W7X"/>
-                            <constraint firstAttribute="bottom" secondItem="tfO-wT-Cjc" secondAttribute="bottom" id="FyB-Bo-mc3"/>
-                            <constraint firstItem="hwy-n8-7ci" firstAttribute="top" secondItem="3Oh-1A-wUL" secondAttribute="bottom" constant="20" id="HOo-z8-9dI"/>
+                            <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V47-1a-Ge8" secondAttribute="trailing" constant="30" id="1bl-l8-KUy"/>
+                            <constraint firstItem="hwy-n8-7ci" firstAttribute="top" secondItem="YIi-Ln-1cs" secondAttribute="bottom" constant="20" id="3Gq-ub-F8B"/>
+                            <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5T4-Uj-Z1Y" secondAttribute="trailing" constant="30" id="705-5t-Kb0"/>
+                            <constraint firstItem="V47-1a-Ge8" firstAttribute="top" secondItem="5T4-Uj-Z1Y" secondAttribute="bottom" constant="20" id="JGB-YL-4HK"/>
                             <constraint firstItem="hwy-n8-7ci" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="JnU-vN-BBV"/>
+                            <constraint firstItem="5T4-Uj-Z1Y" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="Kb1-ax-v1z"/>
                             <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" secondItem="hwy-n8-7ci" secondAttribute="trailing" constant="30" id="PZ8-jD-VSr"/>
-                            <constraint firstItem="tfO-wT-Cjc" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="TdH-H6-9yO"/>
-                            <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" secondItem="tfO-wT-Cjc" secondAttribute="trailing" constant="30" id="cvP-Nu-BG3"/>
-                            <constraint firstItem="3Oh-1A-wUL" firstAttribute="top" secondItem="q3A-Xg-jg7" secondAttribute="top" constant="20" id="ipc-Yk-ASg"/>
-                            <constraint firstItem="tfO-wT-Cjc" firstAttribute="top" secondItem="hwy-n8-7ci" secondAttribute="bottom" constant="20" id="n6K-2h-ct4"/>
-                            <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" secondItem="3Oh-1A-wUL" secondAttribute="trailing" constant="30" id="nEO-dE-pPe"/>
+                            <constraint firstItem="YIi-Ln-1cs" firstAttribute="top" secondItem="q3A-Xg-jg7" secondAttribute="top" constant="20" id="UWh-IV-XvS"/>
+                            <constraint firstItem="j1k-aP-6py" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="VY6-bu-yjf"/>
+                            <constraint firstItem="FlY-ZN-Uhk" firstAttribute="top" secondItem="hwy-n8-7ci" secondAttribute="bottom" constant="20" id="Vrq-UV-bXg"/>
+                            <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" secondItem="YIi-Ln-1cs" secondAttribute="trailing" constant="30" id="ask-ME-yAg"/>
+                            <constraint firstItem="V47-1a-Ge8" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="bbF-hu-qjb"/>
+                            <constraint firstItem="j1k-aP-6py" firstAttribute="top" secondItem="FlY-ZN-Uhk" secondAttribute="bottom" constant="20" id="bnQ-Ta-GFg"/>
+                            <constraint firstItem="5T4-Uj-Z1Y" firstAttribute="top" secondItem="j1k-aP-6py" secondAttribute="bottom" constant="20" id="bzw-an-odu"/>
+                            <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="j1k-aP-6py" secondAttribute="trailing" constant="30" id="pSi-2c-gaz"/>
+                            <constraint firstItem="FlY-ZN-Uhk" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="prb-iE-fGT"/>
+                            <constraint firstItem="YIi-Ln-1cs" firstAttribute="leading" secondItem="q3A-Xg-jg7" secondAttribute="leading" constant="30" id="vMU-hw-kZG"/>
+                            <constraint firstItem="q3A-Xg-jg7" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FlY-ZN-Uhk" secondAttribute="trailing" constant="30" id="yf3-S6-yQY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="QA6-Oo-zrF"/>
                     <navigationItem key="navigationItem" id="osw-Dd-PIa"/>
-                    <connections>
-                        <outlet property="templeTableView" destination="tfO-wT-Cjc" id="enc-9j-3GT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cc6-Qv-p16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
