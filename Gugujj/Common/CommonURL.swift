@@ -18,4 +18,6 @@ class CommonURL {
     static let DETAIL_INTRO_URL = DOMAIN + "detailIntro"
     static let DETAIL_INFO_URL = DOMAIN + "detailInfo"
     static let DETAIL_IMAGE_URL = DOMAIN + "detailImage"
+    
+    static let NAVER_IMAGE_URL = "https://openapi.naver.com/v1/search/image"
 }

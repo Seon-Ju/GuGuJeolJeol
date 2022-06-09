@@ -24,7 +24,7 @@ class CommonHttp {
             params.updateValue(areaCode, forKey: "areaCode")
         }
 
-        dataTask(baseUrl: CommonURL.AREA_BASED_URL, category: "areaBasedList", params: params) { passingData in
+        dataTask(baseURL: CommonURL.AREA_BASED_URL, params: params) { passingData in
             completion(passingData)
         }
     }
@@ -44,7 +44,7 @@ class CommonHttp {
         params.updateValue("Y", forKey: "overviewYN")
         params.updateValue("Y", forKey: "transGuideYN")
         
-        dataTask(baseUrl: CommonURL.DETAIL_COMMON_URL, category: "detailCommon", params: params) { passingData in
+        dataTask(baseURL: CommonURL.DETAIL_COMMON_URL, params: params) { passingData in
             completion(passingData)
         }
     }
@@ -57,7 +57,7 @@ class CommonHttp {
         params.updateValue("\(contentId)", forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
         
-        dataTask(baseUrl: CommonURL.DETAIL_INTRO_URL, category: "detailIntro", params: params) { passingData in
+        dataTask(baseURL: CommonURL.DETAIL_INTRO_URL, params: params) { passingData in
             completion(passingData)
         }
         
@@ -71,20 +71,20 @@ class CommonHttp {
         params.updateValue("\(contentId)", forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
         
-        dataTask(baseUrl: CommonURL.DETAIL_INFO_URL, category: "detailInfo", params: params) { passingData in
+        dataTask(baseURL: CommonURL.DETAIL_INFO_URL, params: params) { passingData in
             completion(passingData)
         }
     }
     
     // 이미지정보
-    // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=294452&imageYN=Y&subImageYN=Y
+    // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=1250461&imageYN=Y&subImageYN=Y
     static func getDetailImage(contentId: Int, completion: @escaping (Data) -> (Void)) {
         var params: [String:String] = getCommonParams()
         params.updateValue("\(contentId)", forKey: "contentId")
         params.updateValue("Y", forKey: "imageYN")
         params.updateValue("Y", forKey: "subImageYN")
         
-        dataTask(baseUrl: CommonURL.DETAIL_IMAGE_URL, category: "detailImage", params: params) { passingData in
+        dataTask(baseURL: CommonURL.DETAIL_IMAGE_URL, params: params) { passingData in
             completion(passingData)
         }
     }
@@ -100,15 +100,45 @@ class CommonHttp {
         params.updateValue(mapY, forKey: "mapY")
         params.updateValue("10000", forKey: "radius")
         
-        dataTask(baseUrl: CommonURL.LOCATION_BASED_URL, category: "locationBasedList", params: params) { passingData in
+        dataTask(baseURL: CommonURL.LOCATION_BASED_URL, params: params) { passingData in
             completion(passingData)
         }
     }
     
-    static private func dataTask(baseUrl: String, category: String, params: [String:String], completion: @escaping (Data) -> (Void)) {
-        let fullUrl = "\(CommonURL.DOMAIN)\(category)\(getParameterString(params: params))"
+    // 네이버 이미지검색
+    static func getNaverImage(searchText: String, completion: @escaping (Data?) -> Void) {
+        var params: [String:String] = [String:String]()
+        let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        params.updateValue(encodedText, forKey: "query")
         
-        URLSession.shared.dataTask(with: URLRequest(url: URL(string: fullUrl)!)) { data, response, error in
+        dataTask(baseURL: CommonURL.NAVER_IMAGE_URL, params: params) { passingData in
+            do {
+                let imageResponse = try JSONDecoder().decode(ImageResponse.self, from: passingData)
+                if imageResponse.total > 0 {
+                    let imageURL = imageResponse.items[0].link
+                    let imageData = try Data(contentsOf: URL(string: imageURL)!)
+                    completion(imageData)
+                } else {
+                    completion(nil)
+                }
+            } catch {
+                print("decodeError: \(error)")
+            }
+        }
+    }
+    
+    static private func dataTask(baseURL: String, params: [String:String], completion: @escaping (Data) -> (Void)) {
+        let fullURL = "\(baseURL)\(getParameterString(params: params))"
+        
+        var request: URLRequest = URLRequest(url: URL(string: fullURL)!)
+        
+        if baseURL == CommonURL.NAVER_IMAGE_URL {
+            request.httpMethod = "GET"
+            request.setValue("ID", forHTTPHeaderField: "X-Naver-Client-Id")
+            request.setValue("SECRET", forHTTPHeaderField: "X-Naver-Client-Secret")
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("error: \(error.localizedDescription)")
             }

@@ -653,18 +653,6 @@
                                                             <action selector="touchUpHomepageButton:" destination="Ogj-LZ-wP8" eventType="touchUpInside" id="Aet-L9-ILE"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnZ-FW-6yt" userLabel="즐겨찾기 Button">
-                                                        <rect key="frame" x="356" y="30" width="28" height="28"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="28" id="8Of-QR-Ndz"/>
-                                                            <constraint firstAttribute="height" constant="28" id="TLd-90-gJe"/>
-                                                        </constraints>
-                                                        <color key="tintColor" red="1" green="0.52244961869999995" blue="0.23367001470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain">
-                                                            <backgroundConfiguration key="background" image="star.fill" catalog="system"/>
-                                                        </buttonConfiguration>
-                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-sA-rXC">
                                                         <rect key="frame" x="30" y="64.5" width="214.5" height="18"/>
                                                         <attributedString key="attributedText">
@@ -971,13 +959,11 @@
                                                     <constraint firstAttribute="trailing" secondItem="zK3-IT-QGo" secondAttribute="trailing" constant="30" id="Cd8-At-R91"/>
                                                     <constraint firstItem="aHS-Ch-dLj" firstAttribute="top" secondItem="0yK-Bp-EKh" secondAttribute="bottom" constant="20" id="Dfy-II-MpI"/>
                                                     <constraint firstItem="0yK-Bp-EKh" firstAttribute="top" secondItem="kZj-qY-SIc" secondAttribute="bottom" constant="30" id="HQt-qP-HIk"/>
-                                                    <constraint firstItem="wnZ-FW-6yt" firstAttribute="top" secondItem="8eY-Ed-e43" secondAttribute="top" constant="30" id="Hgz-F3-02L"/>
                                                     <constraint firstItem="QUG-24-rQq" firstAttribute="top" secondItem="8eY-Ed-e43" secondAttribute="top" constant="30" id="IGJ-YU-B5E"/>
                                                     <constraint firstItem="KyE-eO-ccf" firstAttribute="leading" secondItem="8eY-Ed-e43" secondAttribute="leading" constant="30" id="IRa-Y5-HcU"/>
                                                     <constraint firstAttribute="trailing" secondItem="KyE-eO-ccf" secondAttribute="trailing" constant="30" id="LNB-pr-t2T"/>
                                                     <constraint firstItem="QaB-nN-Nyt" firstAttribute="top" secondItem="eNq-Xq-9AI" secondAttribute="bottom" constant="20" id="QzI-fD-uCl"/>
                                                     <constraint firstItem="VvO-Zg-rts" firstAttribute="leading" secondItem="8eY-Ed-e43" secondAttribute="leading" constant="30" id="RBu-SJ-ujR"/>
-                                                    <constraint firstAttribute="trailing" secondItem="wnZ-FW-6yt" secondAttribute="trailing" constant="30" id="S32-cJ-aLx"/>
                                                     <constraint firstItem="Ade-E2-ZBO" firstAttribute="leading" secondItem="8eY-Ed-e43" secondAttribute="leading" id="SHg-Va-qzy"/>
                                                     <constraint firstItem="eNq-Xq-9AI" firstAttribute="top" secondItem="Kfl-Pt-v9b" secondAttribute="bottom" constant="30" id="SWM-HR-TAo"/>
                                                     <constraint firstAttribute="trailing" secondItem="0yK-Bp-EKh" secondAttribute="trailing" constant="30" id="V9Y-3e-b88"/>
@@ -1132,7 +1118,6 @@
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="placeholder" width="800" height="600"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="toilet" width="539" height="549"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

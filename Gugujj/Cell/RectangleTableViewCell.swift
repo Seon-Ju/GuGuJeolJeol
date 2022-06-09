@@ -14,7 +14,7 @@ class RectangleTableViewCell: UITableViewCell {
     @IBOutlet weak var address: UILabel!
     
     private var currentElement: String?
-    private var temple: Temple?
+    private var imageData: Data?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +25,7 @@ class RectangleTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        imageData = nil
         thumbnail.image = UIImage(named: "placeholder")
     }
 
@@ -41,48 +42,52 @@ class RectangleTableViewCell: UITableViewCell {
     
     func configure(templeList: [Temple], tableView: UITableView, indexPath: IndexPath) {
         
-        temple = templeList[indexPath.row]
-        DispatchQueue.main.async {
-            self.title.text = self.temple!.title
-            self.address.text = self.temple!.addr1
-            if self.temple!.imageUrl == nil || self.temple!.imageUrl == "" {
-                self.thumbnail.image = UIImage(named: "placeholder")
-            }
-        }
+        let temple = templeList[indexPath.row]
         
         DispatchQueue.global(qos: .userInitiated).async {
-            if let imageURL = self.temple!.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
-                DispatchQueue.main.async {
-                    self.thumbnail.image = UIImage(data: data)
+            if let imageURL = temple.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
+                self.imageData = data
+            }
+            
+            DispatchQueue.main.async {
+                self.title.text = temple.title
+                self.address.text = temple.addr1
+                
+                // 이미지 검색어 세팅
+                // ex) 가평 + 대원사
+                var editedAddr: String = ""
+                var editedTitle: String = temple.title
+                
+                // addr1에서 시군구 추출
+                if let address = temple.addr1, address != "NA" {
+                    let siGunGu = String(address.split(separator: " ")[1])
+                    editedAddr = String(siGunGu.dropLast())
+                }
+                
+                // title에서 괄호 이하 제거
+                if let firstIndex = temple.title.firstIndex(of: "(") {
+                    let range = temple.title.startIndex..<firstIndex
+                    editedTitle = String(temple.title[range])
+                }
+                
+                let searchText = "\(editedAddr) \(editedTitle)"
+                
+                if self.imageData == nil {
+                    print(searchText)
+                    CommonHttp.getNaverImage(searchText: searchText) { data in
+                        DispatchQueue.main.async {
+                            if data != nil {
+                                self.thumbnail.image = UIImage(data: data!)
+                            } else {
+                                self.thumbnail.image = UIImage(named: "placeholder")
+                            }
+                        }
+                    }
+                } else {
+                    self.thumbnail.image = UIImage(data: self.imageData!)
                 }
             }
-            else {
-                CommonHttp.getDetailImage(contentId: self.temple!.id) { data in
-                    let parser = XMLParser(data: data)
-                    parser.delegate = self
-                    parser.parse()
-                }
-            }
-        }
-    }
-}
-
-extension RectangleTableViewCell: XMLParserDelegate {
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        currentElement = elementName
-    }
-
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        switch currentElement {
-        case "originimgurl":
-            if self.temple!.imageUrl == nil, let data = try? Data(contentsOf: URL(string: string)!) {
-                self.temple!.imageUrl = string
-                DispatchQueue.main.async {
-                    self.thumbnail.image = UIImage(data: data)
-                }
-            }
-        default:
-            break
+            
         }
     }
 }
