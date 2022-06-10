@@ -12,6 +12,7 @@ class RectangleTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var imageWarning: UIView!
     
     private var currentElement: String?
     private var imageData: Data?
@@ -43,6 +44,7 @@ class RectangleTableViewCell: UITableViewCell {
     func configure(templeList: [Temple], tableView: UITableView, indexPath: IndexPath) {
         
         let temple = templeList[indexPath.row]
+        imageWarning.isHidden = true
         
         DispatchQueue.global(qos: .userInitiated).async {
             if let imageURL = temple.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
@@ -53,31 +55,13 @@ class RectangleTableViewCell: UITableViewCell {
                 self.title.text = temple.title
                 self.address.text = temple.addr1
                 
-                // 이미지 검색어 세팅
-                // ex) 가평 + 대원사
-                var editedAddr: String = ""
-                var editedTitle: String = temple.title
-                
-                // addr1에서 시군구 추출
-                if let address = temple.addr1, address != "NA" {
-                    let siGunGu = String(address.split(separator: " ")[1])
-                    editedAddr = String(siGunGu.dropLast())
-                }
-                
-                // title에서 괄호 이하 제거
-                if let firstIndex = temple.title.firstIndex(of: "(") {
-                    let range = temple.title.startIndex..<firstIndex
-                    editedTitle = String(temple.title[range])
-                }
-                
-                let searchText = "\(editedAddr) \(editedTitle)"
-                
                 if self.imageData == nil {
-                    print(searchText)
+                    let searchText = self.editSearchText(address: temple.addr1, title: temple.title)
                     CommonHttp.getNaverImage(searchText: searchText) { data in
                         DispatchQueue.main.async {
                             if data != nil {
                                 self.thumbnail.image = UIImage(data: data!)
+                                self.imageWarning.isHidden = false
                             } else {
                                 self.thumbnail.image = UIImage(named: "placeholder")
                             }
@@ -89,5 +73,29 @@ class RectangleTableViewCell: UITableViewCell {
             }
             
         }
+    }
+    
+    private func editSearchText(address: String?, title: String) -> String {
+        // 이미지 검색어 세팅
+        // ex) 가평 + 대원사
+        var editedAddr: String = ""
+        var editedTitle: String = title
+        
+        // addr1에서 시군구 추출
+        if let address = address, address != "NA" {
+            let siGunGu = String(address.split(separator: " ")[1])
+            editedAddr = String(siGunGu.dropLast())
+        }
+        
+        // title에서 괄호 이하 제거
+        if let firstIndex = title.firstIndex(of: "(") {
+            let range = title.startIndex..<firstIndex
+            editedTitle = String(title[range])
+        }
+        
+        let searchText = "\(editedAddr) \(editedTitle)"
+        print(searchText)
+        
+        return searchText
     }
 }

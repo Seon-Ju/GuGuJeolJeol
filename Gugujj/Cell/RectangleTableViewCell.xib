@@ -22,44 +22,82 @@
                             <constraint firstAttribute="height" priority="750" constant="240" id="AE0-Y8-uZC"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해동용궁사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oF-7q-9ze">
-                        <rect key="frame" x="35" y="157.5" width="310" height="31.5"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부산광역시 기장군 기장읍 용궁길 86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WP-na-U3b">
-                        <rect key="frame" x="35" y="191" width="310" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="W4b-hG-QCj">
+                        <rect key="frame" x="35" y="133.5" width="310" height="75.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해동용궁사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oF-7q-9ze">
+                                <rect key="frame" x="0.0" y="0.0" width="310" height="31.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부산광역시 기장군 기장읍 용궁길 86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WP-na-U3b">
+                                <rect key="frame" x="0.0" y="34.5" width="310" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SR6-ON-TO1">
+                                <rect key="frame" x="0.0" y="55.5" width="310" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prg-0Y-c8n">
+                                        <rect key="frame" x="12" y="0.0" width="298" height="20"/>
+                                        <string key="text">본 이미지는 한국관광공사 제공 이미지가 아닌 네이버 이미지검색 결과로,
+사찰과 무관한 이미지일 수 있습니다.</string>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="8"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oib-5t-XMU">
+                                        <rect key="frame" x="0.0" y="0.0" width="9" height="9"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="9" id="lCq-Yq-wgP"/>
+                                            <constraint firstAttribute="width" constant="9" id="mxA-YW-ivM"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="info.circle" catalog="system"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Prg-0Y-c8n" secondAttribute="bottom" id="7iv-Qj-jPV"/>
+                                    <constraint firstItem="Prg-0Y-c8n" firstAttribute="top" secondItem="SR6-ON-TO1" secondAttribute="top" id="EzK-Ye-gPu"/>
+                                    <constraint firstItem="Prg-0Y-c8n" firstAttribute="leading" secondItem="oib-5t-XMU" secondAttribute="trailing" constant="3" id="FND-hg-F6z"/>
+                                    <constraint firstAttribute="height" constant="20" id="IOh-hB-J4P"/>
+                                    <constraint firstItem="oib-5t-XMU" firstAttribute="leading" secondItem="SR6-ON-TO1" secondAttribute="leading" id="P7B-h2-1IY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Prg-0Y-c8n" secondAttribute="trailing" id="iJI-5w-bmy"/>
+                                    <constraint firstItem="oib-5t-XMU" firstAttribute="top" secondItem="SR6-ON-TO1" secondAttribute="top" id="w4w-Ye-T8i"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="N7d-kW-qTc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0J0-iE-eWD"/>
-                    <constraint firstItem="5WP-na-U3b" firstAttribute="top" secondItem="2oF-7q-9ze" secondAttribute="bottom" constant="2" id="5XG-Nr-pXe"/>
-                    <constraint firstItem="5WP-na-U3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="6Lr-kJ-sbf"/>
+                    <constraint firstItem="W4b-hG-QCj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="4Ps-WO-70c"/>
                     <constraint firstItem="N7d-kW-qTc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8eZ-wL-twf"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="2oF-7q-9ze" secondAttribute="trailing" constant="15" id="EjB-LI-HCs"/>
                     <constraint firstAttribute="trailing" secondItem="N7d-kW-qTc" secondAttribute="trailing" id="NKz-3c-cDg"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="5WP-na-U3b" secondAttribute="bottom" constant="20" id="Na1-aa-gE6"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="W4b-hG-QCj" secondAttribute="bottom" constant="20" id="Q8p-Y9-arP"/>
                     <constraint firstAttribute="bottom" secondItem="N7d-kW-qTc" secondAttribute="bottom" id="VQq-6s-CsY"/>
-                    <constraint firstItem="2oF-7q-9ze" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="iZS-BV-jg7"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="5WP-na-U3b" secondAttribute="trailing" constant="15" id="pFK-s4-mLO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="W4b-hG-QCj" secondAttribute="trailing" constant="15" id="puj-ta-oeh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="address" destination="5WP-na-U3b" id="2rm-x3-uM9"/>
+                <outlet property="imageWarning" destination="SR6-ON-TO1" id="44i-dH-uBL"/>
                 <outlet property="thumbnail" destination="N7d-kW-qTc" id="3Ah-h5-WbV"/>
                 <outlet property="title" destination="2oF-7q-9ze" id="Baw-3L-AXV"/>
             </connections>
-            <point key="canvasLocation" x="132" y="126"/>
+            <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="temple01" width="1600" height="1066"/>
     </resources>
 </document>
