@@ -12,6 +12,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var dist: UILabel!
+    @IBOutlet weak var imageWarningView: UIView!
     
     var imageData: Data?
     
@@ -33,18 +34,31 @@ class SquareCollectionViewCell: UICollectionViewCell {
         
         if !nearSights.isEmpty {
             let nearSight = nearSights[indexPath.row]
+            self.imageWarningView.isHidden = true
             
             DispatchQueue.global(qos: .userInitiated).async {
-                if let imageUrl = nearSight.imageURL, let data = try? Data(contentsOf: URL(string: imageUrl)!) {
+                if let imageURL = nearSight.imageURL, let data = try? Data(contentsOf: URL(string: imageURL)!) {
                     self.imageData = data
                 }
+                
                 DispatchQueue.main.async {
                     self.title.text = nearSight.title
                     self.dist.text = nearSight.dist
-                    if let imageData = self.imageData {
-                        self.image.image = UIImage(data: imageData)
+                    
+                    if self.imageData == nil {
+                        CommonHttp.getNaverImage(searchText: nearSight.title) { data in
+                            DispatchQueue.main.async {
+                                if data != nil {
+                                    print(nearSight.title)
+                                    self.image.image = UIImage(data: data!)
+                                    self.imageWarningView.isHidden = false
+                                } else {
+                                    self.image.image = UIImage(named: "placeholder")
+                                }
+                            }
+                        }
                     } else {
-                        self.image.image = UIImage(named: "placeholder")
+                        self.image.image = UIImage(data: self.imageData!)
                     }
                 }
             }

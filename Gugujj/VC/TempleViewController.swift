@@ -16,6 +16,8 @@ class TempleViewController: BaseViewController {
     private var currentElement: String = ""
     private var infoName: String = ""
     private var homepageUrl: String = ""
+    private var thumbnailImageUrl: String?
+    private var address: String?
     
     private var nearSightVC: NearSightCollectionViewController?
     private var mapX: String = ""
@@ -23,6 +25,7 @@ class TempleViewController: BaseViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var imageWarningView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var homepageButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
@@ -61,6 +64,7 @@ class TempleViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isSwipedFlag = false
+        imageWarningView.isHidden = true
         
         CommonHttp.getDetailCommon(contentId: TempleViewController.contentId) { data in
             self.parseData(data: data)
@@ -99,6 +103,30 @@ class TempleViewController: BaseViewController {
         marker.map = map
     }
     
+    private func editSearchText(address: String?, title: String) -> String {
+        // 이미지 검색어 세팅
+        // ex) 가평 + 대원사
+        var editedAddr: String = ""
+        var editedTitle: String = title
+        
+        // addr1에서 시군구 추출
+        if let address = address, address != "NA" {
+            let siGunGu = String(address.split(separator: " ")[1])
+            editedAddr = String(siGunGu.dropLast())
+        }
+        
+        // title에서 괄호 이하 제거
+        if let firstIndex = title.firstIndex(of: "(") {
+            let range = title.startIndex..<firstIndex
+            editedTitle = String(title[range])
+        }
+        
+        let searchText = "\(editedAddr) \(editedTitle)"
+        print(searchText)
+        
+        return searchText
+    }
+    
 }
 
 // MARK: - XMLParser
@@ -114,8 +142,22 @@ extension TempleViewController: XMLParserDelegate {
         case "title":
             titleLabel.text = string
             descTitleLabel.text = "\(string) 이야기"
+            if self.thumbnailImageUrl == nil {
+                let searchText = editSearchText(address: self.address, title: string)
+                CommonHttp.getNaverImage(searchText: searchText) { data in
+                    DispatchQueue.main.async {
+                        if data != nil {
+                            self.thumbnailImageView.image = UIImage(data: data!)
+                            self.imageWarningView.isHidden = false
+                        } else {
+                            self.thumbnailImageView.image = UIImage(named: "placeholder")
+                        }
+                    }
+                }
+            }
             
         case "firstimage":
+            self.thumbnailImageUrl = string
             let data = try? Data(contentsOf: URL(string: string)!)
             thumbnailImageView.image = UIImage(data: data!)
             
@@ -128,6 +170,7 @@ extension TempleViewController: XMLParserDelegate {
             }
             
         case "addr1":
+            self.address = string
             addressLabel.text = "\(string) "
         
         case "addr2":
