@@ -84,7 +84,11 @@ class RectangleTableViewCell: UITableViewCell {
         // addr1에서 시군구 추출
         if let address = address, address != "NA" {
             let siGunGu = String(address.split(separator: " ")[1])
-            editedAddr = String(siGunGu.dropLast())
+            if siGunGu.count > 2 {
+                editedAddr = String(siGunGu.dropLast())
+            } else { // 시군구가 2자 이하인 경우 (ex. 동구, 북구) 도/시로 추출 (ex. 부산 성암사)
+                editedAddr = String(address.split(separator: " ")[0][0...1])
+            }
         }
         
         // title에서 괄호 이하 제거
