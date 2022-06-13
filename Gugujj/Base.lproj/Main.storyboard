@@ -35,6 +35,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Yf-RI-N46" userLabel="Header">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infinity" translatesAutoresizingMaskIntoConstraints="NO" id="UQL-Ph-CD1">
+                                                <rect key="frame" x="151.5" y="0.0" width="262.5" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="SYB-ke-7yU"/>
+                                                    <constraint firstAttribute="width" secondItem="UQL-Ph-CD1" secondAttribute="height" multiplier="15:8" id="VZ3-ZR-8Cz"/>
+                                                </constraints>
+                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJn-wk-lmh">
                                                 <rect key="frame" x="30" y="54.5" width="354" height="40"/>
                                                 <subviews>
@@ -98,6 +105,8 @@
                                             <constraint firstAttribute="bottom" secondItem="ySZ-oE-44S" secondAttribute="bottom" constant="20" id="Fmh-mW-OCc"/>
                                             <constraint firstItem="ySZ-oE-44S" firstAttribute="leading" secondItem="7Yf-RI-N46" secondAttribute="leading" constant="30" id="I6s-wa-cNR"/>
                                             <constraint firstItem="ySZ-oE-44S" firstAttribute="top" secondItem="jJn-wk-lmh" secondAttribute="bottom" constant="-5" id="Itz-u2-5Z4"/>
+                                            <constraint firstAttribute="trailing" secondItem="UQL-Ph-CD1" secondAttribute="trailing" id="Zk7-tl-ovg"/>
+                                            <constraint firstItem="UQL-Ph-CD1" firstAttribute="top" secondItem="7Yf-RI-N46" secondAttribute="top" id="abu-h6-Du7"/>
                                             <constraint firstAttribute="height" constant="140" id="e1B-py-Wka"/>
                                             <constraint firstAttribute="trailing" secondItem="jJn-wk-lmh" secondAttribute="trailing" constant="30" id="xlX-dq-baN"/>
                                         </constraints>
@@ -1156,6 +1165,7 @@
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="goup" width="515" height="520"/>
         <image name="house.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="infinity" width="962" height="464"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
         <image name="location" catalog="system" width="128" height="118"/>
