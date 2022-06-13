@@ -20,6 +20,11 @@
 		5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */; };
 		5A601974284C3E4F000617A4 /* NearSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601973284C3E4F000617A4 /* NearSight.swift */; };
 		5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */; };
+		5AA5EA44285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA3F285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf */; };
+		5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA40285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf */; };
+		5AA5EA46285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA41285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf */; };
+		5AA5EA47285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA42285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf */; };
+		5AA5EA48285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA43285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf */; };
 		5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B0E283B116E00D19FFF /* AppDelegate.swift */; };
 		5AE55B11283B116E00D19FFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B10283B116E00D19FFF /* SceneDelegate.swift */; };
 		5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B12283B116E00D19FFF /* LocationViewController.swift */; };
@@ -50,6 +55,11 @@
 		5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCollectionViewCell.xib; sourceTree = "<group>"; };
 		5A601973284C3E4F000617A4 /* NearSight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSight.swift; sourceTree = "<group>"; };
 		5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSightCollectionViewController.swift; sourceTree = "<group>"; };
+		5AA5EA3F285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
+		5AA5EA40285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
+		5AA5EA41285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
+		5AA5EA42285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
+		5AA5EA43285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
 		5AE55B0B283B116E00D19FFF /* Gugujj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gugujj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE55B0E283B116E00D19FFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AE55B10283B116E00D19FFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +137,18 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		5AA5EA3E2857647100B20A4F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5AA5EA43285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf */,
+				5AA5EA41285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf */,
+				5AA5EA42285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf */,
+				5AA5EA40285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf */,
+				5AA5EA3F285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		5AE55B02283B116E00D19FFF = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +181,7 @@
 				5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */,
 				5AE55B1C283B116F00D19FFF /* Info.plist */,
 				5A100579284F2AF000C45C74 /* GoogleService-Info.plist */,
+				5AA5EA3E2857647100B20A4F /* Fonts */,
 			);
 			path = Gugujj;
 			sourceTree = "<group>";
@@ -245,8 +268,13 @@
 				5AE55B18283B116F00D19FFF /* Assets.xcassets in Resources */,
 				5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */,
 				5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */,
+				5AA5EA47285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */,
 				5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */,
+				5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */,
+				5AA5EA48285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf in Resources */,
+				5AA5EA46285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf in Resources */,
+				5AA5EA44285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
