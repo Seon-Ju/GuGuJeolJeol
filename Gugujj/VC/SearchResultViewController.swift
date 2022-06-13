@@ -32,8 +32,9 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
+        let temple = SearchResultViewController.temples[indexPath.row]
         
-        cell.configure(templeList: SearchResultViewController.temples, tableView: self.tableView, indexPath: indexPath)
+        cell.configure(temple: temple, tableView: self.tableView, indexPath: indexPath)
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear

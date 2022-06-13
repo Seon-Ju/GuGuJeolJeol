@@ -41,9 +41,8 @@ class RectangleTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 20
     }
     
-    func configure(templeList: [Temple], tableView: UITableView, indexPath: IndexPath) {
+    func configure(temple: Temple, tableView: UITableView, indexPath: IndexPath) {
         
-        let temple = templeList[indexPath.row]
         imageWarning.isHidden = true
         
         DispatchQueue.global(qos: .userInitiated).async {

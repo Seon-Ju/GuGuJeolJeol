@@ -19,6 +19,12 @@ extension UIView {
         gradient.frame = bounds
         layer.addSublayer(gradient)
     }
+    
+    func setHiddenAnimation(hiddenFlag: Bool) {
+        UIView.transition(with: self, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.isHidden = hiddenFlag
+        })
+    }
 }
 
 @IBDesignable extension UIView {

@@ -186,9 +186,26 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukI-tj-BNQ">
+                                        <rect key="frame" x="349" y="801" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="SHr-d6-Bsl"/>
+                                            <constraint firstAttribute="height" constant="45" id="WXM-JA-Dij"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="0.52244961869999995" blue="0.23367001470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="goup"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="touchUpGoUpButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="bPZ-jV-3qF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ukI-tj-BNQ" secondAttribute="trailing" constant="20" id="4fp-Rx-7Ig"/>
+                                    <constraint firstAttribute="bottom" secondItem="ukI-tj-BNQ" secondAttribute="bottom" constant="50" id="BM7-lT-iic"/>
                                     <constraint firstItem="uJE-l7-OQI" firstAttribute="top" secondItem="1X9-Vs-am7" secondAttribute="bottom" constant="20" id="C7V-6F-tfy"/>
                                     <constraint firstItem="7Yf-RI-N46" firstAttribute="leading" secondItem="kax-WV-VSB" secondAttribute="leading" id="Cjc-Y3-wKM"/>
                                     <constraint firstItem="7Yf-RI-N46" firstAttribute="top" secondItem="kax-WV-VSB" secondAttribute="top" id="HGW-Kk-djh"/>
@@ -215,6 +232,7 @@
                     <navigationItem key="navigationItem" id="V3E-6I-GRc"/>
                     <connections>
                         <outlet property="arrangeButton" destination="NuN-3f-cFe" id="OfT-Nx-2Bs"/>
+                        <outlet property="goUpButton" destination="ukI-tj-BNQ" id="Kfk-f6-SkF"/>
                         <outlet property="locationText" destination="w8y-GO-gKN" id="qx3-FC-DdG"/>
                         <outlet property="templeTableView" destination="uJE-l7-OQI" id="76U-YQ-yvn"/>
                     </connections>
@@ -1000,11 +1018,11 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNq-Xq-9AI">
-                                                        <rect key="frame" x="30" y="802" width="122" height="20.5"/>
+                                                        <rect key="frame" x="30" y="802" width="354" height="20.5"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="해동용궁사 이야기">
                                                                 <attributes>
-                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSFont" size="17" name="AppleSDGothicNeo-SemiBold"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1032,11 +1050,11 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pa-wJ-UiJ">
-                                                        <rect key="frame" x="30" y="941.5" width="78" height="20.5"/>
+                                                        <rect key="frame" x="30" y="941.5" width="354" height="20.5"/>
                                                         <attributedString key="attributedText">
-                                                            <fragment content="주변 관광지">
+                                                            <fragment content="주변 볼거리">
                                                                 <attributes>
-                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSFont" size="17" name="AppleSDGothicNeo-SemiBold"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1063,6 +1081,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="YU4-bU-7it" secondAttribute="trailing" constant="30" id="0LQ-vG-E0Y"/>
                                                     <constraint firstItem="1Pa-wJ-UiJ" firstAttribute="top" secondItem="Ade-E2-ZBO" secondAttribute="bottom" constant="30" id="1U4-YA-kbi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1Pa-wJ-UiJ" secondAttribute="trailing" constant="30" id="1i0-A9-8c6"/>
                                                     <constraint firstItem="f9t-sA-rXC" firstAttribute="top" secondItem="QUG-24-rQq" secondAttribute="bottom" constant="7" id="1tg-Uc-pNs"/>
                                                     <constraint firstItem="2Yh-CP-Bvx" firstAttribute="leading" secondItem="8eY-Ed-e43" secondAttribute="leading" constant="30" id="3hQ-79-CT8"/>
                                                     <constraint firstAttribute="trailing" secondItem="mGD-bh-HNX" secondAttribute="trailing" constant="30" id="4Pg-Ol-CrL"/>
@@ -1083,6 +1102,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="0fl-mq-DIW" secondAttribute="trailing" constant="30" id="H2v-jq-D1a"/>
                                                     <constraint firstItem="3Fe-Y7-o0Z" firstAttribute="top" secondItem="UvC-Ks-vMP" secondAttribute="bottom" constant="3" id="IRT-1h-l8e"/>
                                                     <constraint firstItem="0fl-mq-DIW" firstAttribute="top" secondItem="HYJ-t8-lgs" secondAttribute="top" id="KFD-oW-a0R"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eNq-Xq-9AI" secondAttribute="trailing" constant="30" id="NF1-f1-fI1"/>
                                                     <constraint firstItem="VpH-PE-s6U" firstAttribute="leading" secondItem="skG-XL-WgQ" secondAttribute="trailing" constant="10" id="PNu-cm-Wua"/>
                                                     <constraint firstItem="0fl-mq-DIW" firstAttribute="top" secondItem="mGD-bh-HNX" secondAttribute="bottom" constant="25" id="PSh-cF-U3m"/>
                                                     <constraint firstItem="QUG-24-rQq" firstAttribute="top" secondItem="8eY-Ed-e43" secondAttribute="top" constant="30" id="PWb-ps-epF"/>
@@ -1273,6 +1293,7 @@
         <image name="creditcard.fill" catalog="system" width="128" height="88"/>
         <image name="footprint" width="569" height="540"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="goup" width="515" height="520"/>
         <image name="house.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>

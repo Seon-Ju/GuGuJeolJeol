@@ -27,6 +27,7 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var locationText: UIButton!
     @IBOutlet weak var arrangeButton: UIButton!
     @IBOutlet weak var templeTableView: UITableView!
+    @IBOutlet weak var goUpButton: UIButton!
     
     // MARK: - IBActions
     @IBAction func touchUpAreaBtn(_ sender: UIButton) {
@@ -49,6 +50,10 @@ class LocationViewController: UIViewController {
         })
                             
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func touchUpGoUpButton(_ sender: UIButton) {
+        templeTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
         
     @IBAction func touchUpSearchBtn(_ sender: UIButton) {
@@ -83,6 +88,8 @@ class LocationViewController: UIViewController {
         templeTableView.delegate = self
         templeTableView.dataSource = self
         templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
+        
+        goUpButton.isHidden = true
         
         loadData()
     }
@@ -190,12 +197,19 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
+        let temple = templeList[indexPath.row]
         
-        cell.configure(templeList: self.templeList, tableView: self.templeTableView, indexPath: indexPath)
+        cell.configure(temple: temple, tableView: self.templeTableView, indexPath: indexPath)
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = backgroundView
+        
+        if indexPath.row > 5 && goUpButton.isHidden {
+            goUpButton.setHiddenAnimation(hiddenFlag: false)
+        } else if indexPath.row == 0 {
+            goUpButton.setHiddenAnimation(hiddenFlag: true)
+        }
         
         return cell
     }
