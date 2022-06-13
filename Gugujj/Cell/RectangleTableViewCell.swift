@@ -27,6 +27,8 @@ class RectangleTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageData = nil
+        title.text = nil
+        address.text = nil
         thumbnail.image = UIImage(named: "placeholder")
     }
 
@@ -46,34 +48,40 @@ class RectangleTableViewCell: UITableViewCell {
 
         DispatchQueue.global(qos: .userInitiated).async {
             var isNaverImage: Bool = false
-            let thisRowGlobal: Int = indexPath.row
+            
             if let imageURL = temple.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
                 self.imageData = data
             }
+            
             if self.imageData == nil {
                 let searchText = self.editSearchText(address: temple.addr1, title: temple.title)
                 CommonHttp.getNaverImage(searchText: searchText) { data in
                     if let data = data {
                         isNaverImage = true
                         self.imageData = data
+                        self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: isNaverImage)
                     }
                 }
             }
-            
-            DispatchQueue.main.async {
-                if let indexPath: IndexPath = tableView.indexPath(for: self),
-                   thisRowGlobal == indexPath.row {
-                    self.title.text = temple.title
-                    self.address.text = temple.addr1
-                    
-                    if let imageData = self.imageData {
-                        self.thumbnail.image = UIImage(data: imageData)
-                        if isNaverImage {
-                            self.imageWarning.isHidden = false
-                        }
-                    } else {
-                        self.thumbnail.image = UIImage(named: "placeholder")
+            else {
+                self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: isNaverImage)
+            }
+        }
+    }
+    
+    private func updateUI(tableView: UITableView, temple: Temple, templeIndexPath: IndexPath, isNaverImage: Bool) {
+        DispatchQueue.main.async {
+            if let cellIndexPath: IndexPath = tableView.indexPath(for: self), cellIndexPath.row == templeIndexPath.row {
+                self.title.text = temple.title
+                self.address.text = temple.addr1
+                
+                if let imageData = self.imageData {
+                    self.thumbnail.image = UIImage(data: imageData)
+                    if isNaverImage {
+                        self.imageWarning.isHidden = false
                     }
+                } else {
+                    self.thumbnail.image = UIImage(named: "placeholder")
                 }
             }
         }
