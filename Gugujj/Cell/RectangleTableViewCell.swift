@@ -42,35 +42,40 @@ class RectangleTableViewCell: UITableViewCell {
     }
     
     func configure(temple: Temple, tableView: UITableView, indexPath: IndexPath) {
-        
         imageWarning.isHidden = true
-        
+
         DispatchQueue.global(qos: .userInitiated).async {
+            var isNaverImage: Bool = false
+            let thisRowGlobal: Int = indexPath.row
             if let imageURL = temple.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
                 self.imageData = data
             }
-            
-            DispatchQueue.main.async {
-                self.title.text = temple.title
-                self.address.text = temple.addr1
-                
-                if self.imageData == nil {
-                    let searchText = self.editSearchText(address: temple.addr1, title: temple.title)
-                    CommonHttp.getNaverImage(searchText: searchText) { data in
-                        DispatchQueue.main.async {
-                            if data != nil {
-                                self.thumbnail.image = UIImage(data: data!)
-                                self.imageWarning.isHidden = false
-                            } else {
-                                self.thumbnail.image = UIImage(named: "placeholder")
-                            }
-                        }
+            if self.imageData == nil {
+                let searchText = self.editSearchText(address: temple.addr1, title: temple.title)
+                CommonHttp.getNaverImage(searchText: searchText) { data in
+                    if let data = data {
+                        isNaverImage = true
+                        self.imageData = data
                     }
-                } else {
-                    self.thumbnail.image = UIImage(data: self.imageData!)
                 }
             }
             
+            DispatchQueue.main.async {
+                if let indexPath: IndexPath = tableView.indexPath(for: self),
+                   thisRowGlobal == indexPath.row {
+                    self.title.text = temple.title
+                    self.address.text = temple.addr1
+                    
+                    if let imageData = self.imageData {
+                        self.thumbnail.image = UIImage(data: imageData)
+                        if isNaverImage {
+                            self.imageWarning.isHidden = false
+                        }
+                    } else {
+                        self.thumbnail.image = UIImage(named: "placeholder")
+                    }
+                }
+            }
         }
     }
     
