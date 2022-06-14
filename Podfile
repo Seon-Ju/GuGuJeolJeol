@@ -10,4 +10,5 @@ target 'Gugujj' do
   pod 'FirebaseStorage', '~> 9.1.0'
   pod 'FirebaseAuth', '~> 9.0.0'
   pod 'GoogleMaps', '~> 6.2.1'
+  pod 'Gifu', '~> 3.3.1'
 end

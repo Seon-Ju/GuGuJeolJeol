@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A100579284F2AF000C45C74 /* GoogleService-Info.plist */; };
 		5A1F03BB28449AD9005622FF /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03BA28449AD9005622FF /* Temple.swift */; };
+		5A204172285809E400CBBFED /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A204171285809E400CBBFED /* CustomLoading.swift */; };
+		5A207D77285820DB0041949A /* dualball.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5A207D76285820DB0041949A /* dualball.gif */; };
 		5A21CED928517C3A00A42973 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21CED828517C3A00A42973 /* ImageResponse.swift */; };
 		5A29EDA82848A15300513D7A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29EDA72848A15300513D7A /* Location.swift */; };
 		5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */; };
@@ -44,6 +46,8 @@
 		3B897FD15562A4F511443933 /* Pods-Gugujj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gugujj.release.xcconfig"; path = "Target Support Files/Pods-Gugujj/Pods-Gugujj.release.xcconfig"; sourceTree = "<group>"; };
 		5A100579284F2AF000C45C74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A1F03BA28449AD9005622FF /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
+		5A204171285809E400CBBFED /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
+		5A207D76285820DB0041949A /* dualball.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dualball.gif; sourceTree = "<group>"; };
 		5A21CED828517C3A00A42973 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 		5A29EDA72848A15300513D7A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -170,9 +174,11 @@
 		5AE55B0D283B116E00D19FFF /* Gugujj */ = {
 			isa = PBXGroup;
 			children = (
+				5A207D76285820DB0041949A /* dualball.gif */,
 				5AE55B0E283B116E00D19FFF /* AppDelegate.swift */,
 				5AE55B10283B116E00D19FFF /* SceneDelegate.swift */,
 				5AE55B14283B116E00D19FFF /* Main.storyboard */,
+				5A204171285809E400CBBFED /* CustomLoading.swift */,
 				5A40BCE9283CA1F500DB7FC4 /* Common */,
 				5A1F03B7284488A3005622FF /* Model */,
 				5A4C3B3A283F48110081B7C1 /* VC */,
@@ -269,6 +275,7 @@
 				5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */,
 				5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */,
 				5AA5EA47285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				5A207D77285820DB0041949A /* dualball.gif in Resources */,
 				5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */,
 				5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */,
 				5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */,
@@ -347,6 +354,7 @@
 				5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */,
 				5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */,
 				5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */,
+				5A204172285809E400CBBFED /* CustomLoading.swift in Sources */,
 				5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */,
 				94396C9028448EC50088F303 /* BaseViewController.swift in Sources */,
 				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,

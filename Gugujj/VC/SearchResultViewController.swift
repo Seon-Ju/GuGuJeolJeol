@@ -44,6 +44,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CustomLoading.show()
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
         TempleViewController.contentId = SearchResultViewController.temples[indexPath.row].id
     }

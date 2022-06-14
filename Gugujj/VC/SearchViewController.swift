@@ -111,6 +111,7 @@ class SearchViewController: BaseViewController {
             temple.heritage == 1
         }
         isLoadedJSONData = true
+        CustomLoading.hide()
         print("\(allTemples.count)개 로딩 및 분류 완료")
     }
     

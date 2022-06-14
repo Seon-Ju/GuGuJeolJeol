@@ -57,6 +57,7 @@ class LocationViewController: UIViewController {
     }
         
     @IBAction func touchUpSearchBtn(_ sender: UIButton) {
+        CustomLoading.show()
         CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
     }
 
@@ -96,12 +97,14 @@ class LocationViewController: UIViewController {
     
     // MARK: - Privates
     private func loadData() {
+        CustomLoading.show()
         CommonHttp.getAreaBasedList(areaCode: selectedAreaCode, pageNo: currentPage, arrange: selectedArrange) { xmlData in
             let parser = XMLParser(data: xmlData)
             parser.delegate = self
             parser.parse()
             DispatchQueue.main.async {
                 self.templeTableView.reloadData()
+                CustomLoading.hide()
             }
         }
     }
@@ -219,6 +222,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CustomLoading.show()
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
         TempleViewController.contentId = templeList[indexPath.row].id
     }

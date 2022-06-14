@@ -16,12 +16,14 @@ class TempleViewController: BaseViewController {
     private var currentElement: String = ""
     private var infoName: String = ""
     private var homepageUrl: String = ""
-    private var thumbnailImageUrl: String?
     private var address: String?
     
     private var nearSightVC: NearSightCollectionViewController?
     private var mapX: String = ""
     private var mapY: String = ""
+    
+    private var isMapLoad: Bool = false
+    private var isImageLoad: Bool = false
     
     // MARK: IBOutlets
     @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -101,6 +103,9 @@ class TempleViewController: BaseViewController {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: Double(mapY)!, longitude: Double(mapX)!)
         marker.map = map
+        
+        isMapLoad = true
+        checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad)
     }
     
     private func editSearchText(address: String?, title: String) -> String {
@@ -131,6 +136,12 @@ class TempleViewController: BaseViewController {
         return searchText
     }
     
+    private func checkLoadingEnd(checkImage: Bool, checkMap: Bool) {
+        if checkImage && checkMap {
+            CustomLoading.hide()
+        }
+    }
+    
 }
 
 // MARK: - XMLParser
@@ -146,8 +157,8 @@ extension TempleViewController: XMLParserDelegate {
         case "title":
             titleLabel.text = string
             descTitleLabel.text = "\(string) 이야기"
-            if self.thumbnailImageUrl == nil {
-                let searchText = editSearchText(address: self.address, title: string)
+            if !isImageLoad {
+                let searchText = editSearchText(address: address, title: string)
                 CommonHttp.getNaverImage(searchText: searchText) { data in
                     DispatchQueue.main.async {
                         if data != nil {
@@ -156,14 +167,17 @@ extension TempleViewController: XMLParserDelegate {
                         } else {
                             self.thumbnailImageView.image = UIImage(named: "placeholder")
                         }
+                        self.isImageLoad = true
+                        self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad)
                     }
                 }
             }
             
         case "firstimage":
-            self.thumbnailImageUrl = string
             let data = try? Data(contentsOf: URL(string: string)!)
             thumbnailImageView.image = UIImage(data: data!)
+            isImageLoad = true
+            checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad)
             
         case "homepage":
             if string.contains("http") && homepageUrl.isEmpty {
@@ -174,7 +188,7 @@ extension TempleViewController: XMLParserDelegate {
             }
             
         case "addr1":
-            self.address = string
+            address = string
             addressLabel.text = "\(string) "
         
         case "addr2":
@@ -227,8 +241,8 @@ extension TempleViewController: XMLParserDelegate {
             
         case "mapy":
             mapY = string
-            self.nearSightVC?.sendMapData(mapX: mapX, mapY: mapY)
-            self.addMapView()
+            nearSightVC?.sendMapData(mapX: mapX, mapY: mapY)
+            addMapView()
             
         case "overview":
             if string.contains("<") || string.contains(">") || string.contains("strong") {
