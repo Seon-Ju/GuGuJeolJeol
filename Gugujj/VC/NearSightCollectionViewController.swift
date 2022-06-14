@@ -21,7 +21,14 @@ class NearSightCollectionViewController: UICollectionViewController {
     
     func sendMapData(mapX: String, mapY: String) {
         CommonHttp.getLocationBasedList(pageNo: "1", mapX: mapX, mapY: mapY) { data in
-            self.parseData(data: data)
+            guard let xmlData = data else { // 통신 오류시
+                DispatchQueue.main.async {
+                    CustomLoading.hide()
+                    self.showErrorAlert()
+                }
+                return
+            }
+            self.parseData(data: xmlData)
         }
     }
     
@@ -34,6 +41,13 @@ class NearSightCollectionViewController: UICollectionViewController {
             self.nearSights.removeFirst()
             self.collectionView.reloadData()
         }
+    }
+    
+    private func showErrorAlert() {
+        let action: UIAlertAction = UIAlertAction(title: "확인", style: .default)
+        let alert: UIAlertController = UIAlertController(title: "알림", message: "오류가 발생했습니다. 다시 시도해주세요.", preferredStyle: .alert)
+        alert.addAction(action)
+        self.present(alert, animated: true)
     }
 
 }

@@ -69,15 +69,36 @@ class TempleViewController: BaseViewController {
         imageWarningView.isHidden = true
         
         CommonHttp.getDetailCommon(contentId: TempleViewController.contentId) { data in
-            self.parseData(data: data)
+            guard let xmlData = data else { // 통신 오류시
+                DispatchQueue.main.async {
+                    CustomLoading.hide()
+                    self.showErrorAlert()
+                }
+                return
+            }
+            self.parseData(data: xmlData)
         }
     
         CommonHttp.getDetailIntro(contentId: TempleViewController.contentId) { data in
-            self.parseData(data: data)
+            guard let xmlData = data else { // 통신 오류시
+                DispatchQueue.main.async {
+                    CustomLoading.hide()
+                    self.showErrorAlert()
+                }
+                return
+            }
+            self.parseData(data: xmlData)
         }
         
         CommonHttp.getDetailInfo(contentId: TempleViewController.contentId) { data in
-            self.parseData(data: data)
+            guard let xmlData = data else { // 통신 오류시
+                DispatchQueue.main.async {
+                    CustomLoading.hide()
+                    self.showErrorAlert()
+                }
+                return
+            }
+            self.parseData(data: xmlData)
         }
     }
     
@@ -166,6 +187,13 @@ class TempleViewController: BaseViewController {
         useTimeLabel.setLineSpacing(text: useTimeLabel.text!)
         parkingLabel.setLineSpacing(text: parkingLabel.text!)
         descTextView.setLineSpacing(text: descTextView.text)
+    }
+    
+    private func showErrorAlert() {
+        let action: UIAlertAction = UIAlertAction(title: "확인", style: .default)
+        let alert: UIAlertController = UIAlertController(title: "알림", message: "오류가 발생했습니다. 다시 시도해주세요.", preferredStyle: .alert)
+        alert.addAction(action)
+        self.present(alert, animated: true)
     }
     
 }

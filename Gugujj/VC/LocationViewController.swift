@@ -98,7 +98,14 @@ class LocationViewController: UIViewController {
     // MARK: - Privates
     private func loadData() {
         CustomLoading.show()
-        CommonHttp.getAreaBasedList(areaCode: selectedAreaCode, pageNo: currentPage, arrange: selectedArrange) { xmlData in
+        CommonHttp.getAreaBasedList(areaCode: selectedAreaCode, pageNo: currentPage, arrange: selectedArrange) { data in
+            guard let xmlData = data else { // 통신 오류시
+                DispatchQueue.main.async {
+                    CustomLoading.hide()
+                    self.showErrorAlert()
+                }
+                return
+            }
             let parser = XMLParser(data: xmlData)
             parser.delegate = self
             parser.parse()
@@ -107,6 +114,13 @@ class LocationViewController: UIViewController {
                 CustomLoading.hide()
             }
         }
+    }
+    
+    private func showErrorAlert() {
+        let action: UIAlertAction = UIAlertAction(title: "확인", style: .default)
+        let alert: UIAlertController = UIAlertController(title: "알림", message: "오류가 발생했습니다. 다시 시도해주세요.", preferredStyle: .alert)
+        alert.addAction(action)
+        self.present(alert, animated: true)
     }
     
 }

@@ -11,7 +11,7 @@ class CommonHttp {
     
     // 지역기반 관광정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=P&cat1=A02&contentTypeId=12&cat2=A0201&cat3=A02010800&listYN=Y
-    static func getAreaBasedList(areaCode: String?, pageNo: String, arrange: String, completion: @escaping (Data) -> (Void)) {
+    static func getAreaBasedList(areaCode: String?, pageNo: String, arrange: String, completion: @escaping (Data?) -> (Void)) {
         var params: [String:String] = getCommonParams(pageNo: pageNo)
         params.updateValue(arrange, forKey: "arrange")
         params.updateValue("A02", forKey: "cat1")
@@ -31,7 +31,7 @@ class CommonHttp {
     
     // 공통정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&contentTypeId=12&contentId=294452&MobileOS=ETC&MobileApp=AppTest&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y
-    static func getDetailCommon(contentId: Int, completion: @escaping (Data) -> (Void)) {
+    static func getDetailCommon(contentId: Int, completion: @escaping (Data?) -> (Void)) {
         var params: [String:String] = getCommonParams()
         params.updateValue("\(contentId)", forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
@@ -52,7 +52,7 @@ class CommonHttp {
     // 소개정보
     // 유모차 대여 여부, 신용카드 가능 여부, 애완동물 동반 가능 여부, 문의 및 안내 전화번호, 주차시설, 쉬는 날, 이용시간
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=294452&contentTypeId=12
-    static func getDetailIntro(contentId: Int, completion: @escaping (Data) -> (Void)) {
+    static func getDetailIntro(contentId: Int, completion: @escaping (Data?) -> (Void)) {
         var params: [String:String] = getCommonParams()
         params.updateValue("\(contentId)", forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
@@ -66,7 +66,7 @@ class CommonHttp {
     // 반복정보
     // 입장료, 화장실, 외국어 안내서비스 등
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=294452&contentTypeId=12
-    static func getDetailInfo(contentId: Int, completion: @escaping (Data) -> (Void)) {
+    static func getDetailInfo(contentId: Int, completion: @escaping (Data?) -> (Void)) {
         var params: [String:String] = getCommonParams()
         params.updateValue("\(contentId)", forKey: "contentId")
         params.updateValue("12", forKey: "contentTypeId")
@@ -78,7 +78,7 @@ class CommonHttp {
     
     // 이미지정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?serviceKey=o4SsZp9tZ%2FCG9GvxPJQ796Ngnou51GsLKBzW6c8UMjmOr1RexN%2BZGdzpJOCjozZYBVLx92BAm3xyZFvQ2eOl5Q%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=1250461&imageYN=Y&subImageYN=Y
-    static func getDetailImage(contentId: Int, completion: @escaping (Data) -> (Void)) {
+    static func getDetailImage(contentId: Int, completion: @escaping (Data?) -> (Void)) {
         var params: [String:String] = getCommonParams()
         params.updateValue("\(contentId)", forKey: "contentId")
         params.updateValue("Y", forKey: "imageYN")
@@ -91,7 +91,7 @@ class CommonHttp {
     
     // 위치기반 관광정보
     // http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?serviceKey=A9SNzq25jbRcOZjQbyQJDJ0%2FBj7XHXlyRYCj9zZ0QiXhu9uK8AK8NxRagU7ocRKlZ83jLsvZ1q%2BxoAQinn3pIQ%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=E&listYN=Y&mapX=127.9827574248&mapY=34.7518848204&radius=10000
-    static func getLocationBasedList(pageNo: String, mapX: String, mapY: String, completion: @escaping (Data) -> (Void)) {
+    static func getLocationBasedList(pageNo: String, mapX: String, mapY: String, completion: @escaping (Data?) -> (Void)) {
         var params: [String:String] = getCommonParams(pageNo: pageNo)
         params.updateValue("12", forKey: "contentTypeId")
         params.updateValue("E", forKey: "arrange")
@@ -112,8 +112,12 @@ class CommonHttp {
         params.updateValue(encodedText, forKey: "query")
         
         dataTask(baseURL: CommonURL.NAVER_IMAGE_URL, params: params) { passingData in
+            guard let data = passingData else {
+                completion(nil)
+                return
+            }
             do {
-                let imageResponse = try JSONDecoder().decode(ImageResponse.self, from: passingData)
+                let imageResponse = try JSONDecoder().decode(ImageResponse.self, from: data)
                 if imageResponse.total > 0 {
                     let imageURL = imageResponse.items[0].link
                     let imageData = try Data(contentsOf: URL(string: imageURL)!)
@@ -127,7 +131,7 @@ class CommonHttp {
         }
     }
     
-    static private func dataTask(baseURL: String, params: [String:String], completion: @escaping (Data) -> (Void)) {
+    static private func dataTask(baseURL: String, params: [String:String], completion: @escaping (Data?) -> (Void)) {
         let fullURL = "\(baseURL)\(getParameterString(params: params))"
         
         var request: URLRequest = URLRequest(url: URL(string: fullURL)!)
@@ -141,6 +145,7 @@ class CommonHttp {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("error: \(error.localizedDescription)")
+                completion(nil)
             }
             if let data = data {
                 completion(data)
