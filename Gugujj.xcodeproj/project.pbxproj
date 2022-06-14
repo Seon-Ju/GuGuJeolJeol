@@ -35,6 +35,8 @@
 		5AE55B1B283B116F00D19FFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */; };
 		5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B22283B5F6900D19FFF /* UserViewController.swift */; };
 		5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B24283B5F7000D19FFF /* SearchViewController.swift */; };
+		5AEDE81428584B500088E786 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEDE81328584B500088E786 /* UILabel + Extension.swift */; };
+		5AEDE816285865A80088E786 /* UITextView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEDE815285865A80088E786 /* UITextView + Extension.swift */; };
 		6B163D330AD4A287616D8E91 /* Pods_Gugujj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */; };
 		94396C9028448EC50088F303 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94396C8F28448EC50088F303 /* BaseViewController.swift */; };
 		94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BD92840BE9300D57CDE /* CommonHttp.swift */; };
@@ -74,6 +76,8 @@
 		5AE55B1C283B116F00D19FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE55B22283B5F6900D19FFF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		5AE55B24283B5F7000D19FFF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5AEDE81328584B500088E786 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		5AEDE815285865A80088E786 /* UITextView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView + Extension.swift"; sourceTree = "<group>"; };
 		8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gugujj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F51592B675C1E87F79774C5 /* Pods-Gugujj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gugujj.debug.xcconfig"; path = "Target Support Files/Pods-Gugujj/Pods-Gugujj.debug.xcconfig"; sourceTree = "<group>"; };
 		94396C8F28448EC50088F303 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				94B16BD92840BE9300D57CDE /* CommonHttp.swift */,
 				94B16BDB2840BEA400D57CDE /* CommonURL.swift */,
 				94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */,
+				5AEDE81328584B500088E786 /* UILabel + Extension.swift */,
+				5AEDE815285865A80088E786 /* UITextView + Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 				5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */,
 				5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */,
 				5A29EDA82848A15300513D7A /* Location.swift in Sources */,
+				5AEDE816285865A80088E786 /* UITextView + Extension.swift in Sources */,
 				94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */,
 				5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */,
 				94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */,
@@ -370,6 +377,7 @@
 				5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */,
 				5A4C3B36283F38E50081B7C1 /* SquareCollectionViewCell.swift in Sources */,
 				5AE55B11283B116E00D19FFF /* SceneDelegate.swift in Sources */,
+				5AEDE81428584B500088E786 /* UILabel + Extension.swift in Sources */,
 				5A601974284C3E4F000617A4 /* NearSight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,7 +541,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujj;
+				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujeoljeol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -562,7 +570,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujj;
+				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujeoljeol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

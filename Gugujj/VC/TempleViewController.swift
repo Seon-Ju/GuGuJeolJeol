@@ -142,6 +142,32 @@ class TempleViewController: BaseViewController {
         }
     }
     
+    private func appendText(on label: UILabel, string: String) {
+        if label.text == "정보 없음" {
+            label.text = string
+        } else if !string.contains("<") && !string.contains(">") && !string.contains("strong") && !string.contains("br") {
+            label.text! += string
+        }
+    }
+    
+    private func appendText(on textView: UITextView, string: String) {
+        if textView.text == "정보 없음" {
+            textView.text = string
+        } else if string.contains("br") {
+            textView.text += "\n"
+        } else if !string.contains("<") && !string.contains(">") && !string.contains("strong") {
+            textView.text += string
+        }
+    }
+    
+    private func setLineSpacing() {
+        telLabel.setLineSpacing(text: telLabel.text!)
+        restDateLabel.setLineSpacing(text: restDateLabel.text!)
+        useTimeLabel.setLineSpacing(text: useTimeLabel.text!)
+        parkingLabel.setLineSpacing(text: parkingLabel.text!)
+        descTextView.setLineSpacing(text: descTextView.text)
+    }
+    
 }
 
 // MARK: - XMLParser
@@ -157,6 +183,7 @@ extension TempleViewController: XMLParserDelegate {
         case "title":
             titleLabel.text = string
             descTitleLabel.text = "\(string) 이야기"
+            setLineSpacing()
             if !isImageLoad {
                 let searchText = editSearchText(address: address, title: string)
                 CommonHttp.getNaverImage(searchText: searchText) { data in
@@ -195,46 +222,28 @@ extension TempleViewController: XMLParserDelegate {
             addressLabel.text! += string
             
         case "infocenter":
-            telLabel.text = string
+            appendText(on: telLabel, string: string)
             
         case "restdate":
-            restDateLabel.text = string
+            appendText(on: restDateLabel, string: string)
             
         case "usetime":
-            if useTimeLabel.text == "정보 없음" {
-                useTimeLabel.text = string
-            } else if let useTimeText = useTimeLabel.text, useTimeText.count > 0 {
-                useTimeLabel.text! += string
-            }
+            appendText(on: useTimeLabel, string: string)
             
         case "parking":
-            if parkingLabel.text == "정보 없음" {
-                parkingLabel.text = string
-            } else if let parkingText = parkingLabel.text, parkingText.count > 0 {
-                parkingLabel.text! += string
-            }
+            appendText(on: parkingLabel, string: string)
             
         case "chkcreditcard":
-            if string == "없음" {
-                break
-            } else {
-                creditCardLabel.text = string
-            }
+            if string != "없음" { creditCardLabel.text = string }
             
         case "chkpet":
-            if string == "없음" {
-                 break
-            } else {
-                petLabel.text = string
-            }
+            if string != "없음" { petLabel.text = string }
             
         case "infoname":
             infoName = string
             
         case "infotext":
-            if infoName == "화장실" {
-                toiletLabel.text = string
-            }
+            if infoName == "화장실" { toiletLabel.text = string }
             
         case "mapx":
             mapX = string
@@ -245,15 +254,7 @@ extension TempleViewController: XMLParserDelegate {
             addMapView()
             
         case "overview":
-            if string.contains("<") || string.contains(">") || string.contains("strong") {
-                break
-            } else if string.contains("br") {
-                descTextView.text += "\n"
-            } else if descTextView.text.count > 0 {
-                descTextView.text += string
-            } else {
-                descTextView.text = string
-            }
+            appendText(on: descTextView, string: string)
             
         default:
             break
