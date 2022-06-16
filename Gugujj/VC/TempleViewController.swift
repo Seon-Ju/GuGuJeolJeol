@@ -149,7 +149,22 @@ class TempleViewController: BaseViewController {
         }
     }
     
-    private func editSearchText(address: String?, title: String) -> String {
+    private func fillImageView(searchText: String) {
+        CommonHttp.getNaverImage(searchText: searchText) { data in
+            DispatchQueue.main.async {
+                if data != nil {
+                    self.thumbnailImageView.image = UIImage(data: data!)
+                    self.imageWarningView.isHidden = false
+                } else {
+                    self.thumbnailImageView.image = UIImage(named: "placeholder")
+                }
+                self.isImageLoad = true
+                self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad)
+            }
+        }
+    }
+    
+    private func generateSearchText(address: String?, title: String) -> String {
         // 이미지 검색어 세팅
         // ex) 가평 + 대원사
         var editedAddr: String = ""
@@ -229,24 +244,13 @@ extension TempleViewController: XMLParserDelegate {
         switch currentElement {
             
         case "title":
+            if !isImageLoad {
+                let searchText = generateSearchText(address: address, title: string)
+                fillImageView(searchText: searchText)
+            }
             titleLabel.text = string
             descTitleLabel.text = "\(string) 이야기"
             setLineSpacing()
-            if !isImageLoad {
-                let searchText = editSearchText(address: address, title: string)
-                CommonHttp.getNaverImage(searchText: searchText) { data in
-                    DispatchQueue.main.async {
-                        if data != nil {
-                            self.thumbnailImageView.image = UIImage(data: data!)
-                            self.imageWarningView.isHidden = false
-                        } else {
-                            self.thumbnailImageView.image = UIImage(named: "placeholder")
-                        }
-                        self.isImageLoad = true
-                        self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad)
-                    }
-                }
-            }
             
         case "firstimage":
             let data = try? Data(contentsOf: URL(string: string)!)

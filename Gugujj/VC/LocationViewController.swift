@@ -19,44 +19,42 @@ class LocationViewController: UIViewController {
     var currentPage: String = "1"
     
     var temple: Temple = Temple(id: 0, title: "")
-    var templeList: [Temple] = [Temple]()
+    var temples: [Temple] = [Temple]()
     var templeTotalCount: Int = 0
-    var templeCurrentCount: Int = 0
 
     // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
     @IBOutlet weak var arrangeButton: UIButton!
-    @IBOutlet weak var templeTableView: UITableView!
-    @IBOutlet weak var goUpButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var scrollUpButton: UIButton!
     
     // MARK: - IBActions
-    @IBAction func touchUpAreaBtn(_ sender: UIButton) {
-        let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
-            
+    @IBAction func touchUpAreaButton(_ sender: UIButton) {
         pickerView.frame = CGRect(x: 0, y: 50, width: 270, height: 130)
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
         alert.view.addSubview(pickerView)
-            
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
             self.currentPage = "1"
             
             self.locationText.setTitle(self.selectedLocation, for: .normal)
             self.selectedAreaCode = Location(rawValue: self.selectedLocation)?.code
             
-            self.templeList = [Temple]()
-            self.templeCurrentCount = 0
+            self.temples = [Temple]()
             self.loadData()
         })
-                            
+        
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func touchUpGoUpButton(_ sender: UIButton) {
-        templeTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    @IBAction func touchUpScrollUpButton(_ sender: UIButton) {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
         
-    @IBAction func touchUpSearchBtn(_ sender: UIButton) {
+    @IBAction func touchUpSearchButton(_ sender: UIButton) {
         CustomLoading.show()
         CommonNavi.pushVC(sbName: "Main", vcName: "SearchVC")
     }
@@ -70,28 +68,13 @@ class LocationViewController: UIViewController {
         }
         
         locationText.setTitle("전국", for: .normal)
+        setArrangeFilter()
         
-        let arrangeByTitle = UIAction(title: "이름순") { _ in
-            self.selectedArrange = "A"
-            self.currentPage = "1"
-            self.templeList = [Temple]()
-            self.loadData()
-        }
-        let arrangeByReadCount = UIAction(title: "조회순") { _ in
-            self.selectedArrange = "B"
-            self.currentPage = "1"
-            self.templeList = [Temple]()
-            self.loadData()
-        }
-        arrangeButton.menu = UIMenu(title: "정렬 기준", children: [arrangeByTitle, arrangeByReadCount])
-        arrangeButton.showsMenuAsPrimaryAction = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
         
-        templeTableView.delegate = self
-        templeTableView.dataSource = self
-        templeTableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
-        
-        goUpButton.isHidden = true
-        
+        scrollUpButton.isHidden = true
         loadData()
     }
     
@@ -110,9 +93,34 @@ class LocationViewController: UIViewController {
             parser.delegate = self
             parser.parse()
             DispatchQueue.main.async {
-                self.templeTableView.reloadData()
+                self.tableView.reloadData()
                 CustomLoading.hide()
             }
+        }
+    }
+    
+    private func setArrangeFilter() {
+        let arrangeByTitle = UIAction(title: "이름순") { _ in
+            self.selectedArrange = "A"
+            self.currentPage = "1"
+            self.temples = [Temple]()
+            self.loadData()
+        }
+        let arrangeByReadCount = UIAction(title: "인기순") { _ in
+            self.selectedArrange = "B"
+            self.currentPage = "1"
+            self.temples = [Temple]()
+            self.loadData()
+        }
+        arrangeButton.menu = UIMenu(title: "정렬 기준", children: [arrangeByTitle, arrangeByReadCount])
+        arrangeButton.showsMenuAsPrimaryAction = true
+    }
+    
+    private func changeScrollUpButtonState(row: Int) {
+        if row > 5 && scrollUpButton.isHidden {
+            scrollUpButton.setHiddenAnimation(hiddenFlag: false)
+        } else if row == 0 {
+            scrollUpButton.setHiddenAnimation(hiddenFlag: true)
         }
     }
     
@@ -127,8 +135,6 @@ class LocationViewController: UIViewController {
 
 // MARK: - XMLParser
 extension LocationViewController: XMLParserDelegate {
-    
-    // parser가 시작 태그를 만나면 호출 Ex) <name>
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
         if (elementName == "item") {
@@ -136,7 +142,6 @@ extension LocationViewController: XMLParserDelegate {
         }
     }
 
-    // 현재 태그에 담겨있는 string이 전달됨
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
         case "contentid":
@@ -164,11 +169,9 @@ extension LocationViewController: XMLParserDelegate {
         }
     }
 
-    // parser가 종료 태그를 만나면 호출 Ex) </name>
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if (elementName == "item") {
-            templeList.append(temple)
-            templeCurrentCount += 1
+            temples.append(temple)
         }
     }
 }
@@ -209,24 +212,19 @@ extension LocationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.templeList.count
+        return temples.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
-        let temple = templeList[indexPath.row]
+        changeScrollUpButtonState(row: indexPath.row)
         
-        cell.configure(temple: temple, tableView: self.templeTableView, indexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
+        let temple = temples[indexPath.row]
+        cell.configure(temple: temple, tableView: tableView, indexPath: indexPath)
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = backgroundView
-        
-        if indexPath.row > 5 && goUpButton.isHidden {
-            goUpButton.setHiddenAnimation(hiddenFlag: false)
-        } else if indexPath.row == 0 {
-            goUpButton.setHiddenAnimation(hiddenFlag: true)
-        }
         
         return cell
     }
@@ -238,11 +236,11 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         CustomLoading.show()
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
-        TempleViewController.contentId = templeList[indexPath.row].id
+        TempleViewController.contentId = temples[indexPath.row].id
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == templeList.count && templeCurrentCount < templeTotalCount {
+        if indexPath.row + 1 == temples.count && temples.count < templeTotalCount {
             currentPage = "\(Int(currentPage)! + 1)"
             loadData()
         }

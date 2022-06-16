@@ -57,7 +57,7 @@
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="touchUpAreaBtn:" destination="LeV-bQ-38w" eventType="touchUpInside" id="OjI-Ts-hDF"/>
+                                                                    <action selector="touchUpAreaButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="HFX-l1-eLx"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xG-je-q0Q">
@@ -72,7 +72,7 @@
                                                                     <backgroundConfiguration key="background" image="arrowtriangle.down.fill" catalog="system"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="touchUpAreaBtn:" destination="LeV-bQ-38w" eventType="touchUpInside" id="Nen-e1-a8i"/>
+                                                                    <action selector="touchUpAreaButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="K1T-vi-cSc"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -158,7 +158,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
-                                                    <action selector="touchUpSearchBtn:" destination="LeV-bQ-38w" eventType="touchUpInside" id="HS9-BD-IbP"/>
+                                                    <action selector="touchUpSearchButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="jzl-A9-xZQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuN-3f-cFe" userLabel="Arrange Button">
@@ -221,7 +221,7 @@
                                     <constraint firstItem="1X9-Vs-am7" firstAttribute="top" secondItem="7Yf-RI-N46" secondAttribute="bottom" constant="20" id="rcW-nA-qSL"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukI-tj-BNQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukI-tj-BNQ" userLabel="Scroll Up Button">
                                 <rect key="frame" x="349" y="807" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="SHr-d6-Bsl"/>
@@ -233,7 +233,7 @@
                                     <backgroundConfiguration key="background" image="goup"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="touchUpGoUpButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="bPZ-jV-3qF"/>
+                                    <action selector="touchUpScrollUpButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="OML-SZ-abS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -252,9 +252,9 @@
                     <navigationItem key="navigationItem" id="V3E-6I-GRc"/>
                     <connections>
                         <outlet property="arrangeButton" destination="NuN-3f-cFe" id="OfT-Nx-2Bs"/>
-                        <outlet property="goUpButton" destination="ukI-tj-BNQ" id="Kfk-f6-SkF"/>
                         <outlet property="locationText" destination="w8y-GO-gKN" id="qx3-FC-DdG"/>
-                        <outlet property="templeTableView" destination="uJE-l7-OQI" id="76U-YQ-yvn"/>
+                        <outlet property="scrollUpButton" destination="ukI-tj-BNQ" id="MIM-gn-bIa"/>
+                        <outlet property="tableView" destination="uJE-l7-OQI" id="veJ-p0-aY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6V-O6-Z29" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -497,7 +497,6 @@
                                     <backgroundConfiguration key="background" image="goup"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="touchUpGoUpButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="U6r-JT-jTL"/>
                                     <action selector="touchUpScrollUpButton:" destination="LG8-me-FD4" eventType="touchUpInside" id="Tj6-Nn-Zn2"/>
                                 </connections>
                             </button>

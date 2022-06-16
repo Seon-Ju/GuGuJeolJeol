@@ -54,7 +54,7 @@ class RectangleTableViewCell: UITableViewCell {
             }
             
             if self.imageData == nil {
-                let searchText = self.editSearchText(address: temple.addr1, title: temple.title)
+                let searchText = self.generateSearchText(address: temple.addr1, title: temple.title)
                 CommonHttp.getNaverImage(searchText: searchText) { data in
                     if let data = data {
                         isNaverImage = true
@@ -87,7 +87,7 @@ class RectangleTableViewCell: UITableViewCell {
         }
     }
     
-    private func editSearchText(address: String?, title: String) -> String {
+    private func generateSearchText(address: String?, title: String) -> String {
         // 이미지 검색어 세팅
         // ex) 가평 + 대원사
         var editedAddr: String = ""
