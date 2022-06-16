@@ -50,5 +50,5 @@ enum Location: String, CaseIterable {
         }
     }
     
-    static var totalCount: Int = 18
+    static var totalCount: Int = Location.allCases.count
 }
