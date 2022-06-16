@@ -34,6 +34,8 @@ class SearchViewController: BaseViewController {
             delegate.navigationController = self.navigationController
         }
         
+        searchTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,23 +51,7 @@ class SearchViewController: BaseViewController {
     
     // MARK: - IBActions
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
-        searchResultTemples.removeAll()
-        
-        guard let searchText = searchTextField.text, searchText.count != 0 else {
-            showAlert(message: "검색어를 입력해주세요.")
-            return
-        }
-        
-        searchResultTemples = allTemples.filter { temple in
-            temple.title.contains(searchText)
-        }
-        
-        if !searchResultTemples.isEmpty {
-            SearchResultViewController.temples = searchResultTemples
-            CommonNavi.pushVC(sbName: "Main", vcName: "SearchResultVC")
-        } else {
-            showAlert(message: "검색결과가 없습니다.")
-        }
+        loadSearchResult()
     }
     
     @IBAction func touchUpCategoryButton(_ sender: UIButton) {
@@ -85,6 +71,24 @@ class SearchViewController: BaseViewController {
     }
     
     // MARK: - Privates
+    private func loadSearchResult() {
+        guard let searchText = searchTextField.text, searchText.count != 0 else {
+            showAlert(message: "검색어를 입력해주세요.")
+            return
+        }
+        
+        searchResultTemples = allTemples.filter { temple in
+            temple.title.contains(searchText)
+        }
+        
+        if !searchResultTemples.isEmpty {
+            SearchResultViewController.temples = searchResultTemples
+            CommonNavi.pushVC(sbName: "Main", vcName: "SearchResultVC")
+        } else {
+            showAlert(message: "검색결과가 없습니다.")
+        }
+    }
+    
     private func downloadJSONData(completion: @escaping () -> Void) {
         storage.reference(forURL: storagePath).downloadURL { url, error in
             let data = NSData(contentsOf: url!)! as Data
@@ -122,4 +126,13 @@ class SearchViewController: BaseViewController {
         present(alert, animated: true, completion: nil)
     }
     
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == searchTextField {
+            loadSearchResult()
+        }
+        return true
+    }
 }
