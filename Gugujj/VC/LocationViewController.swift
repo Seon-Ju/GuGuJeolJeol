@@ -21,6 +21,7 @@ class LocationViewController: UIViewController {
     var temple: Temple = Temple(id: 0, title: "")
     var temples: [Temple] = [Temple]()
     var templeTotalCount: Int = 0
+    var isResetTemple: Bool = false
 
     // MARK: IBOutlets
     @IBOutlet weak var locationText: UIButton!
@@ -36,7 +37,6 @@ class LocationViewController: UIViewController {
         
         let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
         alert.view.addSubview(pickerView)
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
             self.currentPage = "1"
             
@@ -44,6 +44,7 @@ class LocationViewController: UIViewController {
             self.selectedAreaCode = Location(rawValue: self.selectedLocation)?.code
             
             self.temples = [Temple]()
+            self.isResetTemple = true
             self.loadData()
         })
         
@@ -94,6 +95,10 @@ class LocationViewController: UIViewController {
             parser.parse()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                if self.isResetTemple {
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    self.isResetTemple = false
+                }
                 CustomLoading.hide()
             }
         }
@@ -104,12 +109,14 @@ class LocationViewController: UIViewController {
             self.selectedArrange = "A"
             self.currentPage = "1"
             self.temples = [Temple]()
+            self.isResetTemple = true
             self.loadData()
         }
         let arrangeByReadCount = UIAction(title: "인기순") { _ in
             self.selectedArrange = "B"
             self.currentPage = "1"
             self.temples = [Temple]()
+            self.isResetTemple = true
             self.loadData()
         }
         arrangeButton.menu = UIMenu(title: "정렬 기준", children: [arrangeByTitle, arrangeByReadCount])
