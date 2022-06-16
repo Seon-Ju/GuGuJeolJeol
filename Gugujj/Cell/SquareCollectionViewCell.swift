@@ -9,25 +9,26 @@ import UIKit
 
 class SquareCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var dist: UILabel!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var distLabel: UILabel!
     @IBOutlet weak var imageWarningView: UIView!
     
-    var imageData: Data?
+    private var imageData: Data?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         layer.cornerRadius = 20
-        
-        image.addGradient(color1: UIColor.clear, color2: UIColor.black)
+        thumbnailImageView.addGradient(color1: UIColor.clear, color2: UIColor.black)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         imageData = nil
-        image.image = UIImage(named: "placeholder")
+        titleLabel.text = nil
+        distLabel.text = nil
+        thumbnailImageView.image = UIImage(named: "placeholder")
     }
     
     func configure(nearSights: [NearSight], collectionView: UICollectionView, indexPath: IndexPath) {
@@ -37,29 +38,41 @@ class SquareCollectionViewCell: UICollectionViewCell {
             self.imageWarningView.isHidden = true
             
             DispatchQueue.global(qos: .userInitiated).async {
-                if let imageURL = nearSight.imageURL, let data = try? Data(contentsOf: URL(string: imageURL)!) {
+                var isNaverImage: Bool = false
+                
+                if let imageURL = nearSight.imageURL, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
                     self.imageData = data
                 }
                 
-                DispatchQueue.main.async {
-                    self.title.text = nearSight.title
-                    self.dist.text = nearSight.dist
-                    
-                    if self.imageData == nil {
-                        CommonHttp.getNaverImage(searchText: nearSight.title) { data in
-                            DispatchQueue.main.async {
-                                if data != nil {
-                                    print(nearSight.title)
-                                    self.image.image = UIImage(data: data!)
-                                    self.imageWarningView.isHidden = false
-                                } else {
-                                    self.image.image = UIImage(named: "placeholder")
-                                }
-                            }
+                if self.imageData == nil {
+                    CommonHttp.getNaverImage(searchText: nearSight.title) { data in
+                        if let data = data {
+                            isNaverImage = true
+                            self.imageData = data
+                            self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: isNaverImage)
                         }
-                    } else {
-                        self.image.image = UIImage(data: self.imageData!)
                     }
+                }
+                else {
+                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: isNaverImage)
+                }
+            }
+        }
+    }
+    
+    private func updateUI(collectionView: UICollectionView, nearSight: NearSight, nearSightIndexPath: IndexPath, isNaverImage: Bool) {
+        DispatchQueue.main.async {
+            if let cellIndexPath: IndexPath = collectionView.indexPath(for: self), cellIndexPath.row == nearSightIndexPath.row {
+                self.titleLabel.text = nearSight.title
+                self.distLabel.text = nearSight.dist
+                
+                if let imageData = self.imageData {
+                    self.thumbnailImageView.image = UIImage(data: imageData)
+                    if isNaverImage {
+                        self.imageWarningView.isHidden = false
+                    }
+                } else {
+                    self.thumbnailImageView.image = UIImage(named: "placeholder")
                 }
             }
         }

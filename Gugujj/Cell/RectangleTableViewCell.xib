@@ -31,27 +31,27 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="W4b-hG-QCj">
-                        <rect key="frame" x="35" y="130" width="310" height="79"/>
+                        <rect key="frame" x="35" y="134" width="310" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해동용궁사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oF-7q-9ze">
-                                <rect key="frame" x="0.0" y="0.0" width="310" height="33"/>
+                                <rect key="frame" x="0.0" y="0.0" width="310" height="30.5"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부산광역시 기장군 기장읍 용궁길 86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WP-na-U3b">
-                                <rect key="frame" x="0.0" y="36" width="310" height="19"/>
+                                <rect key="frame" x="0.0" y="33.5" width="310" height="17.5"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SR6-ON-TO1">
-                                <rect key="frame" x="0.0" y="58" width="310" height="21"/>
+                                <rect key="frame" x="0.0" y="54" width="310" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prg-0Y-c8n">
-                                        <rect key="frame" x="13" y="0.0" width="297" height="20.5"/>
+                                        <rect key="frame" x="13" y="0.0" width="297" height="19"/>
                                         <string key="text">본 이미지는 한국관광공사 제공 이미지가 아닌 네이버 이미지검색 결과로,
 사찰과 무관한 이미지일 수 있습니다.</string>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="8"/>
@@ -95,10 +95,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="address" destination="5WP-na-U3b" id="2rm-x3-uM9"/>
-                <outlet property="imageWarning" destination="SR6-ON-TO1" id="44i-dH-uBL"/>
-                <outlet property="thumbnail" destination="N7d-kW-qTc" id="3Ah-h5-WbV"/>
-                <outlet property="title" destination="2oF-7q-9ze" id="Baw-3L-AXV"/>
+                <outlet property="addressLabel" destination="5WP-na-U3b" id="wzg-ka-8TE"/>
+                <outlet property="imageWarningView" destination="SR6-ON-TO1" id="htQ-kB-UWW"/>
+                <outlet property="thumbnailImageView" destination="N7d-kW-qTc" id="6uc-kS-rpC"/>
+                <outlet property="titleLabel" destination="2oF-7q-9ze" id="C9b-Rz-e3M"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </tableViewCell>

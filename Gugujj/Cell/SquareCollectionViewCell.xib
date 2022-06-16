@@ -29,26 +29,26 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZFx-T0-X9Q">
-                        <rect key="frame" x="20" y="91.5" width="120" height="48.5"/>
+                        <rect key="frame" x="20" y="94.5" width="120" height="45.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf8-bq-2LC">
-                                <rect key="frame" x="0.0" y="0.0" width="39" height="18"/>
+                                <rect key="frame" x="0.0" y="0.0" width="35.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해동용궁사" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-nU-bmQ">
-                                <rect key="frame" x="0.0" y="18" width="74" height="20.5"/>
+                                <rect key="frame" x="0.0" y="16.5" width="69.5" height="19"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yhf-fh-hku">
-                                <rect key="frame" x="0.0" y="38.5" width="120" height="10"/>
+                                <rect key="frame" x="0.0" y="35.5" width="120" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="네이버 이미지검색 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKc-su-hjX">
-                                        <rect key="frame" x="12" y="0.0" width="77.5" height="10"/>
+                                        <rect key="frame" x="12" y="0.0" width="74" height="10"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="8"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -90,10 +90,10 @@
                 <constraint firstAttribute="trailing" secondItem="ZFx-T0-X9Q" secondAttribute="trailing" constant="20" id="kpN-VQ-v06"/>
             </constraints>
             <connections>
-                <outlet property="dist" destination="uf8-bq-2LC" id="bOK-6K-UCo"/>
-                <outlet property="image" destination="4tG-oH-M9D" id="3Zd-EY-iEv"/>
-                <outlet property="imageWarningView" destination="Yhf-fh-hku" id="k1g-xL-F8x"/>
-                <outlet property="title" destination="cMR-nU-bmQ" id="jye-QR-vl5"/>
+                <outlet property="distLabel" destination="uf8-bq-2LC" id="axA-bj-LLo"/>
+                <outlet property="imageWarningView" destination="Yhf-fh-hku" id="3Yc-HQ-tkO"/>
+                <outlet property="thumbnailImageView" destination="4tG-oH-M9D" id="wf6-5Q-Zj6"/>
+                <outlet property="titleLabel" destination="cMR-nU-bmQ" id="dbQ-Eu-XmI"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="87.723214285714278"/>
         </collectionViewCell>

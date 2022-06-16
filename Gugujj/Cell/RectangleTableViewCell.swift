@@ -9,27 +9,26 @@ import UIKit
 
 class RectangleTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var thumbnail: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var imageWarning: UIView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var imageWarningView: UIView!
     
-    private var currentElement: String?
     private var imageData: Data?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         layer.cornerRadius = 20
-        thumbnail.addGradient(color1: UIColor.clear, color2: UIColor.black)
+        thumbnailImageView.addGradient(color1: UIColor.clear, color2: UIColor.black)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         imageData = nil
-        title.text = nil
-        address.text = nil
-        thumbnail.image = UIImage(named: "placeholder")
+        titleLabel.text = nil
+        addressLabel.text = nil
+        thumbnailImageView.image = UIImage(named: "placeholder")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,7 +43,7 @@ class RectangleTableViewCell: UITableViewCell {
     }
     
     func configure(temple: Temple, tableView: UITableView, indexPath: IndexPath) {
-        imageWarning.isHidden = true
+        imageWarningView.isHidden = true
 
         DispatchQueue.global(qos: .userInitiated).async {
             var isNaverImage: Bool = false
@@ -72,16 +71,16 @@ class RectangleTableViewCell: UITableViewCell {
     private func updateUI(tableView: UITableView, temple: Temple, templeIndexPath: IndexPath, isNaverImage: Bool) {
         DispatchQueue.main.async {
             if let cellIndexPath: IndexPath = tableView.indexPath(for: self), cellIndexPath.row == templeIndexPath.row {
-                self.title.text = temple.title
-                self.address.text = temple.addr1
+                self.titleLabel.text = temple.title
+                self.addressLabel.text = temple.addr1
                 
                 if let imageData = self.imageData {
-                    self.thumbnail.image = UIImage(data: imageData)
+                    self.thumbnailImageView.image = UIImage(data: imageData)
                     if isNaverImage {
-                        self.imageWarning.isHidden = false
+                        self.imageWarningView.isHidden = false
                     }
                 } else {
-                    self.thumbnail.image = UIImage(named: "placeholder")
+                    self.thumbnailImageView.image = UIImage(named: "placeholder")
                 }
             }
         }
