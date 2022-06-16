@@ -12,6 +12,11 @@ class SearchResultViewController: BaseViewController {
     static var temples: [Temple] = [Temple]()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var scrollUpButton: UIButton!
+    
+    @IBAction func touchUpScrollUpButton(_ sender: UIButton) {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +26,8 @@ class SearchResultViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
+        
+        scrollUpButton.isHidden = true
     }
     
 }
@@ -39,6 +46,12 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = backgroundView
+        
+        if indexPath.row > 5 && scrollUpButton.isHidden {
+            scrollUpButton.setHiddenAnimation(hiddenFlag: false)
+        } else if indexPath.row == 0 {
+            scrollUpButton.setHiddenAnimation(hiddenFlag: true)
+        }
 
         return cell
     }

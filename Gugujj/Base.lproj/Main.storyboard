@@ -206,26 +206,9 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukI-tj-BNQ">
-                                        <rect key="frame" x="349" y="801" width="45" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="SHr-d6-Bsl"/>
-                                            <constraint firstAttribute="height" constant="45" id="WXM-JA-Dij"/>
-                                        </constraints>
-                                        <color key="tintColor" red="1" green="0.52244961869999995" blue="0.23367001470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="goup"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="touchUpGoUpButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="bPZ-jV-3qF"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ukI-tj-BNQ" secondAttribute="trailing" constant="20" id="4fp-Rx-7Ig"/>
-                                    <constraint firstAttribute="bottom" secondItem="ukI-tj-BNQ" secondAttribute="bottom" constant="50" id="BM7-lT-iic"/>
                                     <constraint firstItem="uJE-l7-OQI" firstAttribute="top" secondItem="1X9-Vs-am7" secondAttribute="bottom" constant="20" id="C7V-6F-tfy"/>
                                     <constraint firstItem="7Yf-RI-N46" firstAttribute="leading" secondItem="kax-WV-VSB" secondAttribute="leading" id="Cjc-Y3-wKM"/>
                                     <constraint firstItem="7Yf-RI-N46" firstAttribute="top" secondItem="kax-WV-VSB" secondAttribute="top" id="HGW-Kk-djh"/>
@@ -238,14 +221,31 @@
                                     <constraint firstItem="1X9-Vs-am7" firstAttribute="top" secondItem="7Yf-RI-N46" secondAttribute="bottom" constant="20" id="rcW-nA-qSL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukI-tj-BNQ">
+                                <rect key="frame" x="349" y="807" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="SHr-d6-Bsl"/>
+                                    <constraint firstAttribute="height" constant="45" id="WXM-JA-Dij"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.52244961869999995" blue="0.23367001470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="goup"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchUpGoUpButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="bPZ-jV-3qF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qnW-hV-rXi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kax-WV-VSB" firstAttribute="leading" secondItem="qnW-hV-rXi" secondAttribute="leading" id="2Wo-Zu-xck"/>
                             <constraint firstAttribute="trailing" secondItem="kax-WV-VSB" secondAttribute="trailing" id="5IE-sW-jMX"/>
+                            <constraint firstItem="qnW-hV-rXi" firstAttribute="bottom" secondItem="ukI-tj-BNQ" secondAttribute="bottom" constant="10" id="i5G-Lb-3eg"/>
                             <constraint firstAttribute="bottom" secondItem="kax-WV-VSB" secondAttribute="bottom" id="kav-tc-OfS"/>
                             <constraint firstItem="kax-WV-VSB" firstAttribute="top" secondItem="twh-Qa-v7h" secondAttribute="top" id="kcb-by-yvc"/>
+                            <constraint firstItem="qnW-hV-rXi" firstAttribute="trailing" secondItem="ukI-tj-BNQ" secondAttribute="trailing" constant="20" id="sf4-iw-WBH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="지역" image="location" catalog="system" selectedImage="location.fill" id="jHd-ka-18R"/>
@@ -485,6 +485,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AE1-g4-zC8" userLabel="Scroll Up Button">
+                                <rect key="frame" x="349" y="807" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="2no-Yc-bGc"/>
+                                    <constraint firstAttribute="width" constant="45" id="wN1-9M-En5"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.52244961869999995" blue="0.23367001470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="goup"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchUpGoUpButton:" destination="LeV-bQ-38w" eventType="touchUpInside" id="U6r-JT-jTL"/>
+                                    <action selector="touchUpScrollUpButton:" destination="LG8-me-FD4" eventType="touchUpInside" id="Tj6-Nn-Zn2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="isz-NC-LZf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -496,9 +512,12 @@
                             <constraint firstAttribute="bottom" secondItem="Zcc-iO-3Sk" secondAttribute="bottom" id="gKK-Yu-gh9"/>
                             <constraint firstItem="Zcc-iO-3Sk" firstAttribute="leading" secondItem="isz-NC-LZf" secondAttribute="leading" constant="30" id="hra-jU-GiZ"/>
                             <constraint firstItem="isz-NC-LZf" firstAttribute="trailing" secondItem="Zcc-iO-3Sk" secondAttribute="trailing" constant="30" id="m7U-3f-Qvs"/>
+                            <constraint firstItem="isz-NC-LZf" firstAttribute="trailing" secondItem="AE1-g4-zC8" secondAttribute="trailing" constant="20" id="qhm-g5-tBq"/>
+                            <constraint firstItem="isz-NC-LZf" firstAttribute="bottom" secondItem="AE1-g4-zC8" secondAttribute="bottom" constant="10" id="z6O-df-cJo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="scrollUpButton" destination="AE1-g4-zC8" id="kse-Q2-aH3"/>
                         <outlet property="tableView" destination="Zcc-iO-3Sk" id="DU4-ox-vvK"/>
                     </connections>
                 </viewController>
