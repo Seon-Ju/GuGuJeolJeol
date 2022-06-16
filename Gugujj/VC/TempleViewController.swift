@@ -51,6 +51,10 @@ class TempleViewController: BaseViewController {
         }
     }
     
+    @IBAction func touchUpCloseButton(_ sender: UIButton) {
+        CommonNavi.popVC()
+    }
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1061,6 +1061,21 @@
                                     <constraint firstAttribute="trailing" secondItem="QtU-Ix-x0C" secondAttribute="trailing" id="so4-7J-FJW"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVd-vf-S15">
+                                <rect key="frame" x="364" y="44" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7EH-qu-VkX"/>
+                                    <constraint firstAttribute="width" constant="30" id="Do7-fZ-zGf"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGray4Color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="close"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchUpCloseButton:" destination="Ogj-LZ-wP8" eventType="touchUpInside" id="myd-Xd-yMH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VkK-cs-Vrz" propertyAccessControl="none"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1068,6 +1083,8 @@
                             <constraint firstAttribute="bottom" secondItem="Btu-kf-MrV" secondAttribute="bottom" id="3A5-YZ-ttk"/>
                             <constraint firstItem="Btu-kf-MrV" firstAttribute="leading" secondItem="VkK-cs-Vrz" secondAttribute="leading" id="3mb-ZG-B8t"/>
                             <constraint firstItem="Btu-kf-MrV" firstAttribute="top" secondItem="adD-gW-oOf" secondAttribute="top" id="Pzk-Db-ZzP"/>
+                            <constraint firstItem="eVd-vf-S15" firstAttribute="top" secondItem="VkK-cs-Vrz" secondAttribute="top" id="WfB-Dr-SJe"/>
+                            <constraint firstItem="VkK-cs-Vrz" firstAttribute="trailing" secondItem="eVd-vf-S15" secondAttribute="trailing" constant="20" id="XfD-HL-08i"/>
                             <constraint firstItem="Btu-kf-MrV" firstAttribute="trailing" secondItem="VkK-cs-Vrz" secondAttribute="trailing" id="dR9-El-HLS"/>
                         </constraints>
                     </view>
@@ -1153,12 +1170,13 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="close" width="204" height="204"/>
         <image name="creditcard.fill" catalog="system" width="128" height="88"/>
         <image name="footprint" width="569" height="540"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="goup" width="515" height="520"/>
         <image name="house.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="infinity" width="962" height="464"/>
+        <image name="infinity" width="1228" height="660"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
         <image name="location" catalog="system" width="128" height="118"/>
@@ -1174,6 +1192,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
