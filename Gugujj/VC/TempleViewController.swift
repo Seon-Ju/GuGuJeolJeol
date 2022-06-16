@@ -118,7 +118,7 @@ class TempleViewController: BaseViewController {
     private func addMapView() {
         let camera = GMSCameraPosition.camera(withLatitude: Double(mapY)!, longitude: Double(mapX)!, zoom: 15.0)
         let map = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
-        self.mapView.addSubview(map)
+        mapView.addSubview(map)
         map.translatesAutoresizingMaskIntoConstraints = false
         map.topAnchor.constraint(equalTo: mapView.topAnchor).isActive = true
         map.leftAnchor.constraint(equalTo: mapView.leftAnchor).isActive = true
@@ -129,8 +129,24 @@ class TempleViewController: BaseViewController {
         marker.position = CLLocationCoordinate2D(latitude: Double(mapY)!, longitude: Double(mapX)!)
         marker.map = map
         
+        let button = UIButton(frame: self.mapView.frame)
+        button.addTarget(self, action: #selector(launchGoogleMap(_:)), for: .touchUpInside)
+        mapView.addSubview(button)
+        
         isMapLoad = true
         checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad)
+    }
+    
+    @objc private func launchGoogleMap(_ sender: UIButton) {
+        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps:")!) {
+            if let url = URL(string: "comgooglemaps://?ll=\(mapY),\(mapX)"), !url.absoluteString.isEmpty {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        } else {
+            if let url = URL(string: "http://maps.google.com/maps?ll=\(mapY),\(mapX)"), !url.absoluteString.isEmpty {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     private func editSearchText(address: String?, title: String) -> String {
