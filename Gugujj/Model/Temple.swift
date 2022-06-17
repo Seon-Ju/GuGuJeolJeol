@@ -15,7 +15,6 @@ struct Temple: Codable {
     var areacode: Int?
     var imageUrl: String?
     var readcount: Int?
-    var creditcard: Int?
     var pet: Int?
     var parking: Int?
     var heritage: Int?

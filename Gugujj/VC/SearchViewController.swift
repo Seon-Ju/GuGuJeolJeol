@@ -17,7 +17,6 @@ class SearchViewController: BaseViewController {
     private var allTemples: [Temple] = [Temple]()
     private var searchResultTemples: [Temple] = [Temple]()
     private var availableParkingTemples: [Temple] = [Temple]()
-    private var availableCreditCardTemples: [Temple] = [Temple]()
     private var availablePetTemples: [Temple] = [Temple]()
     private var isHeritageTemples: [Temple] = [Temple]()
     
@@ -58,8 +57,6 @@ class SearchViewController: BaseViewController {
         switch sender.restorationIdentifier {
         case "parkingButton":
             SearchResultViewController.temples = availableParkingTemples
-        case "creditCardButton":
-            SearchResultViewController.temples = availableCreditCardTemples
         case "petButton":
             SearchResultViewController.temples = availablePetTemples
         case "heritageButton":
@@ -104,9 +101,6 @@ class SearchViewController: BaseViewController {
     private func classifyTemplesByCategory() {
         availableParkingTemples = allTemples.filter { temple in
             temple.parking == 1
-        }
-        availableCreditCardTemples = allTemples.filter { temple in
-            temple.creditcard == 1
         }
         availablePetTemples = allTemples.filter { temple in
             temple.pet == 1

@@ -33,12 +33,11 @@ class TempleViewController: BaseViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: UIView!
     
-    @IBOutlet weak var telLabel: UILabel!
+    @IBOutlet weak var telTextView: UITextView!
     @IBOutlet weak var restDateLabel: UILabel!
     @IBOutlet weak var useTimeLabel: UILabel!
     @IBOutlet weak var parkingLabel: UILabel!
     @IBOutlet weak var toiletLabel: UILabel!
-    @IBOutlet weak var creditCardLabel: UILabel!
     @IBOutlet weak var petLabel: UILabel!
     
     @IBOutlet weak var descTitleLabel: UILabel!
@@ -51,7 +50,7 @@ class TempleViewController: BaseViewController {
         }
     }
     
-    @IBAction func touchUpCloseButton(_ sender: UIButton) {
+    @IBAction func touchUpBackButton(_ sender: UIButton) {
         CommonNavi.popVC()
     }
     
@@ -199,7 +198,8 @@ class TempleViewController: BaseViewController {
     }
     
     private func appendText(on label: UILabel, string: String) {
-        if label.text == "정보 없음" {
+        label.textColor = UIColor.black
+        if label.text == "아직 정보가 없어요 T_T" {
             label.text = string
         } else if !string.contains("<") && !string.contains(">") && !string.contains("strong") && !string.contains("br") {
             label.text! += string
@@ -207,7 +207,8 @@ class TempleViewController: BaseViewController {
     }
     
     private func appendText(on textView: UITextView, string: String) {
-        if textView.text == "정보 없음" {
+        textView.textColor = UIColor.black
+        if textView.text == "아직 정보가 없어요 T_T" {
             textView.text = string
         } else if string.contains("br") {
             textView.text += "\n"
@@ -217,7 +218,7 @@ class TempleViewController: BaseViewController {
     }
     
     private func setLineSpacing() {
-        telLabel.setLineSpacing(text: telLabel.text!)
+        telTextView.setLineSpacing(text: telTextView.text!)
         restDateLabel.setLineSpacing(text: restDateLabel.text!)
         useTimeLabel.setLineSpacing(text: useTimeLabel.text!)
         parkingLabel.setLineSpacing(text: parkingLabel.text!)
@@ -274,7 +275,7 @@ extension TempleViewController: XMLParserDelegate {
             addressLabel.text! += string
             
         case "infocenter":
-            appendText(on: telLabel, string: string)
+            appendText(on: telTextView, string: string)
             
         case "restdate":
             appendText(on: restDateLabel, string: string)
@@ -285,17 +286,20 @@ extension TempleViewController: XMLParserDelegate {
         case "parking":
             appendText(on: parkingLabel, string: string)
             
-        case "chkcreditcard":
-            if string != "없음" { creditCardLabel.text = string }
-            
         case "chkpet":
-            if string != "없음" { petLabel.text = string }
+            if string != "없음" {
+                petLabel.textColor = UIColor.black
+                petLabel.text = string
+            }
             
         case "infoname":
             infoName = string
             
         case "infotext":
-            if infoName == "화장실" { toiletLabel.text = string }
+            if infoName == "화장실" {
+                toiletLabel.textColor = UIColor.black
+                toiletLabel.text = string
+            }
             
         case "mapx":
             mapX = string
