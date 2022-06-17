@@ -49,8 +49,8 @@ class SquareCollectionViewCell: UICollectionViewCell {
                         if let data = data {
                             isNaverImage = true
                             self.imageData = data
-                            self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: isNaverImage)
                         }
+                        self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: isNaverImage)
                     }
                 }
                 else {
@@ -72,7 +72,7 @@ class SquareCollectionViewCell: UICollectionViewCell {
                         self.imageWarningView.isHidden = false
                     }
                 } else {
-                    self.thumbnailImageView.image = UIImage(named: "placeholder")
+                    self.thumbnailImageView.image = UIImage(named: "noimage")
                 }
             }
         }

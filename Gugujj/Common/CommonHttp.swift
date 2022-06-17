@@ -127,6 +127,7 @@ class CommonHttp {
                 }
             } catch {
                 print("decodeError: \(error)")
+                completion(nil)
             }
         }
     }

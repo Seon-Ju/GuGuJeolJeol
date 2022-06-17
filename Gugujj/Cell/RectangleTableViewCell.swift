@@ -58,8 +58,8 @@ class RectangleTableViewCell: UITableViewCell {
                     if let data = data {
                         isNaverImage = true
                         self.imageData = data
-                        self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: isNaverImage)
                     }
+                    self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: isNaverImage)
                 }
             }
             else {
@@ -80,7 +80,7 @@ class RectangleTableViewCell: UITableViewCell {
                         self.imageWarningView.isHidden = false
                     }
                 } else {
-                    self.thumbnailImageView.image = UIImage(named: "placeholder")
+                    self.thumbnailImageView.image = UIImage(named: "noimage")
                 }
             }
         }

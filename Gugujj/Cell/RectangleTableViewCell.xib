@@ -105,6 +105,6 @@
     </objects>
     <resources>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="placeholder" width="800" height="600"/>
+        <image name="placeholder" width="1000" height="500"/>
     </resources>
 </document>
