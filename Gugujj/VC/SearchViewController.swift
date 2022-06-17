@@ -78,8 +78,13 @@ class SearchViewController: BaseViewController {
             return
         }
         
-        searchResultTemples = allTemples.filter { temple in
-            temple.title.contains(searchText)
+        searchResultTemples.removeAll()
+        allTemples.forEach { temple in
+            if temple.title.contains(searchText) {
+                searchResultTemples.append(temple)
+            } else if let addr1 = temple.addr1, addr1.contains(searchText) {
+                searchResultTemples.append(temple)
+            }
         }
         
         if !searchResultTemples.isEmpty {
