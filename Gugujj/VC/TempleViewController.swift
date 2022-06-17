@@ -156,7 +156,7 @@ class TempleViewController: BaseViewController {
                     self.thumbnailImageView.image = UIImage(data: data!)
                     self.imageWarningView.isHidden = false
                 } else {
-                    self.thumbnailImageView.image = UIImage(named: "placeholder")
+                    self.thumbnailImageView.image = UIImage(named: "noimage")
                 }
                 self.isImageLoad = true
                 self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad)
