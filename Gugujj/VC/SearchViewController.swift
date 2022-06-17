@@ -20,7 +20,7 @@ class SearchViewController: BaseViewController {
     private var availablePetTemples: [Temple] = [Temple]()
     private var isHeritageTemples: [Temple] = [Temple]()
     
-    private var isLoadedJSONData: Bool = false
+    private let userDefaults: UserDefaults = UserDefaults.standard
     
     // MARK: - IBOutlets
     @IBOutlet weak var searchTextField: UITextField!
@@ -45,10 +45,11 @@ class SearchViewController: BaseViewController {
         super.viewWillAppear(animated)
         isSwipedFlag = false
         
-        if !isLoadedJSONData {
-            downloadJSONData() {
-                self.classifyTemplesByCategory()
-            }
+        if let data = userDefaults.value(forKey: "Temples") as? Data {
+            allTemples = try! PropertyListDecoder().decode([Temple].self, from: data)
+            classifyTemplesByCategory()
+        } else {
+            downloadJSONData()
         }
     }
     
@@ -95,14 +96,16 @@ class SearchViewController: BaseViewController {
         }
     }
     
-    private func downloadJSONData(completion: @escaping () -> Void) {
+    private func downloadJSONData() {
         storage.reference(forURL: storagePath).downloadURL { url, error in
             let data = NSData(contentsOf: url!)! as Data
             do {
                 self.allTemples = try JSONDecoder().decode([Temple].self, from: data)
-                completion()
+                self.userDefaults.setValue(try? PropertyListEncoder().encode(self.allTemples), forKey: "Temples")
+                self.classifyTemplesByCategory()
             } catch {
                 print("decodeError: \(error)")
+                self.showAlert(message: "오류가 발생했습니다. 다시 시도해주세요.")
             }
         }
     }
@@ -117,7 +120,6 @@ class SearchViewController: BaseViewController {
         isHeritageTemples = allTemples.filter { temple in
             temple.heritage == 1
         }
-        isLoadedJSONData = true
         CustomLoading.hide()
         print("\(allTemples.count)개 로딩 및 분류 완료")
     }
