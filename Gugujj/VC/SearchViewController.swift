@@ -25,6 +25,10 @@ class SearchViewController: BaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var searchTextField: UITextField!
     
+    @IBAction func touchUpBackButton(_ sender: UIButton) {
+        CommonNavi.popVC()
+    }
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

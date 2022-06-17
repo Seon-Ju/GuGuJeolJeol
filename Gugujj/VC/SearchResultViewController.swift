@@ -14,6 +14,10 @@ class SearchResultViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scrollUpButton: UIButton!
     
+    @IBAction func touchUpBackButton(_ sender: Any) {
+        CommonNavi.popVC()
+    }
+    
     @IBAction func touchUpScrollUpButton(_ sender: UIButton) {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
