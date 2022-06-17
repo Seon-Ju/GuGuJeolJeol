@@ -111,6 +111,7 @@ class TempleViewController: BaseViewController {
         parser.delegate = self
         DispatchQueue.main.async {
             parser.parse()
+            self.setLineSpacing()
         }
     }
     
@@ -210,9 +211,9 @@ class TempleViewController: BaseViewController {
         textView.textColor = UIColor.black
         if textView.text == "아직 정보가 없어요 T_T" {
             textView.text = string
-        } else if string.contains("br") {
+        } else if string.contains("br") && textView == descTextView {
             textView.text += "\n"
-        } else if !string.contains("<") && !string.contains(">") && !string.contains("strong") {
+        } else if !string.contains("<") && !string.contains(">") && !string.contains("strong") && !string.contains("br") {
             textView.text += string
         }
     }
@@ -251,7 +252,6 @@ extension TempleViewController: XMLParserDelegate {
             }
             titleLabel.text = string
             descTitleLabel.text = "\(string) 이야기"
-            setLineSpacing()
             
         case "firstimage":
             let data = try? Data(contentsOf: URL(string: string)!)
