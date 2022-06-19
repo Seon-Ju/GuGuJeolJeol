@@ -80,7 +80,7 @@ class RectangleTableViewCell: UITableViewCell {
                         self.imageWarningView.isHidden = false
                     }
                 } else {
-                    self.thumbnailImageView.image = UIImage(named: "noimage")
+                    self.thumbnailImageView.image = UIImage(named: "noimage_up")
                 }
             }
         }
