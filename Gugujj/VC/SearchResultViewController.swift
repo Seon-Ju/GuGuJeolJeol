@@ -67,4 +67,18 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
         TempleViewController.contentId = SearchResultViewController.temples[indexPath.row].id
     }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? RectangleTableViewCell {
+            let pressDownTransform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseOut], animations: { cell.transform = pressDownTransform })
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? RectangleTableViewCell {
+            let originalTransform = CGAffineTransform(scaleX: 1, y: 1)
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseInOut], animations: { cell.transform = originalTransform })
+        }
+    }
 }
