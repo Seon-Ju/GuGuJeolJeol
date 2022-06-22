@@ -48,10 +48,23 @@ class RectangleTableViewCell: UITableViewCell {
         DispatchQueue.global(qos: .userInitiated).async {
             var isNaverImage: Bool = false
             
-            if let imageURL = temple.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
-                self.imageData = data
+            // 캐싱할 객체의 키값 생성
+            let cachedKey = NSString(string: temple.title)
+            
+            // 캐싱된 이미지가 있다면 그 이미지 사용
+            if let cachedImageData = ImageCacheManager.shared.object(forKey: cachedKey) {
+                self.imageData = cachedImageData as Data?
+                self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: isNaverImage)
+                return
             }
             
+            // 캐싱된 이미지가 없다면 imageURL 프로퍼티 확인
+            if let imageURL = temple.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
+                self.imageData = data
+                ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: cachedKey)
+            }
+            
+            // imageURL 프로퍼티 값이 없다면 네이버 이미지 검색
             if self.imageData == nil {
                 let searchText = self.generateSearchText(address: temple.addr1, title: temple.title)
                 CommonHttp.getNaverImage(searchText: searchText) { data in

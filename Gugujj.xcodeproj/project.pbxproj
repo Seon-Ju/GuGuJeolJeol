@@ -11,6 +11,7 @@
 		5A1F03BB28449AD9005622FF /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03BA28449AD9005622FF /* Temple.swift */; };
 		5A204172285809E400CBBFED /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A204171285809E400CBBFED /* CustomLoading.swift */; };
 		5A21CED928517C3A00A42973 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21CED828517C3A00A42973 /* ImageResponse.swift */; };
+		5A2898EA2863037500C88FB1 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2898E92863037500C88FB1 /* ImageCacheManager.swift */; };
 		5A29EDA82848A15300513D7A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29EDA72848A15300513D7A /* Location.swift */; };
 		5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */; };
 		5A3A34A12859675B00E4833A /* dualball.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A34A02859675B00E4833A /* dualball.gif */; };
@@ -50,6 +51,7 @@
 		5A1F03BA28449AD9005622FF /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
 		5A204171285809E400CBBFED /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
 		5A21CED828517C3A00A42973 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
+		5A2898E92863037500C88FB1 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		5A29EDA72848A15300513D7A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		5A3A34A02859675B00E4833A /* dualball.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dualball.gif; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				5A601973284C3E4F000617A4 /* NearSight.swift */,
 				5A29EDA72848A15300513D7A /* Location.swift */,
 				5A21CED828517C3A00A42973 /* ImageResponse.swift */,
+				5A2898E92863037500C88FB1 /* ImageCacheManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				5A204172285809E400CBBFED /* CustomLoading.swift in Sources */,
 				5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */,
 				94396C9028448EC50088F303 /* BaseViewController.swift in Sources */,
+				5A2898EA2863037500C88FB1 /* ImageCacheManager.swift in Sources */,
 				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,
 				5A21CED928517C3A00A42973 /* ImageResponse.swift in Sources */,
 				5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */,
