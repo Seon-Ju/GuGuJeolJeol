@@ -64,9 +64,11 @@ class SquareCollectionViewCell: UICollectionViewCell {
                 // 캐싱된 이미지데이터가 없고 네이버 이미지데이터가 있을 경우
                 else if self.imageData == nil {
                     CommonHttp.getNaverImage(searchText: nearSight.title) { data in
-                        if let data = data { self.imageData = data }
+                        if let data = data {
+                            self.imageData = data
+                            ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: NSString(string: "naver\(cachedKey)"))
+                        }
                         self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: true)
-                        ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: NSString(string: "naver\(cachedKey)"))
                     }
                 }
                 
