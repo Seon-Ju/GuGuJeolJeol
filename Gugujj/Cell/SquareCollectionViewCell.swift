@@ -38,23 +38,41 @@ class SquareCollectionViewCell: UICollectionViewCell {
             self.imageWarningView.isHidden = true
             
             DispatchQueue.global(qos: .userInitiated).async {
-                var isNaverImage: Bool = false
                 
-                if let imageURL = nearSight.imageURL, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
-                    self.imageData = data
+                // 캐싱할 객체의 키값 생성
+                let cachedKey = NSString(string: nearSight.title)
+                
+                // 캐싱된 한국관광공사 이미지데이터가 있을 경우
+                if let cachedImageData = ImageCacheManager.shared.object(forKey: cachedKey) {
+                    self.imageData = cachedImageData as Data?
+                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: false)
                 }
                 
-                if self.imageData == nil {
+                // 캐싱된 네이버 이미지데이터가 있을 경우
+                else if let cachedImageData = ImageCacheManager.shared.object(forKey: NSString(string: "naver\(cachedKey)")) {
+                    self.imageData = cachedImageData as Data?
+                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: true)
+                }
+                
+                // 캐싱된 이미지데이터가 없고 한국관광공사 imageURL값이 있을 경우
+                else if let imageURL = nearSight.imageURL, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
+                    self.imageData = data
+                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: false)
+                    ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: cachedKey)
+                }
+                
+                // 캐싱된 이미지데이터가 없고 네이버 이미지데이터가 있을 경우
+                else if self.imageData == nil {
                     CommonHttp.getNaverImage(searchText: nearSight.title) { data in
-                        if let data = data {
-                            isNaverImage = true
-                            self.imageData = data
-                        }
-                        self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: isNaverImage)
+                        if let data = data { self.imageData = data }
+                        self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: true)
+                        ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: NSString(string: "naver\(cachedKey)"))
                     }
                 }
+                
+                // 아무것도 없을 경우
                 else {
-                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: isNaverImage)
+                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: false)
                 }
             }
         }
