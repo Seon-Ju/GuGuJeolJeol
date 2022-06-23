@@ -11,6 +11,8 @@ class LocationViewController: UIViewController {
     
     // MARK: - Properties
     let pickerView: UIPickerView = UIPickerView()
+    var focusedRow: Int = 0
+    var selectedRow: Int = 0
     var selectedLocation: String = "전국"
     var selectedAreaCode: String? = nil
     var selectedArrange: String = "B"
@@ -37,11 +39,16 @@ class LocationViewController: UIViewController {
         
         let alert = UIAlertController(title: "지역 선택", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
         alert.view.addSubview(pickerView)
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel) { _ in
+            self.pickerView.selectRow(self.selectedRow, inComponent: 0, animated: true)
+        })
         alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
             self.currentPage = "1"
             
+            self.selectedRow = self.focusedRow
+            self.selectedLocation = Location.allCases[self.selectedRow].rawValue
+            self.selectedAreaCode = Location.allCases[self.selectedRow].code
             self.locationText.setTitle(self.selectedLocation, for: .normal)
-            self.selectedAreaCode = Location(rawValue: self.selectedLocation)?.code
             
             self.temples = [Temple]()
             self.isResetTemple = true
@@ -202,10 +209,7 @@ extension LocationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let locations: [Location] = Location.allCases
-        let location: Location = locations[row]
-        
-        selectedLocation = location.rawValue
+        focusedRow = row
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat
