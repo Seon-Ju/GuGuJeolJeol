@@ -11,6 +11,7 @@
 		5A1F03BB28449AD9005622FF /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F03BA28449AD9005622FF /* Temple.swift */; };
 		5A204172285809E400CBBFED /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A204171285809E400CBBFED /* CustomLoading.swift */; };
 		5A21CED928517C3A00A42973 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21CED828517C3A00A42973 /* ImageResponse.swift */; };
+		5A265DD028653B0A003EBE4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */; };
 		5A2898EA2863037500C88FB1 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2898E92863037500C88FB1 /* ImageCacheManager.swift */; };
 		5A29EDA82848A15300513D7A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29EDA72848A15300513D7A /* Location.swift */; };
 		5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */; };
@@ -33,7 +34,6 @@
 		5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B12283B116E00D19FFF /* LocationViewController.swift */; };
 		5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B14283B116E00D19FFF /* Main.storyboard */; };
 		5AE55B18283B116F00D19FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B17283B116F00D19FFF /* Assets.xcassets */; };
-		5AE55B1B283B116F00D19FFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */; };
 		5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B22283B5F6900D19FFF /* UserViewController.swift */; };
 		5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B24283B5F7000D19FFF /* SearchViewController.swift */; };
 		5AEDE81428584B500088E786 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEDE81328584B500088E786 /* UILabel + Extension.swift */; };
@@ -279,7 +279,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AE55B1B283B116F00D19FFF /* LaunchScreen.storyboard in Resources */,
 				5AE55B18283B116F00D19FFF /* Assets.xcassets in Resources */,
 				5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */,
 				5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */,
@@ -289,6 +288,7 @@
 				5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */,
 				5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */,
 				5AA5EA48285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf in Resources */,
+				5A265DD028653B0A003EBE4F /* LaunchScreen.storyboard in Resources */,
 				5AA5EA46285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf in Resources */,
 				5AA5EA44285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf in Resources */,
 			);
