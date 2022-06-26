@@ -73,9 +73,11 @@ class RectangleTableViewCell: UITableViewCell {
             else if self.imageData == nil {
                 let searchText = self.generateSearchText(address: temple.addr1, title: temple.title)
                 CommonHttp.getNaverImage(searchText: searchText) { data in
-                    if let data = data { self.imageData = data }
+                    if let data = data {
+                        self.imageData = data
+                        ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: NSString(string: "naver\(cachedKey)"))
+                    }
                     self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: true)
-                    ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: NSString(string: "naver\(cachedKey)"))
                 }
             }
             
