@@ -1,0 +1,156 @@
+
+/* Class = "UILabel"; text = "닉네임123984"; ObjectID = "0Fu-n3-vMg"; */
+"0Fu-n3-vMg.text" = "닉네임123984";
+
+/* Class = "UILabel"; text = "반려동물 동반 가능 여부"; ObjectID = "0fl-mq-DIW"; */
+"0fl-mq-DIW.text" = "반려동물 동반 가능 여부";
+
+/* Class = "UILabel"; text = "주변 가볼 만한 곳"; ObjectID = "1Pa-wJ-UiJ"; */
+"1Pa-wJ-UiJ.text" = "주변 가볼 만한 곳";
+
+/* Class = "UIButton"; configuration.title = "반려동물 동반 가능한 사찰"; ObjectID = "5T4-Uj-Z1Y"; */
+"5T4-Uj-Z1Y.configuration.title" = "반려동물 동반 가능한 사찰";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5T4-Uj-Z1Y"; */
+"5T4-Uj-Z1Y.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "즐겨찾는 사찰"; ObjectID = "7T2-qD-Dkz"; */
+"7T2-qD-Dkz.text" = "즐겨찾는 사찰";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8xG-je-q0Q"; */
+"8xG-je-q0Q.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "AE1-g4-zC8"; */
+"AE1-g4-zC8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "주차시설"; ObjectID = "DNI-cv-5cM"; */
+"DNI-cv-5cM.text" = "주차시설";
+
+/* Class = "UICommand"; title = "Item 1"; ObjectID = "E1B-Vn-WnS"; */
+"E1B-Vn-WnS.title" = "Item 1";
+
+/* Class = "UILabel"; text = "아직 정보가 없어요 T_T"; ObjectID = "EBz-fh-Sm7"; */
+"EBz-fh-Sm7.text" = "아직 정보가 없어요 T_T";
+
+/* Class = "UILabel"; text = "화장실"; ObjectID = "EVE-OK-16R"; */
+"EVE-OK-16R.text" = "화장실";
+
+/* Class = "UIButton"; configuration.title = "주차 가능한 사찰"; ObjectID = "FlY-ZN-Uhk"; */
+"FlY-ZN-Uhk.configuration.title" = "주차 가능한 사찰";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FlY-ZN-Uhk"; */
+"FlY-ZN-Uhk.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "지역 사찰"; ObjectID = "LaO-Ay-uu2"; */
+"LaO-Ay-uu2.text" = "지역 사찰";
+
+/* Class = "UILabel"; text = "아직 정보가 없어요 T_T"; ObjectID = "O6f-I6-gFx"; */
+"O6f-I6-gFx.text" = "아직 정보가 없어요 T_T";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "PFw-Op-zJx"; */
+"PFw-Op-zJx.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "검색"; ObjectID = "QA6-Oo-zrF"; */
+"QA6-Oo-zrF.title" = "검색";
+
+/* Class = "UILabel"; text = " "; ObjectID = "QUG-24-rQq"; */
+"QUG-24-rQq.text" = " ";
+
+/* Class = "UITextView"; text = "아직 정보가 없어요 T_T"; ObjectID = "QaB-nN-Nyt"; */
+"QaB-nN-Nyt.text" = "아직 정보가 없어요 T_T";
+
+/* Class = "UILabel"; text = "문의 및 안내"; ObjectID = "UvC-Ks-vMP"; */
+"UvC-Ks-vMP.text" = "문의 및 안내";
+
+/* Class = "UIButton"; configuration.title = "세계문화유산에 등재된 사찰"; ObjectID = "V47-1a-Ge8"; */
+"V47-1a-Ge8.configuration.title" = "세계문화유산에 등재된 사찰";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "V47-1a-Ge8"; */
+"V47-1a-Ge8.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "VJ0-oo-Rv5"; */
+"VJ0-oo-Rv5.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "아직 정보가 없어요 T_T"; ObjectID = "Vdw-Br-Mk7"; */
+"Vdw-Br-Mk7.text" = "아직 정보가 없어요 T_T";
+
+/* Class = "UILabel"; text = "쉬는 날"; ObjectID = "VpH-PE-s6U"; */
+"VpH-PE-s6U.text" = "쉬는 날";
+
+/* Class = "UITextField"; placeholder = "검색어를 입력해주세요."; ObjectID = "WHJ-qA-YGV"; */
+"WHJ-qA-YGV.placeholder" = "검색어를 입력해주세요.";
+
+/* Class = "UILabel"; text = "이용시간"; ObjectID = "YU4-bU-7it"; */
+"YU4-bU-7it.text" = "이용시간";
+
+/* Class = "UILabel"; text = "최근 본 사찰"; ObjectID = "aZQ-59-TJc"; */
+"aZQ-59-TJc.text" = "최근 본 사찰";
+
+/* Class = "UILabel"; text = "검색 결과"; ObjectID = "bRS-y5-eG2"; */
+"bRS-y5-eG2.text" = "검색 결과";
+
+/* Class = "UICommand"; title = "Item 2"; ObjectID = "cSc-vT-wdt"; */
+"cSc-vT-wdt.title" = "Item 2";
+
+/* Class = "UILabel"; text = "아직 정보가 없어요 T_T"; ObjectID = "dFo-gP-Hc0"; */
+"dFo-gP-Hc0.text" = "아직 정보가 없어요 T_T";
+
+/* Class = "UILabel"; text = "이야기"; ObjectID = "eNq-Xq-9AI"; */
+"eNq-Xq-9AI.text" = "이야기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eVd-vf-S15"; */
+"eVd-vf-S15.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = " "; ObjectID = "f9t-sA-rXC"; */
+"f9t-sA-rXC.text" = " ";
+
+/* Class = "UILabel"; text = "추천"; ObjectID = "hwy-n8-7ci"; */
+"hwy-n8-7ci.text" = "추천";
+
+/* Class = "UITabBarItem"; title = "지역"; ObjectID = "jHd-ka-18R"; */
+"jHd-ka-18R.title" = "지역";
+
+/* Class = "UITextField"; placeholder = "검색어를 입력해주세요."; ObjectID = "jX2-zo-cf7"; */
+"jX2-zo-cf7.placeholder" = "검색어를 입력해주세요.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "klI-hE-V0v"; */
+"klI-hE-V0v.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mB7-H1-FzR"; */
+"mB7-H1-FzR.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "아직 정보가 없어요 T_T"; ObjectID = "mGD-bh-HNX"; */
+"mGD-bh-HNX.text" = "아직 정보가 없어요 T_T";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "o17-cY-FxD"; */
+"o17-cY-FxD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "아직 정보가 없어요 T_T"; ObjectID = "owX-YI-TsT"; */
+"owX-YI-TsT.text" = "아직 정보가 없어요 T_T";
+
+/* Class = "UITabBarItem"; title = "마이페이지"; ObjectID = "qcz-oy-10N"; */
+"qcz-oy-10N.title" = "마이페이지";
+
+/* Class = "UILabel"; text = "본 이미지는 한국관광공사 제공 이미지가 아닌 네이버 이미지검색 결과로,\n사찰과 무관한 이미지일 수 있습니다."; ObjectID = "rcc-da-nwY"; */
+"rcc-da-nwY.text" = "본 이미지는 한국관광공사 제공 이미지가 아닌 네이버 이미지검색 결과로,\n사찰과 무관한 이미지일 수 있습니다.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ris-sd-p4j"; */
+"ris-sd-p4j.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uY6-5i-dck"; */
+"uY6-5i-dck.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ukI-tj-BNQ"; */
+"ukI-tj-BNQ.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "w8y-GO-gKN"; */
+"w8y-GO-gKN.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "x7x-WX-27J"; */
+"x7x-WX-27J.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yNz-7t-HNI"; */
+"yNz-7t-HNI.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "둘러보기"; ObjectID = "ySZ-oE-44S"; */
+"ySZ-oE-44S.text" = "둘러보기";
