@@ -56,6 +56,7 @@ class SearchViewController: BaseViewController {
     // MARK: - IBActions
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
         loadSearchResult()
+        searchTextField.resignFirstResponder()
     }
     
     @IBAction func touchUpCategoryButton(_ sender: UIButton) {
@@ -138,6 +139,11 @@ extension SearchViewController: UITextFieldDelegate {
         if textField == searchTextField {
             loadSearchResult()
         }
+        textField.resignFirstResponder()
         return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
