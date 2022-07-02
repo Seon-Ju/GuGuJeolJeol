@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RectangleTableViewCell: UITableViewCell {
+class TempleRectangleCell: UITableViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SquareCollectionViewCell: UICollectionViewCell {
+class TempleSquareCell: UICollectionViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

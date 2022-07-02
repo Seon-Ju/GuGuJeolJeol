@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserViewController: BaseViewController {
+class UserVC: BaseVC {
     
     // MARK: - Properties
 
@@ -21,11 +21,11 @@ class UserViewController: BaseViewController {
         
         starredCollectionView.delegate = self
         starredCollectionView.dataSource = self
-        starredCollectionView.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
+        starredCollectionView.register(UINib(nibName: "TempleSquareCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
         
         recentCollectionView.delegate = self
         recentCollectionView.dataSource = self
-        recentCollectionView.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
+        recentCollectionView.register(UINib(nibName: "TempleSquareCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
         
     }
     
@@ -37,7 +37,7 @@ class UserViewController: BaseViewController {
 }
 
 // MARK: - CollectionView
-extension UserViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension UserVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3

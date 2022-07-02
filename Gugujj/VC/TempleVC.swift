@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMaps
 
-class TempleViewController: BaseViewController {
+class TempleVC: BaseVC {
 
     // MARK: - Properties
     public static var contentId: Int = 0 // shared
@@ -18,7 +18,7 @@ class TempleViewController: BaseViewController {
     private var homepageUrl: String = ""
     private var address: String?
     
-    private var nearSightVC: NearSightCollectionViewController?
+    private var nearSightVC: TempleNearSightVC?
     private var mapX: String = ""
     private var mapY: String = ""
     
@@ -63,7 +63,7 @@ class TempleViewController: BaseViewController {
         thumbnailImageView.addGradient(color1: UIColor.clear, color2: UIColor.black)
         homepageButton.layer.isHidden = true
         
-        nearSightVC = children.last as? NearSightCollectionViewController
+        nearSightVC = children.last as? TempleNearSightVC
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +71,7 @@ class TempleViewController: BaseViewController {
         isSwipedFlag = false
         imageWarningView.isHidden = true
         
-        CommonHttp.getDetailCommon(contentId: TempleViewController.contentId) { data in
+        CommonHttp.getDetailCommon(contentId: TempleVC.contentId) { data in
             guard let xmlData = data else { // 통신 오류시
                 DispatchQueue.main.async {
                     CustomLoading.hide()
@@ -82,7 +82,7 @@ class TempleViewController: BaseViewController {
             self.parseData(data: xmlData)
         }
     
-        CommonHttp.getDetailIntro(contentId: TempleViewController.contentId) { data in
+        CommonHttp.getDetailIntro(contentId: TempleVC.contentId) { data in
             guard let xmlData = data else { // 통신 오류시
                 DispatchQueue.main.async {
                     CustomLoading.hide()
@@ -93,7 +93,7 @@ class TempleViewController: BaseViewController {
             self.parseData(data: xmlData)
         }
         
-        CommonHttp.getDetailInfo(contentId: TempleViewController.contentId) { data in
+        CommonHttp.getDetailInfo(contentId: TempleVC.contentId) { data in
             guard let xmlData = data else { // 통신 오류시
                 DispatchQueue.main.async {
                     CustomLoading.hide()
@@ -236,7 +236,7 @@ class TempleViewController: BaseViewController {
 }
 
 // MARK: - XMLParser
-extension TempleViewController: XMLParserDelegate {
+extension TempleVC: XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName

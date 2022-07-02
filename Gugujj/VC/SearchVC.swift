@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseStorage
 
-class SearchViewController: BaseViewController {
+class SearchVC: BaseVC {
 
     // MARK: - Properties
     private let storage: Storage = Storage.storage()
@@ -62,11 +62,11 @@ class SearchViewController: BaseViewController {
     @IBAction func touchUpCategoryButton(_ sender: UIButton) {
         switch sender.restorationIdentifier {
         case "parkingButton":
-            SearchResultViewController.temples = availableParkingTemples
+            SearchResultVC.temples = availableParkingTemples
         case "petButton":
-            SearchResultViewController.temples = availablePetTemples
+            SearchResultVC.temples = availablePetTemples
         case "heritageButton":
-            SearchResultViewController.temples = isHeritageTemples
+            SearchResultVC.temples = isHeritageTemples
         default:
             break
         }
@@ -90,7 +90,7 @@ class SearchViewController: BaseViewController {
         }
         
         if !searchResultTemples.isEmpty {
-            SearchResultViewController.temples = searchResultTemples
+            SearchResultVC.temples = searchResultTemples
             CommonNavi.pushVC(sbName: "Main", vcName: "SearchResultVC")
         } else {
             showAlert(title: "검색 실패", message: "검색결과가 없습니다.")
@@ -127,7 +127,7 @@ class SearchViewController: BaseViewController {
     
     private func showAlert(title: String, message: String) {
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        guard let popupVC = sb.instantiateViewController(withIdentifier: "PopupVC") as? PopupViewController else {
+        guard let popupVC = sb.instantiateViewController(withIdentifier: "PopupVC") as? PopupVC else {
             return
         }
         popupVC.popupTitle = title
@@ -138,7 +138,7 @@ class SearchViewController: BaseViewController {
     
 }
 
-extension SearchViewController: UITextFieldDelegate {
+extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == searchTextField {
             loadSearchResult()

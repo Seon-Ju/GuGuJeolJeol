@@ -14,18 +14,18 @@
 		5A265DD028653B0A003EBE4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B19283B116F00D19FFF /* LaunchScreen.storyboard */; };
 		5A2898EA2863037500C88FB1 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2898E92863037500C88FB1 /* ImageCacheManager.swift */; };
 		5A29EDA82848A15300513D7A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29EDA72848A15300513D7A /* Location.swift */; };
-		5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */; };
+		5A2C4E39285069F0001BDBA1 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultVC.swift */; };
 		5A3A34A12859675B00E4833A /* dualball.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A34A02859675B00E4833A /* dualball.gif */; };
-		5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */; };
-		5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */; };
-		5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */; };
+		5A40BCE3283C671200DB7FC4 /* TempleRectangleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */; };
+		5A40BCE4283C671200DB7FC4 /* TempleRectangleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */; };
+		5A40BCE6283C7F1900DB7FC4 /* TempleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE5283C7F1900DB7FC4 /* TempleVC.swift */; };
 		5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */; };
-		5A4C3B36283F38E50081B7C1 /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B34283F38E50081B7C1 /* SquareCollectionViewCell.swift */; };
-		5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */; };
+		5A4C3B36283F38E50081B7C1 /* TempleSquareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B34283F38E50081B7C1 /* TempleSquareCell.swift */; };
+		5A4C3B37283F38E50081B7C1 /* TempleSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C3B35283F38E50081B7C1 /* TempleSquareCell.xib */; };
 		5A601974284C3E4F000617A4 /* NearSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601973284C3E4F000617A4 /* NearSight.swift */; };
-		5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */; };
+		5A601976284CF360000617A4 /* TempleNearSightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601975284CF360000617A4 /* TempleNearSightVC.swift */; };
 		5A929CB7286DE8A500D53C12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A929CB9286DE8A500D53C12 /* InfoPlist.strings */; };
-		5A929CC02870550900D53C12 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A929CBF2870550900D53C12 /* PopupViewController.swift */; };
+		5A929CC02870550900D53C12 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A929CBF2870550900D53C12 /* PopupVC.swift */; };
 		5AA5EA44285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA3F285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf */; };
 		5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA40285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf */; };
 		5AA5EA46285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA41285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf */; };
@@ -33,15 +33,15 @@
 		5AA5EA48285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA43285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf */; };
 		5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B0E283B116E00D19FFF /* AppDelegate.swift */; };
 		5AE55B11283B116E00D19FFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B10283B116E00D19FFF /* SceneDelegate.swift */; };
-		5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B12283B116E00D19FFF /* LocationViewController.swift */; };
+		5AE55B13283B116E00D19FFF /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B12283B116E00D19FFF /* LocationVC.swift */; };
 		5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B14283B116E00D19FFF /* Main.storyboard */; };
 		5AE55B18283B116F00D19FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B17283B116F00D19FFF /* Assets.xcassets */; };
-		5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B22283B5F6900D19FFF /* UserViewController.swift */; };
-		5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B24283B5F7000D19FFF /* SearchViewController.swift */; };
+		5AE55B23283B5F6900D19FFF /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B22283B5F6900D19FFF /* UserVC.swift */; };
+		5AE55B25283B5F7000D19FFF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B24283B5F7000D19FFF /* SearchVC.swift */; };
 		5AEDE81428584B500088E786 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEDE81328584B500088E786 /* UILabel + Extension.swift */; };
 		5AEDE816285865A80088E786 /* UITextView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEDE815285865A80088E786 /* UITextView + Extension.swift */; };
 		6B163D330AD4A287616D8E91 /* Pods_Gugujj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */; };
-		94396C9028448EC50088F303 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94396C8F28448EC50088F303 /* BaseViewController.swift */; };
+		94396C9028448EC50088F303 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94396C8F28448EC50088F303 /* BaseVC.swift */; };
 		94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BD92840BE9300D57CDE /* CommonHttp.swift */; };
 		94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BDB2840BEA400D57CDE /* CommonURL.swift */; };
 		94B16BDE2840BEB900D57CDE /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */; };
@@ -55,21 +55,21 @@
 		5A21CED828517C3A00A42973 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 		5A2898E92863037500C88FB1 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		5A29EDA72848A15300513D7A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		5A2C4E38285069F0001BDBA1 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		5A3A34A02859675B00E4833A /* dualball.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dualball.gif; sourceTree = "<group>"; };
-		5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleTableViewCell.swift; sourceTree = "<group>"; };
-		5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleTableViewCell.xib; sourceTree = "<group>"; };
-		5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleViewController.swift; sourceTree = "<group>"; };
+		5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleRectangleCell.swift; sourceTree = "<group>"; };
+		5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempleRectangleCell.xib; sourceTree = "<group>"; };
+		5A40BCE5283C7F1900DB7FC4 /* TempleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleVC.swift; sourceTree = "<group>"; };
 		5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavi.swift; sourceTree = "<group>"; };
-		5A4C3B34283F38E50081B7C1 /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
-		5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCollectionViewCell.xib; sourceTree = "<group>"; };
+		5A4C3B34283F38E50081B7C1 /* TempleSquareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleSquareCell.swift; sourceTree = "<group>"; };
+		5A4C3B35283F38E50081B7C1 /* TempleSquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempleSquareCell.xib; sourceTree = "<group>"; };
 		5A601973284C3E4F000617A4 /* NearSight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSight.swift; sourceTree = "<group>"; };
-		5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSightCollectionViewController.swift; sourceTree = "<group>"; };
+		5A601975284CF360000617A4 /* TempleNearSightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleNearSightVC.swift; sourceTree = "<group>"; };
 		5A929CB8286DE8A500D53C12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A929CBA286DE8AE00D53C12 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		5A929CBB286DE8AF00D53C12 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5A929CBC286DE8AF00D53C12 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5A929CBF2870550900D53C12 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		5A929CBF2870550900D53C12 /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		5AA5EA3F285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
 		5AA5EA40285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
 		5AA5EA41285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
@@ -78,18 +78,18 @@
 		5AE55B0B283B116E00D19FFF /* Gugujj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gugujj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE55B0E283B116E00D19FFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AE55B10283B116E00D19FFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5AE55B12283B116E00D19FFF /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		5AE55B12283B116E00D19FFF /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		5AE55B15283B116E00D19FFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AE55B17283B116F00D19FFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AE55B1A283B116F00D19FFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AE55B1C283B116F00D19FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AE55B22283B5F6900D19FFF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		5AE55B24283B5F7000D19FFF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5AE55B22283B5F6900D19FFF /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
+		5AE55B24283B5F7000D19FFF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		5AEDE81328584B500088E786 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		5AEDE815285865A80088E786 /* UITextView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView + Extension.swift"; sourceTree = "<group>"; };
 		8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gugujj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F51592B675C1E87F79774C5 /* Pods-Gugujj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gugujj.debug.xcconfig"; path = "Target Support Files/Pods-Gugujj/Pods-Gugujj.debug.xcconfig"; sourceTree = "<group>"; };
-		94396C8F28448EC50088F303 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		94396C8F28448EC50088F303 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		94B16BD92840BE9300D57CDE /* CommonHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHttp.swift; sourceTree = "<group>"; };
 		94B16BDB2840BEA400D57CDE /* CommonURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonURL.swift; sourceTree = "<group>"; };
 		94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -125,9 +125,6 @@
 				5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */,
 				94B16BD92840BE9300D57CDE /* CommonHttp.swift */,
 				94B16BDB2840BEA400D57CDE /* CommonURL.swift */,
-				94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */,
-				5AEDE81328584B500088E786 /* UILabel + Extension.swift */,
-				5AEDE815285865A80088E786 /* UITextView + Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -135,14 +132,14 @@
 		5A4C3B3A283F48110081B7C1 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				94396C8F28448EC50088F303 /* BaseViewController.swift */,
-				5AE55B12283B116E00D19FFF /* LocationViewController.swift */,
-				5AE55B24283B5F7000D19FFF /* SearchViewController.swift */,
-				5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */,
-				5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */,
-				5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */,
-				5A929CBF2870550900D53C12 /* PopupViewController.swift */,
-				5AE55B22283B5F6900D19FFF /* UserViewController.swift */,
+				94396C8F28448EC50088F303 /* BaseVC.swift */,
+				5AE55B12283B116E00D19FFF /* LocationVC.swift */,
+				5AE55B24283B5F7000D19FFF /* SearchVC.swift */,
+				5A2C4E38285069F0001BDBA1 /* SearchResultVC.swift */,
+				5A40BCE5283C7F1900DB7FC4 /* TempleVC.swift */,
+				5A601975284CF360000617A4 /* TempleNearSightVC.swift */,
+				5A929CBF2870550900D53C12 /* PopupVC.swift */,
+				5AE55B22283B5F6900D19FFF /* UserVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -150,12 +147,23 @@
 		5A4C3B3B283F48240081B7C1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5A4C3B34283F38E50081B7C1 /* SquareCollectionViewCell.swift */,
-				5A4C3B35283F38E50081B7C1 /* SquareCollectionViewCell.xib */,
-				5A40BCE1283C671200DB7FC4 /* RectangleTableViewCell.swift */,
-				5A40BCE2283C671200DB7FC4 /* RectangleTableViewCell.xib */,
+				5A4C3B34283F38E50081B7C1 /* TempleSquareCell.swift */,
+				5A4C3B35283F38E50081B7C1 /* TempleSquareCell.xib */,
+				5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */,
+				5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		5A929CC5287087FE00D53C12 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */,
+				5AEDE81328584B500088E786 /* UILabel + Extension.swift */,
+				5AEDE815285865A80088E786 /* UITextView + Extension.swift */,
+			);
+			name = Extension;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		5AA5EA3E2857647100B20A4F /* Fonts */ = {
@@ -198,6 +206,7 @@
 				5AE55B14283B116E00D19FFF /* Main.storyboard */,
 				5A204171285809E400CBBFED /* CustomLoading.swift */,
 				5A40BCE9283CA1F500DB7FC4 /* Common */,
+				5A929CC5287087FE00D53C12 /* Extension */,
 				5A1F03B7284488A3005622FF /* Model */,
 				5A4C3B3A283F48110081B7C1 /* VC */,
 				5A4C3B3B283F48240081B7C1 /* Cell */,
@@ -291,11 +300,11 @@
 			files = (
 				5AE55B18283B116F00D19FFF /* Assets.xcassets in Resources */,
 				5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */,
-				5A4C3B37283F38E50081B7C1 /* SquareCollectionViewCell.xib in Resources */,
+				5A4C3B37283F38E50081B7C1 /* TempleSquareCell.xib in Resources */,
 				5A929CB7286DE8A500D53C12 /* InfoPlist.strings in Resources */,
 				5AA5EA47285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				5A3A34A12859675B00E4833A /* dualball.gif in Resources */,
-				5A40BCE4283C671200DB7FC4 /* RectangleTableViewCell.xib in Resources */,
+				5A40BCE4283C671200DB7FC4 /* TempleRectangleCell.xib in Resources */,
 				5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */,
 				5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */,
 				5AA5EA48285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf in Resources */,
@@ -371,27 +380,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A929CC02870550900D53C12 /* PopupViewController.swift in Sources */,
-				5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */,
+				5A929CC02870550900D53C12 /* PopupVC.swift in Sources */,
+				5AE55B25283B5F7000D19FFF /* SearchVC.swift in Sources */,
 				5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */,
-				5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */,
+				5AE55B13283B116E00D19FFF /* LocationVC.swift in Sources */,
 				5A204172285809E400CBBFED /* CustomLoading.swift in Sources */,
-				5A40BCE3283C671200DB7FC4 /* RectangleTableViewCell.swift in Sources */,
-				94396C9028448EC50088F303 /* BaseViewController.swift in Sources */,
+				5A40BCE3283C671200DB7FC4 /* TempleRectangleCell.swift in Sources */,
+				94396C9028448EC50088F303 /* BaseVC.swift in Sources */,
 				5A2898EA2863037500C88FB1 /* ImageCacheManager.swift in Sources */,
-				5A40BCE6283C7F1900DB7FC4 /* TempleViewController.swift in Sources */,
+				5A40BCE6283C7F1900DB7FC4 /* TempleVC.swift in Sources */,
 				5A21CED928517C3A00A42973 /* ImageResponse.swift in Sources */,
-				5AE55B23283B5F6900D19FFF /* UserViewController.swift in Sources */,
-				5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */,
+				5AE55B23283B5F6900D19FFF /* UserVC.swift in Sources */,
+				5A601976284CF360000617A4 /* TempleNearSightVC.swift in Sources */,
 				5A29EDA82848A15300513D7A /* Location.swift in Sources */,
 				5AEDE816285865A80088E786 /* UITextView + Extension.swift in Sources */,
 				94B16BDC2840BEA400D57CDE /* CommonURL.swift in Sources */,
-				5A2C4E39285069F0001BDBA1 /* SearchResultViewController.swift in Sources */,
+				5A2C4E39285069F0001BDBA1 /* SearchResultVC.swift in Sources */,
 				94B16BDA2840BE9300D57CDE /* CommonHttp.swift in Sources */,
 				5A1F03BB28449AD9005622FF /* Temple.swift in Sources */,
 				94B16BDE2840BEB900D57CDE /* UIView + Extension.swift in Sources */,
 				5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */,
-				5A4C3B36283F38E50081B7C1 /* SquareCollectionViewCell.swift in Sources */,
+				5A4C3B36283F38E50081B7C1 /* TempleSquareCell.swift in Sources */,
 				5AE55B11283B116E00D19FFF /* SceneDelegate.swift in Sources */,
 				5AEDE81428584B500088E786 /* UILabel + Extension.swift in Sources */,
 				5A601974284C3E4F000617A4 /* NearSight.swift in Sources */,
@@ -557,7 +566,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7HH6MYUS98;
+				DEVELOPMENT_TEAM = 68YKCTN88M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gugujj/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -570,7 +579,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujeoljeol;
+				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -586,7 +595,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7HH6MYUS98;
+				DEVELOPMENT_TEAM = 68YKCTN88M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gugujj/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -599,7 +608,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujeoljeol;
+				PRODUCT_BUNDLE_IDENTIFIER = seonju.Gugujj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

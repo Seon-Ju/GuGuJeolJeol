@@ -8,7 +8,7 @@
 import UIKit
 
 /// 화면에서 공통으로 쓰이는 변수, 메소드, 이벤트 콜백 처리를 위한 BaseViewController
-class BaseViewController: UIViewController {
+class BaseVC: UIViewController {
     
     // MARK: - Properties
     var isSwipedFlag: Bool = false

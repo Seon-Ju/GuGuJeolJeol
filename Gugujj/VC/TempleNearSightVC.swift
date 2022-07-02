@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NearSightCollectionViewController: UICollectionViewController {
+class TempleNearSightVC: UICollectionViewController {
     
     private var nearSight: NearSight?
     private var nearSights: [NearSight] = [NearSight]()
@@ -16,7 +16,7 @@ class NearSightCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView.register(UINib(nibName: "SquareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "nearSightCell")
+        self.collectionView.register(UINib(nibName: "TempleSquareCell", bundle: nil), forCellWithReuseIdentifier: "nearSightCell")
     }
     
     func sendMapData(mapX: String, mapY: String) {
@@ -53,13 +53,13 @@ class NearSightCollectionViewController: UICollectionViewController {
 }
 
 // MARK: - CollectionView
-extension NearSightCollectionViewController {
+extension TempleNearSightVC {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.nearSights.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nearSightCell", for: indexPath) as! SquareCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nearSightCell", for: indexPath) as! TempleSquareCell
         
         cell.configure(nearSights: self.nearSights, collectionView: self.collectionView, indexPath: indexPath)
         
@@ -68,7 +68,7 @@ extension NearSightCollectionViewController {
 }
 
 // MARK: - XMLParser
-extension NearSightCollectionViewController: XMLParserDelegate {
+extension TempleNearSightVC: XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName

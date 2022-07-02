@@ -21,38 +21,38 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Popup View Controller-->
+        <!--PopupVC-->
         <scene sceneID="oyU-GL-Wc2">
             <objects>
-                <viewController storyboardIdentifier="PopupVC" id="CQy-W0-kPV" customClass="PopupViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupVC" id="CQy-W0-kPV" customClass="PopupVC" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k3J-NE-3P9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBU-uk-Yz5" userLabel="팝업">
-                                <rect key="frame" x="52" y="373.5" width="310.5" height="149.5"/>
+                                <rect key="frame" x="52" y="375" width="310.5" height="146.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9r-rW-AoM">
-                                        <rect key="frame" x="134.5" y="25" width="41" height="20.5"/>
+                                        <rect key="frame" x="135.5" y="25" width="39.5" height="19"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fod-XA-s0M">
-                                        <rect key="frame" x="137" y="60.5" width="36" height="18"/>
+                                        <rect key="frame" x="138" y="59" width="34.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                                         <color key="textColor" red="0.1192392776" green="0.1192392776" blue="0.1192392776" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFh-Ve-QeI">
-                                        <rect key="frame" x="0.0" y="103.5" width="310.5" height="1"/>
+                                        <rect key="frame" x="0.0" y="100.5" width="310.5" height="1"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="uqp-Jm-hmz"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZu-zw-bzh">
-                                        <rect key="frame" x="0.0" y="104.5" width="310.5" height="45"/>
+                                        <rect key="frame" x="0.0" y="101.5" width="310.5" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="zyZ-TH-xbl"/>
                                         </constraints>
@@ -102,7 +102,7 @@
         <!--지역-->
         <scene sceneID="JAv-F4-xHA">
             <objects>
-                <viewController storyboardIdentifier="LocationVC" id="LeV-bQ-38w" customClass="LocationViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationVC" id="LeV-bQ-38w" customClass="LocationVC" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="twh-Qa-v7h" userLabel="SuperView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -342,7 +342,7 @@
         <!--검색-->
         <scene sceneID="bFa-hq-uX8">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" id="Zff-4H-KgV" customClass="SearchViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="Zff-4H-KgV" customClass="SearchVC" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NFx-iq-Bm1" userLabel="SuperView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,10 +588,10 @@
             </objects>
             <point key="canvasLocation" x="808.69565217391312" y="1184.5982142857142"/>
         </scene>
-        <!--Search Result View Controller-->
+        <!--Search ResultVC-->
         <scene sceneID="HpG-dC-Y8X">
             <objects>
-                <viewController storyboardIdentifier="SearchResultVC" id="LG8-me-FD4" customClass="SearchResultViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResultVC" id="LG8-me-FD4" customClass="SearchResultVC" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tfk-No-oTG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -600,7 +600,7 @@
                                 <rect key="frame" x="30" y="109" width="354" height="787"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kTJ-eU-Met" customClass="RectangleTableViewCell" customModule="Gugujj" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kTJ-eU-Met" customClass="TempleRectangleCell" customModule="Gugujj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="354" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kTJ-eU-Met" id="r2O-WK-PZ8">
@@ -689,7 +689,7 @@
         <!--마이페이지-->
         <scene sceneID="emv-d6-Ux2">
             <objects>
-                <viewController storyboardIdentifier="UserVC" id="grO-Bh-KU6" customClass="UserViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserVC" id="grO-Bh-KU6" customClass="UserVC" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3tw-3K-h25">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -836,7 +836,7 @@
         <!--사찰-->
         <scene sceneID="BPL-rN-URh">
             <objects>
-                <viewController storyboardIdentifier="TempleVC" id="Ogj-LZ-wP8" userLabel="사찰" customClass="TempleViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TempleVC" id="Ogj-LZ-wP8" userLabel="사찰" customClass="TempleVC" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="adD-gW-oOf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -845,7 +845,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtU-Ix-x0C" userLabel="Detail Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1390"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1365"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Plx-u8-koi" userLabel="Detail Image">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -854,10 +854,10 @@
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ne-YV-KNS">
-                                                <rect key="frame" x="30" y="189" width="250" height="21"/>
+                                                <rect key="frame" x="30" y="189" width="241" height="21"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcc-da-nwY">
-                                                        <rect key="frame" x="13" y="0.0" width="237" height="20.5"/>
+                                                        <rect key="frame" x="13" y="0.0" width="228" height="19"/>
                                                         <string key="text">본 이미지는 한국관광공사 제공 이미지가 아닌 네이버 이미지검색 결과로,
 사찰과 무관한 이미지일 수 있습니다.</string>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="8"/>
@@ -887,16 +887,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eY-Ed-e43" userLabel="Detail Info Container">
-                                                <rect key="frame" x="0.0" y="230" width="414" height="1160"/>
+                                                <rect key="frame" x="0.0" y="230" width="414" height="1135"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUG-24-rQq">
-                                                        <rect key="frame" x="30" y="30" width="5" height="28"/>
+                                                        <rect key="frame" x="30" y="30" width="6.5" height="26"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFw-Op-zJx" userLabel="홈페이지 Button">
-                                                        <rect key="frame" x="45" y="30" width="28" height="28"/>
+                                                        <rect key="frame" x="46.5" y="30" width="28" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="28" id="0el-p1-kAp"/>
                                                             <constraint firstAttribute="height" constant="28" id="V3M-o7-6SR"/>
@@ -911,19 +911,19 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-sA-rXC">
-                                                        <rect key="frame" x="30" y="65" width="354" height="19"/>
+                                                        <rect key="frame" x="30" y="63" width="354" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문의 및 안내" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvC-Ks-vMP">
-                                                        <rect key="frame" x="58" y="344" width="326" height="15.5"/>
+                                                        <rect key="frame" x="58" y="340.5" width="326" height="14"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yh-CP-Bvx" userLabel="Tel Button">
-                                                        <rect key="frame" x="30" y="345.5" width="18" height="15.5"/>
+                                                        <rect key="frame" x="30" y="342" width="18" height="15.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="iVK-yd-hnm"/>
                                                             <constraint firstAttribute="height" constant="18" id="kik-fH-gAC"/>
@@ -933,7 +933,7 @@
                                                         <state key="normal" backgroundImage="phone.fill" catalog="system"/>
                                                     </button>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="아직 정보가 없어요 T_T" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vdw-Br-Mk7" userLabel="Tel Text View">
-                                                        <rect key="frame" x="58" y="362.5" width="326" height="35"/>
+                                                        <rect key="frame" x="58" y="357.5" width="326" height="34"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
@@ -948,13 +948,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쉬는 날" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpH-PE-s6U">
-                                                        <rect key="frame" x="60" y="422.5" width="324" height="15.5"/>
+                                                        <rect key="frame" x="60" y="416.5" width="324" height="14"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skG-XL-WgQ" userLabel="Rest Date Button">
-                                                        <rect key="frame" x="30" y="423.5" width="20" height="17.5"/>
+                                                        <rect key="frame" x="30" y="417.5" width="20" height="17.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="8Yq-z8-tDV"/>
                                                             <constraint firstAttribute="width" constant="20" id="Bya-A7-gOj"/>
@@ -964,19 +964,19 @@
                                                         <state key="normal" backgroundImage="calendar" catalog="system"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 정보가 없어요 T_T" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBz-fh-Sm7">
-                                                        <rect key="frame" x="60" y="441" width="324" height="19"/>
+                                                        <rect key="frame" x="60" y="433.5" width="324" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용시간" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YU4-bU-7it">
-                                                        <rect key="frame" x="60" y="485" width="324" height="15.5"/>
+                                                        <rect key="frame" x="60" y="476" width="324" height="14"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKf-b8-60i" userLabel="Use Time Button">
-                                                        <rect key="frame" x="30" y="485.5" width="20" height="19"/>
+                                                        <rect key="frame" x="30" y="476.5" width="20" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="2kK-50-sdR"/>
                                                             <constraint firstAttribute="height" constant="20" id="mf5-1X-YTR"/>
@@ -986,19 +986,19 @@
                                                         <state key="normal" backgroundImage="clock" catalog="system"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 정보가 없어요 T_T" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFo-gP-Hc0">
-                                                        <rect key="frame" x="60" y="503.5" width="324" height="19"/>
+                                                        <rect key="frame" x="60" y="493" width="324" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주차시설" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNI-cv-5cM">
-                                                        <rect key="frame" x="60" y="547.5" width="324" height="15.5"/>
+                                                        <rect key="frame" x="60" y="535.5" width="324" height="14"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mM1-iX-57e" userLabel="Parking Button">
-                                                        <rect key="frame" x="30" y="548.5" width="20" height="17.5"/>
+                                                        <rect key="frame" x="30" y="536.5" width="20" height="17.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="iuZ-Mv-fD8"/>
                                                             <constraint firstAttribute="width" constant="20" id="obR-Zj-qkg"/>
@@ -1008,19 +1008,19 @@
                                                         <state key="normal" backgroundImage="car.fill" catalog="system"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 정보가 없어요 T_T" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-bh-HNX">
-                                                        <rect key="frame" x="60" y="566" width="324" height="19"/>
+                                                        <rect key="frame" x="60" y="552.5" width="324" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반려동물 동반 가능 여부" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fl-mq-DIW">
-                                                        <rect key="frame" x="60" y="610" width="324" height="15.5"/>
+                                                        <rect key="frame" x="60" y="595" width="324" height="14"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYJ-t8-lgs" userLabel="Pet Button">
-                                                        <rect key="frame" x="30" y="610" width="20" height="20"/>
+                                                        <rect key="frame" x="30" y="595" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="CvK-ms-lBn"/>
                                                             <constraint firstAttribute="width" constant="20" id="TfI-kD-v8S"/>
@@ -1030,19 +1030,19 @@
                                                         <state key="normal" image="footprint"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 정보가 없어요 T_T" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6f-I6-gFx">
-                                                        <rect key="frame" x="60" y="628.5" width="324" height="19"/>
+                                                        <rect key="frame" x="60" y="612" width="324" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화장실" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVE-OK-16R">
-                                                        <rect key="frame" x="60" y="672.5" width="324" height="15.5"/>
+                                                        <rect key="frame" x="60" y="654.5" width="324" height="14"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhI-3T-WTW" userLabel="Toilet Button">
-                                                        <rect key="frame" x="30" y="672.5" width="20" height="20"/>
+                                                        <rect key="frame" x="30" y="654.5" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="LSB-Qn-PWL"/>
                                                             <constraint firstAttribute="height" constant="20" id="gpt-L1-dhA"/>
@@ -1052,46 +1052,46 @@
                                                         <state key="normal" image="toilet"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 정보가 없어요 T_T" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owX-YI-TsT">
-                                                        <rect key="frame" x="60" y="691" width="324" height="19"/>
+                                                        <rect key="frame" x="60" y="671.5" width="324" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfl-Pt-v9b" userLabel="구분선">
-                                                        <rect key="frame" x="0.0" y="740" width="414" height="1"/>
+                                                        <rect key="frame" x="0.0" y="719" width="414" height="1"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="KKt-ZG-Ptp"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이야기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNq-Xq-9AI">
-                                                        <rect key="frame" x="30" y="771" width="354" height="21.5"/>
+                                                        <rect key="frame" x="30" y="750" width="354" height="20"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="아직 정보가 없어요 T_T" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QaB-nN-Nyt">
-                                                        <rect key="frame" x="30" y="812.5" width="354" height="35"/>
+                                                        <rect key="frame" x="30" y="790" width="354" height="34"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-E2-ZBO" userLabel="구분선">
-                                                        <rect key="frame" x="0.0" y="877.5" width="414" height="1"/>
+                                                        <rect key="frame" x="0.0" y="854" width="414" height="1"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="Imw-UQ-o4Y"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주변 가볼 만한 곳" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pa-wJ-UiJ">
-                                                        <rect key="frame" x="30" y="908.5" width="354" height="21.5"/>
+                                                        <rect key="frame" x="30" y="885" width="354" height="20"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvO-Zg-rts">
-                                                        <rect key="frame" x="30" y="960" width="354" height="160"/>
+                                                        <rect key="frame" x="30" y="935" width="354" height="160"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="160" id="caV-Lz-oHh"/>
                                                         </constraints>
@@ -1100,7 +1100,7 @@
                                                         </connections>
                                                     </containerView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZj-qY-SIc">
-                                                        <rect key="frame" x="30" y="114" width="354" height="200"/>
+                                                        <rect key="frame" x="30" y="110.5" width="354" height="200"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="UAp-TH-lGq"/>
@@ -1270,10 +1270,10 @@
             </objects>
             <point key="canvasLocation" x="2526.0869565217395" y="949.55357142857133"/>
         </scene>
-        <!--Near Sight Collection View Controller-->
+        <!--Temple Near SightVC-->
         <scene sceneID="IFb-Jd-qD4">
             <objects>
-                <collectionViewController id="xIc-RC-eAF" customClass="NearSightCollectionViewController" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="xIc-RC-eAF" customClass="TempleNearSightVC" customModule="Gugujj" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="9Cu-M5-Ixy">
                         <rect key="frame" x="0.0" y="0.0" width="354" height="160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1285,7 +1285,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nearSightCell" id="QMQ-Xq-NcM" customClass="SquareCollectionViewCell" customModule="Gugujj" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nearSightCell" id="QMQ-Xq-NcM" customClass="TempleSquareCell" customModule="Gugujj" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="16" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cqf-Sq-gAC">

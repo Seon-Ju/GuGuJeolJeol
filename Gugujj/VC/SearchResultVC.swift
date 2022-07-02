@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchResultViewController: BaseViewController {
+class SearchResultVC: BaseVC {
     
     static var temples: [Temple] = [Temple]()
     
@@ -25,11 +25,11 @@ class SearchResultViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("사찰 수: \(SearchResultViewController.temples.count)")
+        print("사찰 수: \(SearchResultVC.temples.count)")
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
+        tableView.register(UINib(nibName: "TempleRectangleCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
         
         scrollUpButton.isHidden = true
     }
@@ -43,16 +43,16 @@ class SearchResultViewController: BaseViewController {
     }
 }
 
-extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchResultVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SearchResultViewController.temples.count
+        return SearchResultVC.temples.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         changeScrollUpButtonState(row: indexPath.row)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
-        let temple = SearchResultViewController.temples[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! TempleRectangleCell
+        let temple = SearchResultVC.temples[indexPath.row]
         cell.configure(temple: temple, tableView: self.tableView, indexPath: indexPath)
         
         let backgroundView = UIView()
@@ -65,18 +65,18 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         CustomLoading.show()
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
-        TempleViewController.contentId = SearchResultViewController.temples[indexPath.row].id
+        TempleVC.contentId = SearchResultVC.temples[indexPath.row].id
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? RectangleTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? TempleRectangleCell {
             let pressDownTransform = CGAffineTransform(scaleX: 0.98, y: 0.98)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseOut], animations: { cell.transform = pressDownTransform })
         }
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? RectangleTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? TempleRectangleCell {
             let originalTransform = CGAffineTransform(scaleX: 1, y: 1)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseInOut], animations: { cell.transform = originalTransform })
         }

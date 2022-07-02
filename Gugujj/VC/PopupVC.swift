@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopupViewController: UIViewController {
+class PopupVC: UIViewController {
     
     @IBOutlet var popupView: UIView!
     @IBOutlet var titleLabel: UILabel!

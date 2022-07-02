@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LocationViewController: UIViewController {
+class LocationVC: UIViewController {
     
     // MARK: - Properties
     let pickerView: UIPickerView = UIPickerView()
@@ -80,7 +80,7 @@ class LocationViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "RectangleTableViewCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
+        tableView.register(UINib(nibName: "TempleRectangleCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
         
         scrollUpButton.isHidden = true
         loadData()
@@ -148,7 +148,7 @@ class LocationViewController: UIViewController {
 }
 
 // MARK: - XMLParser
-extension LocationViewController: XMLParserDelegate {
+extension LocationVC: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
         if (elementName == "item") {
@@ -191,7 +191,7 @@ extension LocationViewController: XMLParserDelegate {
 }
 
 // MARK: - PickerView
-extension LocationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension LocationVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -220,7 +220,7 @@ extension LocationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 // MARK: - TableView
-extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
+extension LocationVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return temples.count
@@ -229,7 +229,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         changeScrollUpButtonState(row: indexPath.row)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! TempleRectangleCell
         let temple = temples[indexPath.row]
         cell.configure(temple: temple, tableView: tableView, indexPath: indexPath)
         
@@ -247,7 +247,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         CustomLoading.show()
         CommonNavi.pushVC(sbName: "Main", vcName: "TempleVC")
-        TempleViewController.contentId = temples[indexPath.row].id
+        TempleVC.contentId = temples[indexPath.row].id
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -258,14 +258,14 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? RectangleTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? TempleRectangleCell {
             let pressDownTransform = CGAffineTransform(scaleX: 0.98, y: 0.98)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseOut], animations: { cell.transform = pressDownTransform })
         }
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? RectangleTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? TempleRectangleCell {
             let originalTransform = CGAffineTransform(scaleX: 1, y: 1)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseInOut], animations: { cell.transform = originalTransform })
         }
