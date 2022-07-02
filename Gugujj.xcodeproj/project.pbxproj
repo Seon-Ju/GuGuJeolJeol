@@ -25,6 +25,7 @@
 		5A601974284C3E4F000617A4 /* NearSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601973284C3E4F000617A4 /* NearSight.swift */; };
 		5A601976284CF360000617A4 /* NearSightCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */; };
 		5A929CB7286DE8A500D53C12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A929CB9286DE8A500D53C12 /* InfoPlist.strings */; };
+		5A929CC02870550900D53C12 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A929CBF2870550900D53C12 /* PopupViewController.swift */; };
 		5AA5EA44285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA3F285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf */; };
 		5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA40285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf */; };
 		5AA5EA46285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA5EA41285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf */; };
@@ -68,6 +69,7 @@
 		5A929CBA286DE8AE00D53C12 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		5A929CBB286DE8AF00D53C12 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5A929CBC286DE8AF00D53C12 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A929CBF2870550900D53C12 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		5AA5EA3F285764DF00B20A4F /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
 		5AA5EA40285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
 		5AA5EA41285764DF00B20A4F /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				5A2C4E38285069F0001BDBA1 /* SearchResultViewController.swift */,
 				5A40BCE5283C7F1900DB7FC4 /* TempleViewController.swift */,
 				5A601975284CF360000617A4 /* NearSightCollectionViewController.swift */,
+				5A929CBF2870550900D53C12 /* PopupViewController.swift */,
 				5AE55B22283B5F6900D19FFF /* UserViewController.swift */,
 			);
 			path = VC;
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A929CC02870550900D53C12 /* PopupViewController.swift in Sources */,
 				5AE55B25283B5F7000D19FFF /* SearchViewController.swift in Sources */,
 				5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */,
 				5AE55B13283B116E00D19FFF /* LocationViewController.swift in Sources */,

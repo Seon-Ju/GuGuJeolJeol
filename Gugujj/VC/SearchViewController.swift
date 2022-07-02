@@ -76,7 +76,7 @@ class SearchViewController: BaseViewController {
     // MARK: - Privates
     private func loadSearchResult() {
         guard let searchText = searchTextField.text, searchText.count != 0 else {
-            showAlert(message: "검색어를 입력해주세요.")
+            showAlert(title: "검색 실패", message: "검색어를 입력해주세요.")
             return
         }
         
@@ -93,7 +93,7 @@ class SearchViewController: BaseViewController {
             SearchResultViewController.temples = searchResultTemples
             CommonNavi.pushVC(sbName: "Main", vcName: "SearchResultVC")
         } else {
-            showAlert(message: "검색결과가 없습니다.")
+            showAlert(title: "검색 실패", message: "검색결과가 없습니다.")
         }
     }
     
@@ -106,7 +106,7 @@ class SearchViewController: BaseViewController {
                 self.classifyTemplesByCategory()
             } catch {
                 print("decodeError: \(error)")
-                self.showAlert(message: "오류가 발생했습니다. 다시 시도해주세요.")
+                self.showAlert(title: "검색 실패", message: "오류가 발생했습니다. 다시 시도해주세요.")
             }
         }
     }
@@ -125,11 +125,15 @@ class SearchViewController: BaseViewController {
         print("\(allTemples.count)개 로딩 및 분류 완료")
     }
     
-    private func showAlert(message: String) {
-        let action: UIAlertAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        let alert: UIAlertController = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+    private func showAlert(title: String, message: String) {
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let popupVC = sb.instantiateViewController(withIdentifier: "PopupVC") as? PopupViewController else {
+            return
+        }
+        popupVC.popupTitle = title
+        popupVC.popupMessage = message
+        popupVC.modalPresentationStyle = .overFullScreen
+        present(popupVC, animated: false, completion: nil)
     }
     
 }
