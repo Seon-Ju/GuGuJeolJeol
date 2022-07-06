@@ -24,6 +24,8 @@ class TempleVC: BaseVC {
     
     private var isMapLoad: Bool = false
     private var isImageLoad: Bool = false
+    private var isDetailLoad: Bool = false
+    private var detailRequestCount: Int = 0
     
     // MARK: IBOutlets
     @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -33,6 +35,7 @@ class TempleVC: BaseVC {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: UIView!
     
+    @IBOutlet weak var detailStackView: UIStackView!
     @IBOutlet weak var telTextView: UITextView!
     @IBOutlet weak var restDateLabel: UILabel!
     @IBOutlet weak var useTimeLabel: UILabel!
@@ -69,6 +72,7 @@ class TempleVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isSwipedFlag = false
+        detailRequestCount = 0
         imageWarningView.isHidden = true
         
         CommonHttp.getDetailCommon(contentId: TempleVC.contentId) { data in
@@ -112,6 +116,7 @@ class TempleVC: BaseVC {
         DispatchQueue.main.async {
             parser.parse()
             self.setLineSpacing()
+            self.hideNonDetailSection()
         }
     }
     
@@ -134,7 +139,7 @@ class TempleVC: BaseVC {
         mapView.addSubview(button)
         
         isMapLoad = true
-        checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad)
+        checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad, checkDetail: self.isDetailLoad)
     }
     
     @objc private func launchGoogleMap(_ sender: UIButton) {
@@ -157,7 +162,7 @@ class TempleVC: BaseVC {
                 self.updateImage(imageURL: nil, isNaverImage: false)
             }
             self.isImageLoad = true
-            self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad)
+            self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad, checkDetail: self.isDetailLoad)
         }
     }
     
@@ -172,8 +177,8 @@ class TempleVC: BaseVC {
         }
     }
     
-    private func checkLoadingEnd(checkImage: Bool, checkMap: Bool) {
-        if checkImage && checkMap {
+    private func checkLoadingEnd(checkImage: Bool, checkMap: Bool, checkDetail: Bool) {
+        if checkImage && checkMap && checkDetail {
             DispatchQueue.main.async {
                 CustomLoading.hide()
             }
@@ -208,6 +213,24 @@ class TempleVC: BaseVC {
         descTextView.setLineSpacing(text: descTextView.text)
     }
     
+    private func hideNonDetailSection() {
+        detailRequestCount += 1
+        detailStackView.arrangedSubviews.forEach { section in
+            section.subviews.forEach { view in
+                section.isHidden = false
+                if let label = view as? UILabel, label.text == "아직 정보가 없어요 T_T" {
+                    section.isHidden = true
+                } else if let textView = view as? UITextView, textView.text == "아직 정보가 없어요 T_T" {
+                    section.isHidden = true
+                }
+            }
+        }
+        if detailRequestCount == 3 {
+            isDetailLoad = true
+        }
+        checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad, checkDetail: isDetailLoad)
+    }
+    
     private func showErrorAlert() {
         let action: UIAlertAction = UIAlertAction(title: "확인", style: .default)
         let alert: UIAlertController = UIAlertController(title: "알림", message: "오류가 발생했습니다. 다시 시도해주세요.", preferredStyle: .alert)
@@ -239,7 +262,7 @@ extension TempleVC: XMLParserDelegate {
             let data = try? Data(contentsOf: URL(string: string)!)
             thumbnailImageView.image = UIImage(data: data!)
             isImageLoad = true
-            checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad)
+            checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad, checkDetail: isDetailLoad)
             
         case "homepage":
             if string.contains("http") && homepageUrl.isEmpty {
