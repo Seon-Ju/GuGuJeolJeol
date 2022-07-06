@@ -17,12 +17,12 @@
 		5A2C4E39285069F0001BDBA1 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultVC.swift */; };
 		5A37A86B2875173100AFAC8C /* CommonVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A37A86A2875173100AFAC8C /* CommonVar.swift */; };
 		5A3A34A12859675B00E4833A /* dualball.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A34A02859675B00E4833A /* dualball.gif */; };
-		5A40BCE3283C671200DB7FC4 /* TempleRectangleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */; };
-		5A40BCE4283C671200DB7FC4 /* TempleRectangleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */; };
+		5A40BCE3283C671200DB7FC4 /* RectangleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* RectangleCell.swift */; };
+		5A40BCE4283C671200DB7FC4 /* RectangleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* RectangleCell.xib */; };
 		5A40BCE6283C7F1900DB7FC4 /* TempleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE5283C7F1900DB7FC4 /* TempleVC.swift */; };
 		5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */; };
-		5A4C3B36283F38E50081B7C1 /* TempleSquareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B34283F38E50081B7C1 /* TempleSquareCell.swift */; };
-		5A4C3B37283F38E50081B7C1 /* TempleSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C3B35283F38E50081B7C1 /* TempleSquareCell.xib */; };
+		5A4C3B36283F38E50081B7C1 /* SquareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C3B34283F38E50081B7C1 /* SquareCell.swift */; };
+		5A4C3B37283F38E50081B7C1 /* SquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4C3B35283F38E50081B7C1 /* SquareCell.xib */; };
 		5A601974284C3E4F000617A4 /* NearSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601973284C3E4F000617A4 /* NearSight.swift */; };
 		5A601976284CF360000617A4 /* TempleNearSightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A601975284CF360000617A4 /* TempleNearSightVC.swift */; };
 		5A929CB7286DE8A500D53C12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A929CB9286DE8A500D53C12 /* InfoPlist.strings */; };
@@ -60,12 +60,12 @@
 		5A2C4E38285069F0001BDBA1 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		5A37A86A2875173100AFAC8C /* CommonVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVar.swift; sourceTree = "<group>"; };
 		5A3A34A02859675B00E4833A /* dualball.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dualball.gif; sourceTree = "<group>"; };
-		5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleRectangleCell.swift; sourceTree = "<group>"; };
-		5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempleRectangleCell.xib; sourceTree = "<group>"; };
+		5A40BCE1283C671200DB7FC4 /* RectangleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCell.swift; sourceTree = "<group>"; };
+		5A40BCE2283C671200DB7FC4 /* RectangleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleCell.xib; sourceTree = "<group>"; };
 		5A40BCE5283C7F1900DB7FC4 /* TempleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleVC.swift; sourceTree = "<group>"; };
 		5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavi.swift; sourceTree = "<group>"; };
-		5A4C3B34283F38E50081B7C1 /* TempleSquareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleSquareCell.swift; sourceTree = "<group>"; };
-		5A4C3B35283F38E50081B7C1 /* TempleSquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempleSquareCell.xib; sourceTree = "<group>"; };
+		5A4C3B34283F38E50081B7C1 /* SquareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCell.swift; sourceTree = "<group>"; };
+		5A4C3B35283F38E50081B7C1 /* SquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCell.xib; sourceTree = "<group>"; };
 		5A601973284C3E4F000617A4 /* NearSight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSight.swift; sourceTree = "<group>"; };
 		5A601975284CF360000617A4 /* TempleNearSightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleNearSightVC.swift; sourceTree = "<group>"; };
 		5A929CB8286DE8A500D53C12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -152,10 +152,10 @@
 		5A4C3B3B283F48240081B7C1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5A4C3B34283F38E50081B7C1 /* TempleSquareCell.swift */,
-				5A4C3B35283F38E50081B7C1 /* TempleSquareCell.xib */,
-				5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */,
-				5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */,
+				5A4C3B34283F38E50081B7C1 /* SquareCell.swift */,
+				5A4C3B35283F38E50081B7C1 /* SquareCell.xib */,
+				5A40BCE1283C671200DB7FC4 /* RectangleCell.swift */,
+				5A40BCE2283C671200DB7FC4 /* RectangleCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -306,11 +306,11 @@
 			files = (
 				5AE55B18283B116F00D19FFF /* Assets.xcassets in Resources */,
 				5AE55B16283B116E00D19FFF /* Main.storyboard in Resources */,
-				5A4C3B37283F38E50081B7C1 /* TempleSquareCell.xib in Resources */,
+				5A4C3B37283F38E50081B7C1 /* SquareCell.xib in Resources */,
 				5A929CB7286DE8A500D53C12 /* InfoPlist.strings in Resources */,
 				5AA5EA47285764DF00B20A4F /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				5A3A34A12859675B00E4833A /* dualball.gif in Resources */,
-				5A40BCE4283C671200DB7FC4 /* TempleRectangleCell.xib in Resources */,
+				5A40BCE4283C671200DB7FC4 /* RectangleCell.xib in Resources */,
 				5A10057A284F2AF000C45C74 /* GoogleService-Info.plist in Resources */,
 				5AA5EA45285764DF00B20A4F /* SpoqaHanSansNeo-Medium.ttf in Resources */,
 				5AA5EA48285764DF00B20A4F /* SpoqaHanSansNeo-Thin.ttf in Resources */,
@@ -393,7 +393,7 @@
 				5AE55B13283B116E00D19FFF /* LocationVC.swift in Sources */,
 				5AE79A552873DED5000E240D /* UIImageView + Extension.swift in Sources */,
 				5A204172285809E400CBBFED /* CustomLoading.swift in Sources */,
-				5A40BCE3283C671200DB7FC4 /* TempleRectangleCell.swift in Sources */,
+				5A40BCE3283C671200DB7FC4 /* RectangleCell.swift in Sources */,
 				94396C9028448EC50088F303 /* BaseVC.swift in Sources */,
 				5A2898EA2863037500C88FB1 /* ImageCacheManager.swift in Sources */,
 				5A40BCE6283C7F1900DB7FC4 /* TempleVC.swift in Sources */,
@@ -408,7 +408,7 @@
 				5A1F03BB28449AD9005622FF /* Temple.swift in Sources */,
 				94B16BDE2840BEB900D57CDE /* UIView + Extension.swift in Sources */,
 				5AE55B0F283B116E00D19FFF /* AppDelegate.swift in Sources */,
-				5A4C3B36283F38E50081B7C1 /* TempleSquareCell.swift in Sources */,
+				5A4C3B36283F38E50081B7C1 /* SquareCell.swift in Sources */,
 				5AE55B11283B116E00D19FFF /* SceneDelegate.swift in Sources */,
 				5AEDE81428584B500088E786 /* UILabel + Extension.swift in Sources */,
 				5A601974284C3E4F000617A4 /* NearSight.swift in Sources */,

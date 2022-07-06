@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TempleRectangleCell: UITableViewCell {
+class RectangleCell: UITableViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -45,7 +45,7 @@ class TempleRectangleCell: UITableViewCell {
         imageWarningView.isHidden = true
         
         if let imageURL = temple.imageUrl, imageURL.count != 0 {
-            self.updateImage(imageURL: imageURL, isNaverImage: false)
+            updateImage(tableView: tableView, templeRow: indexPath.row, imageURL: imageURL, isNaverImage: false)
         }
         
         else {
@@ -53,23 +53,25 @@ class TempleRectangleCell: UITableViewCell {
             DispatchQueue.global(qos: .userInitiated).async {
                 CommonHttp.getNaverImage(searchText: searchText) { imageURL in
                     if let imageURL = imageURL, CommonVar.verifyImageURL(urlString: imageURL) {
-                        self.updateImage(imageURL: imageURL, isNaverImage: true)
+                        self.updateImage(tableView: tableView, templeRow: indexPath.row, imageURL: imageURL, isNaverImage: true)
                     } else {
-                        self.updateImage(imageURL: nil, isNaverImage: false)
+                        self.updateImage(tableView: tableView, templeRow: indexPath.row, imageURL: nil, isNaverImage: false)
                     }
                 }
             }
         }
     }
     
-    private func updateImage(imageURL: String?, isNaverImage: Bool) {
+    private func updateImage(tableView: UITableView, templeRow: Int, imageURL: String?, isNaverImage: Bool) {
         DispatchQueue.main.async {
-            if let imageURL = imageURL {
-                self.thumbnailImageView.setImage(with: imageURL)
-            } else {
-                self.thumbnailImageView.image = UIImage(named: "noimage_up")
+            if let cellIndexPath = tableView.indexPath(for: self), cellIndexPath.row == templeRow {
+                if let imageURL = imageURL {
+                    self.thumbnailImageView.setImage(with: imageURL)
+                } else {
+                    self.thumbnailImageView.image = UIImage(named: "noimage_up")
+                }
+                self.imageWarningView.isHidden = !isNaverImage
             }
-            self.imageWarningView.isHidden = !isNaverImage
         }
     }
 

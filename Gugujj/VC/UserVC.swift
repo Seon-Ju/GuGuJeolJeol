@@ -21,11 +21,11 @@ class UserVC: BaseVC {
         
         starredCollectionView.delegate = self
         starredCollectionView.dataSource = self
-        starredCollectionView.register(UINib(nibName: "TempleSquareCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
+        starredCollectionView.register(UINib(nibName: "SquareCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
         
         recentCollectionView.delegate = self
         recentCollectionView.dataSource = self
-        recentCollectionView.register(UINib(nibName: "TempleSquareCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
+        recentCollectionView.register(UINib(nibName: "SquareCell", bundle: nil), forCellWithReuseIdentifier: "templeCell")
         
     }
     

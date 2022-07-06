@@ -29,7 +29,7 @@ class SearchResultVC: BaseVC {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "TempleRectangleCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
+        tableView.register(UINib(nibName: "RectangleCell", bundle: nil), forCellReuseIdentifier: "templeRectangleCell")
         
         scrollUpButton.isHidden = true
     }
@@ -51,7 +51,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         changeScrollUpButtonState(row: indexPath.row)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! TempleRectangleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "templeRectangleCell", for: indexPath) as! RectangleCell
         let temple = SearchResultVC.temples[indexPath.row]
         cell.configure(temple: temple, tableView: self.tableView, indexPath: indexPath)
         
@@ -69,14 +69,14 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? TempleRectangleCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? RectangleCell {
             let pressDownTransform = CGAffineTransform(scaleX: 0.98, y: 0.98)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseOut], animations: { cell.transform = pressDownTransform })
         }
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? TempleRectangleCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? RectangleCell {
             let originalTransform = CGAffineTransform(scaleX: 1, y: 1)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3, options: [.curveEaseInOut], animations: { cell.transform = originalTransform })
         }

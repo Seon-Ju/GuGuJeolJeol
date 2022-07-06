@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TempleSquareCell: UICollectionViewCell {
+class SquareCell: UICollectionViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -38,16 +38,16 @@ class TempleSquareCell: UICollectionViewCell {
             imageWarningView.isHidden = true
             
             if let imageURL = nearSight.imageURL, imageURL.count != 0 {
-                updateImage(imageURL: imageURL, isNaverImage: false)
+                updateImage(collectionView: collectionView, nearSightRow: indexPath.row, imageURL: imageURL, isNaverImage: false)
             }
             
             else {
                 DispatchQueue.global(qos: .userInitiated).async {
                     CommonHttp.getNaverImage(searchText: nearSight.title) { imageURL in
                         if let imageURL = imageURL, CommonVar.verifyImageURL(urlString: imageURL) {
-                            self.updateImage(imageURL: imageURL, isNaverImage: true)
+                            self.updateImage(collectionView: collectionView, nearSightRow: indexPath.row, imageURL: imageURL, isNaverImage: true)
                         } else {
-                            self.updateImage(imageURL: nil, isNaverImage: false)
+                            self.updateImage(collectionView: collectionView, nearSightRow: indexPath.row, imageURL: nil, isNaverImage: false)
                         }
                     }
                 }
@@ -55,14 +55,16 @@ class TempleSquareCell: UICollectionViewCell {
         }
     }
     
-    private func updateImage(imageURL: String?, isNaverImage: Bool) {
+    private func updateImage(collectionView: UICollectionView, nearSightRow: Int, imageURL: String?, isNaverImage: Bool) {
         DispatchQueue.main.async {
-            if let imageURL = imageURL {
-                self.thumbnailImageView.setImage(with: imageURL)
-            } else {
-                self.thumbnailImageView.image = UIImage(named: "noimage_square")
+            if let cellIndexPath = collectionView.indexPath(for: self), cellIndexPath.row == nearSightRow {
+                if let imageURL = imageURL {
+                    self.thumbnailImageView.setImage(with: imageURL)
+                } else {
+                    self.thumbnailImageView.image = UIImage(named: "noimage_square")
+                }
+                self.imageWarningView.isHidden = !isNaverImage
             }
-            self.imageWarningView.isHidden = !isNaverImage
         }
     }
     

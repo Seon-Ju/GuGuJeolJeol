@@ -16,7 +16,7 @@ class TempleNearSightVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView.register(UINib(nibName: "TempleSquareCell", bundle: nil), forCellWithReuseIdentifier: "nearSightCell")
+        self.collectionView.register(UINib(nibName: "SquareCell", bundle: nil), forCellWithReuseIdentifier: "nearSightCell")
     }
     
     func sendMapData(mapX: String, mapY: String) {
@@ -59,7 +59,7 @@ extension TempleNearSightVC {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nearSightCell", for: indexPath) as! TempleSquareCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nearSightCell", for: indexPath) as! SquareCell
         
         cell.configure(nearSights: self.nearSights, collectionView: self.collectionView, indexPath: indexPath)
         
