@@ -106,7 +106,7 @@ class CommonHttp {
     }
     
     // 네이버 이미지검색
-    static func getNaverImage(searchText: String, completion: @escaping (Data?) -> Void) {
+    static func getNaverImage(searchText: String, completion: @escaping (String?) -> Void) {
         var params: [String:String] = [String:String]()
         let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         params.updateValue(encodedText, forKey: "query")
@@ -120,8 +120,7 @@ class CommonHttp {
                 let imageResponse = try JSONDecoder().decode(ImageResponse.self, from: data)
                 if imageResponse.total > 0 {
                     let imageURL = imageResponse.items[0].link
-                    let imageData = try Data(contentsOf: URL(string: imageURL)!)
-                    completion(imageData)
+                    completion(imageURL)
                 } else {
                     completion(nil)
                 }

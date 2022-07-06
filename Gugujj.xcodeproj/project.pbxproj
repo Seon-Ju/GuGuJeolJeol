@@ -38,6 +38,7 @@
 		5AE55B18283B116F00D19FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE55B17283B116F00D19FFF /* Assets.xcassets */; };
 		5AE55B23283B5F6900D19FFF /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B22283B5F6900D19FFF /* UserVC.swift */; };
 		5AE55B25283B5F7000D19FFF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE55B24283B5F7000D19FFF /* SearchVC.swift */; };
+		5AE79A552873DED5000E240D /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE79A542873DED5000E240D /* UIImageView + Extension.swift */; };
 		5AEDE81428584B500088E786 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEDE81328584B500088E786 /* UILabel + Extension.swift */; };
 		5AEDE816285865A80088E786 /* UITextView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEDE815285865A80088E786 /* UITextView + Extension.swift */; };
 		6B163D330AD4A287616D8E91 /* Pods_Gugujj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */; };
@@ -85,6 +86,7 @@
 		5AE55B1C283B116F00D19FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE55B22283B5F6900D19FFF /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		5AE55B24283B5F7000D19FFF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		5AE79A542873DED5000E240D /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		5AEDE81328584B500088E786 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		5AEDE815285865A80088E786 /* UITextView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView + Extension.swift"; sourceTree = "<group>"; };
 		8C8DCBFBCD217FCCB74CF466 /* Pods_Gugujj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gugujj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 				94B16BDD2840BEB900D57CDE /* UIView + Extension.swift */,
 				5AEDE81328584B500088E786 /* UILabel + Extension.swift */,
 				5AEDE815285865A80088E786 /* UITextView + Extension.swift */,
+				5AE79A542873DED5000E240D /* UIImageView + Extension.swift */,
 			);
 			name = Extension;
 			path = Common;
@@ -384,6 +387,7 @@
 				5AE55B25283B5F7000D19FFF /* SearchVC.swift in Sources */,
 				5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */,
 				5AE55B13283B116E00D19FFF /* LocationVC.swift in Sources */,
+				5AE79A552873DED5000E240D /* UIImageView + Extension.swift in Sources */,
 				5A204172285809E400CBBFED /* CustomLoading.swift in Sources */,
 				5A40BCE3283C671200DB7FC4 /* TempleRectangleCell.swift in Sources */,
 				94396C9028448EC50088F303 /* BaseVC.swift in Sources */,

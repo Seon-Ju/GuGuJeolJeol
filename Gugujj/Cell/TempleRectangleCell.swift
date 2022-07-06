@@ -14,8 +14,6 @@ class TempleRectangleCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var imageWarningView: UIView!
     
-    private var imageData: Data?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,7 +23,6 @@ class TempleRectangleCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageData = nil
         titleLabel.text = nil
         addressLabel.text = nil
         thumbnailImageView.image = UIImage(named: "placeholder")
@@ -43,69 +40,44 @@ class TempleRectangleCell: UITableViewCell {
     }
     
     func configure(temple: Temple, tableView: UITableView, indexPath: IndexPath) {
+        titleLabel.text = temple.title
+        addressLabel.text = temple.addr1
         imageWarningView.isHidden = true
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            
-            // 캐싱할 객체의 키값 생성
-            let cachedKey = NSString(string: temple.title)
-            
-            // 캐싱된 한국관광공사 이미지데이터가 있을 경우
-            if let cachedImageData = ImageCacheManager.shared.object(forKey: cachedKey) {
-                self.imageData = cachedImageData as Data?
-                self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: false)
-            }
-            
-            // 캐싱된 네이버 이미지데이터가 있을 경우
-            else if let cachedImageData = ImageCacheManager.shared.object(forKey: NSString(string: "naver\(cachedKey)")) {
-                self.imageData = cachedImageData as Data?
-                self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: true)
-            }
-            
-            // 캐싱된 이미지데이터가 없고 한국관광공사 imageURL값이 있을 경우
-            else if let imageURL = temple.imageUrl, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
-                self.imageData = data
-                self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: false)
-                ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: cachedKey)
-            }
-            
-            // 캐싱된 이미지데이터가 없고 네이버 이미지데이터가 있을 경우
-            else if self.imageData == nil {
-                let searchText = self.generateSearchText(address: temple.addr1, title: temple.title)
-                CommonHttp.getNaverImage(searchText: searchText) { data in
-                    if let data = data {
-                        self.imageData = data
-                        ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: NSString(string: "naver\(cachedKey)"))
+        
+        if let imageURL = temple.imageUrl, imageURL.count != 0 {
+            self.updateImage(imageURL: imageURL, isNaverImage: false)
+        }
+        
+        else {
+            let searchText = self.generateSearchText(address: temple.addr1, title: temple.title)
+            DispatchQueue.global(qos: .userInitiated).async {
+                CommonHttp.getNaverImage(searchText: searchText) { imageURL in
+                    if let imageURL = imageURL, self.verifyImageURL(urlString: imageURL) {
+                        self.updateImage(imageURL: imageURL, isNaverImage: true)
+                    } else {
+                        self.updateImage(imageURL: nil, isNaverImage: false)
                     }
-                    self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: true)
                 }
             }
-            
-            // 아무것도 없을 경우
-            else {
-                self.updateUI(tableView: tableView, temple: temple, templeIndexPath: indexPath, isNaverImage: false)
-            }
         }
+        
     }
     
-    private func updateUI(tableView: UITableView, temple: Temple, templeIndexPath: IndexPath, isNaverImage: Bool) {
+    private func updateImage(imageURL: String?, isNaverImage: Bool) {
         DispatchQueue.main.async {
-            if let cellIndexPath: IndexPath = tableView.indexPath(for: self), cellIndexPath.row == templeIndexPath.row {
-                self.titleLabel.text = temple.title
-                self.addressLabel.text = temple.addr1
-                
-                if let imageData = self.imageData {
-                    self.thumbnailImageView.image = UIImage(data: imageData)
-                    if isNaverImage {
-                        self.imageWarningView.isHidden = false
-                    }
-                } else {
-                    self.thumbnailImageView.image = UIImage(named: "noimage_up")
-                }
+            if let imageURL = imageURL {
+                self.thumbnailImageView.setImage(with: imageURL)
+            } else {
+                self.thumbnailImageView.image = UIImage(named: "noimage_up")
             }
+            self.imageWarningView.isHidden = !isNaverImage
         }
     }
     
+    private func verifyImageURL (urlString: String) -> Bool {
+        return NSData(contentsOf: URL(string: urlString)!) == nil ? false : true
+    }
+
     private func generateSearchText(address: String?, title: String) -> String {
         // 이미지 검색어 세팅
         // ex) 가평 + 대원사

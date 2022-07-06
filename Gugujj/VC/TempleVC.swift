@@ -150,18 +150,30 @@ class TempleVC: BaseVC {
     }
     
     private func fillImageView(searchText: String) {
-        CommonHttp.getNaverImage(searchText: searchText) { data in
-            DispatchQueue.main.async {
-                if data != nil {
-                    self.thumbnailImageView.image = UIImage(data: data!)
-                    self.imageWarningView.isHidden = false
-                } else {
-                    self.thumbnailImageView.image = UIImage(named: "noimage")
-                }
-                self.isImageLoad = true
-                self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad)
+        CommonHttp.getNaverImage(searchText: searchText) { imageURL in
+            if let imageURL = imageURL, self.verifyImageURL(urlString: imageURL) {
+                self.updateImage(imageURL: imageURL, isNaverImage: true)
+            } else {
+                self.updateImage(imageURL: nil, isNaverImage: false)
             }
+            self.isImageLoad = true
+            self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad)
         }
+    }
+    
+    private func updateImage(imageURL: String?, isNaverImage: Bool) {
+        DispatchQueue.main.async {
+            if let imageURL = imageURL {
+                self.thumbnailImageView.setImage(with: imageURL)
+            } else {
+                self.thumbnailImageView.image = UIImage(named: "noimage")
+            }
+            self.imageWarningView.isHidden = !isNaverImage
+        }
+    }
+    
+    private func verifyImageURL (urlString: String) -> Bool {
+        return NSData(contentsOf: URL(string: urlString)!) == nil ? false : true
     }
     
     private func generateSearchText(address: String?, title: String) -> String {
@@ -194,7 +206,9 @@ class TempleVC: BaseVC {
     
     private func checkLoadingEnd(checkImage: Bool, checkMap: Bool) {
         if checkImage && checkMap {
-            CustomLoading.hide()
+            DispatchQueue.main.async {
+                CustomLoading.hide()
+            }
         }
     }
     

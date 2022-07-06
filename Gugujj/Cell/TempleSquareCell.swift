@@ -14,8 +14,6 @@ class TempleSquareCell: UICollectionViewCell {
     @IBOutlet weak var distLabel: UILabel!
     @IBOutlet weak var imageWarningView: UIView!
     
-    private var imageData: Data?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,7 +23,6 @@ class TempleSquareCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageData = nil
         titleLabel.text = nil
         distLabel.text = nil
         thumbnailImageView.image = UIImage(named: "placeholder")
@@ -35,67 +32,42 @@ class TempleSquareCell: UICollectionViewCell {
         
         if !nearSights.isEmpty {
             let nearSight = nearSights[indexPath.row]
-            self.imageWarningView.isHidden = true
             
-            DispatchQueue.global(qos: .userInitiated).async {
-                
-                // 캐싱할 객체의 키값 생성
-                let cachedKey = NSString(string: nearSight.title)
-                
-                // 캐싱된 한국관광공사 이미지데이터가 있을 경우
-                if let cachedImageData = ImageCacheManager.shared.object(forKey: cachedKey) {
-                    self.imageData = cachedImageData as Data?
-                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: false)
-                }
-                
-                // 캐싱된 네이버 이미지데이터가 있을 경우
-                else if let cachedImageData = ImageCacheManager.shared.object(forKey: NSString(string: "naver\(cachedKey)")) {
-                    self.imageData = cachedImageData as Data?
-                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: true)
-                }
-                
-                // 캐싱된 이미지데이터가 없고 한국관광공사 imageURL값이 있을 경우
-                else if let imageURL = nearSight.imageURL, imageURL.count != 0, let data = try? Data(contentsOf: URL(string: imageURL)!) {
-                    self.imageData = data
-                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: false)
-                    ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: cachedKey)
-                }
-                
-                // 캐싱된 이미지데이터가 없고 네이버 이미지데이터가 있을 경우
-                else if self.imageData == nil {
-                    CommonHttp.getNaverImage(searchText: nearSight.title) { data in
-                        if let data = data {
-                            self.imageData = data
-                            ImageCacheManager.shared.setObject(self.imageData! as NSData, forKey: NSString(string: "naver\(cachedKey)"))
+            titleLabel.text = nearSight.title
+            distLabel.text = nearSight.dist
+            imageWarningView.isHidden = true
+            
+            if let imageURL = nearSight.imageURL, imageURL.count != 0 {
+                updateImage(imageURL: imageURL, isNaverImage: false)
+            }
+            
+            else {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    CommonHttp.getNaverImage(searchText: nearSight.title) { imageURL in
+                        if let imageURL = imageURL, self.verifyImageURL(urlString: imageURL) {
+                            self.updateImage(imageURL: imageURL, isNaverImage: true)
+                        } else {
+                            self.updateImage(imageURL: nil, isNaverImage: false)
                         }
-                        self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: true)
                     }
-                }
-                
-                // 아무것도 없을 경우
-                else {
-                    self.updateUI(collectionView: collectionView, nearSight: nearSight, nearSightIndexPath: indexPath, isNaverImage: false)
                 }
             }
         }
     }
     
-    private func updateUI(collectionView: UICollectionView, nearSight: NearSight, nearSightIndexPath: IndexPath, isNaverImage: Bool) {
+    private func updateImage(imageURL: String?, isNaverImage: Bool) {
         DispatchQueue.main.async {
-            if let cellIndexPath: IndexPath = collectionView.indexPath(for: self), cellIndexPath.row == nearSightIndexPath.row {
-                self.titleLabel.text = nearSight.title
-                self.distLabel.text = nearSight.dist
-                
-                if let imageData = self.imageData {
-                    self.thumbnailImageView.image = UIImage(data: imageData)
-                    if isNaverImage {
-                        self.imageWarningView.isHidden = false
-                    }
-                } else {
-                    self.thumbnailImageView.image = UIImage(named: "noimage_square")
-                }
+            if let imageURL = imageURL {
+                self.thumbnailImageView.setImage(with: imageURL)
+            } else {
+                self.thumbnailImageView.image = UIImage(named: "noimage_square")
             }
+            self.imageWarningView.isHidden = !isNaverImage
         }
+    }
+    
+    private func verifyImageURL (urlString: String) -> Bool {
+        return NSData(contentsOf: URL(string: urlString)!) == nil ? false : true
     }
     
 }
