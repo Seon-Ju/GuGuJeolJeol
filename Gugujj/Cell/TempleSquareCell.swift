@@ -44,7 +44,7 @@ class TempleSquareCell: UICollectionViewCell {
             else {
                 DispatchQueue.global(qos: .userInitiated).async {
                     CommonHttp.getNaverImage(searchText: nearSight.title) { imageURL in
-                        if let imageURL = imageURL, self.verifyImageURL(urlString: imageURL) {
+                        if let imageURL = imageURL, CommonVar.verifyImageURL(urlString: imageURL) {
                             self.updateImage(imageURL: imageURL, isNaverImage: true)
                         } else {
                             self.updateImage(imageURL: nil, isNaverImage: false)
@@ -64,10 +64,6 @@ class TempleSquareCell: UICollectionViewCell {
             }
             self.imageWarningView.isHidden = !isNaverImage
         }
-    }
-    
-    private func verifyImageURL (urlString: String) -> Bool {
-        return NSData(contentsOf: URL(string: urlString)!) == nil ? false : true
     }
     
 }

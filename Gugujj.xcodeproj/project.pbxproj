@@ -15,6 +15,7 @@
 		5A2898EA2863037500C88FB1 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2898E92863037500C88FB1 /* ImageCacheManager.swift */; };
 		5A29EDA82848A15300513D7A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29EDA72848A15300513D7A /* Location.swift */; };
 		5A2C4E39285069F0001BDBA1 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C4E38285069F0001BDBA1 /* SearchResultVC.swift */; };
+		5A37A86B2875173100AFAC8C /* CommonVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A37A86A2875173100AFAC8C /* CommonVar.swift */; };
 		5A3A34A12859675B00E4833A /* dualball.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A34A02859675B00E4833A /* dualball.gif */; };
 		5A40BCE3283C671200DB7FC4 /* TempleRectangleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */; };
 		5A40BCE4283C671200DB7FC4 /* TempleRectangleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */; };
@@ -57,6 +58,7 @@
 		5A2898E92863037500C88FB1 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		5A29EDA72848A15300513D7A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5A2C4E38285069F0001BDBA1 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		5A37A86A2875173100AFAC8C /* CommonVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVar.swift; sourceTree = "<group>"; };
 		5A3A34A02859675B00E4833A /* dualball.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dualball.gif; sourceTree = "<group>"; };
 		5A40BCE1283C671200DB7FC4 /* TempleRectangleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleRectangleCell.swift; sourceTree = "<group>"; };
 		5A40BCE2283C671200DB7FC4 /* TempleRectangleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempleRectangleCell.xib; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				5A40BCE7283C9BDD00DB7FC4 /* CommonNavi.swift */,
 				94B16BD92840BE9300D57CDE /* CommonHttp.swift */,
 				94B16BDB2840BEA400D57CDE /* CommonURL.swift */,
+				5A37A86A2875173100AFAC8C /* CommonVar.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A37A86B2875173100AFAC8C /* CommonVar.swift in Sources */,
 				5A929CC02870550900D53C12 /* PopupVC.swift in Sources */,
 				5AE55B25283B5F7000D19FFF /* SearchVC.swift in Sources */,
 				5A40BCE8283C9BDD00DB7FC4 /* CommonNavi.swift in Sources */,
