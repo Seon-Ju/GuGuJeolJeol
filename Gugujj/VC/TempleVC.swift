@@ -259,8 +259,7 @@ extension TempleVC: XMLParserDelegate {
             descTitleLabel.text = "\(string) 이야기"
             
         case "firstimage":
-            let data = try? Data(contentsOf: URL(string: string)!)
-            thumbnailImageView.image = UIImage(data: data!)
+            thumbnailImageView.setImage(with: string)
             isImageLoad = true
             checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad, checkDetail: isDetailLoad)
             
