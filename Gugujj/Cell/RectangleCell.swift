@@ -49,10 +49,10 @@ class RectangleCell: UITableViewCell {
         }
         
         else {
-            let searchText = CommonVar.generateSearchText(address: temple.addr1, title: temple.title)
+            let searchText = CommonUtil.generateSearchText(address: temple.addr1, title: temple.title)
             DispatchQueue.global(qos: .userInitiated).async {
                 CommonHttp.getNaverImage(searchText: searchText) { imageURL in
-                    if let imageURL = imageURL, CommonVar.verifyImageURL(urlString: imageURL) {
+                    if let imageURL = imageURL, CommonUtil.verifyImageURL(urlString: imageURL) {
                         self.updateImage(tableView: tableView, templeRow: indexPath.row, imageURL: imageURL, isNaverImage: true)
                     } else {
                         self.updateImage(tableView: tableView, templeRow: indexPath.row, imageURL: nil, isNaverImage: false)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CommonVar {
+class CommonUtil {
     static func verifyImageURL (urlString: String) -> Bool {
         return NSData(contentsOf: URL(string: urlString)!) == nil ? false : true
     }

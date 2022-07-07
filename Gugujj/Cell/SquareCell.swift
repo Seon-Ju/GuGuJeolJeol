@@ -44,7 +44,7 @@ class SquareCell: UICollectionViewCell {
             else {
                 DispatchQueue.global(qos: .userInitiated).async {
                     CommonHttp.getNaverImage(searchText: nearSight.title) { imageURL in
-                        if let imageURL = imageURL, CommonVar.verifyImageURL(urlString: imageURL) {
+                        if let imageURL = imageURL, CommonUtil.verifyImageURL(urlString: imageURL) {
                             self.updateImage(collectionView: collectionView, nearSightRow: indexPath.row, imageURL: imageURL, isNaverImage: true)
                         } else {
                             self.updateImage(collectionView: collectionView, nearSightRow: indexPath.row, imageURL: nil, isNaverImage: false)

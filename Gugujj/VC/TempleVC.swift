@@ -156,7 +156,7 @@ class TempleVC: BaseVC {
     
     private func fillImageView(searchText: String) {
         CommonHttp.getNaverImage(searchText: searchText) { imageURL in
-            if let imageURL = imageURL, CommonVar.verifyImageURL(urlString: imageURL) {
+            if let imageURL = imageURL, CommonUtil.verifyImageURL(urlString: imageURL) {
                 self.updateImage(imageURL: imageURL, isNaverImage: true)
             } else {
                 self.updateImage(imageURL: nil, isNaverImage: false)
@@ -252,7 +252,7 @@ extension TempleVC: XMLParserDelegate {
             
         case "title":
             if !isImageLoad {
-                let searchText = CommonVar.generateSearchText(address: address, title: string)
+                let searchText = CommonUtil.generateSearchText(address: address, title: string)
                 fillImageView(searchText: searchText)
             }
             titleLabel.text = string
