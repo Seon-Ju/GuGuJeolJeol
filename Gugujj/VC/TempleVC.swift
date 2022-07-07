@@ -22,10 +22,10 @@ class TempleVC: BaseVC {
     private var mapX: String = ""
     private var mapY: String = ""
     
-    private var isMapLoad: Bool = false
     private var isImageLoad: Bool = false
-    private var isDetailLoad: Bool = false
-    private var detailRequestCount: Int = 0
+    
+    private let dispatchGroup = DispatchGroup()
+    private let dispatchQueue = DispatchQueue(label: "queue", qos: .userInitiated, attributes: .concurrent)
     
     // MARK: IBOutlets
     @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -72,41 +72,46 @@ class TempleVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isSwipedFlag = false
-        detailRequestCount = 0
         imageWarningView.isHidden = true
         
-        CommonHttp.getDetailCommon(contentId: TempleVC.contentId) { data in
-            guard let xmlData = data else { // 통신 오류시
-                DispatchQueue.main.async {
-                    CustomLoading.hide()
-                    self.showErrorAlert()
+        dispatchQueue.async(group: dispatchGroup) {
+            self.dispatchGroup.enter()
+            CommonHttp.getDetailCommon(contentId: TempleVC.contentId) { data in
+                guard let xmlData = data else { // 통신 오류시
+                    self.handleHttpfailure()
+                    return
                 }
-                return
+                self.parseData(data: xmlData)
             }
-            self.parseData(data: xmlData)
-        }
-    
-        CommonHttp.getDetailIntro(contentId: TempleVC.contentId) { data in
-            guard let xmlData = data else { // 통신 오류시
-                DispatchQueue.main.async {
-                    CustomLoading.hide()
-                    self.showErrorAlert()
+            
+            self.dispatchGroup.enter()
+            CommonHttp.getDetailIntro(contentId: TempleVC.contentId) { data in
+                guard let xmlData = data else { // 통신 오류시
+                    self.handleHttpfailure()
+                    return
                 }
-                return
+                self.parseData(data: xmlData)
             }
-            self.parseData(data: xmlData)
+            
+            self.dispatchGroup.enter()
+            CommonHttp.getDetailInfo(contentId: TempleVC.contentId) { data in
+                guard let xmlData = data else { // 통신 오류시
+                    self.handleHttpfailure()
+                    return
+                }
+                self.parseData(data: xmlData)
+            }
         }
         
-        CommonHttp.getDetailInfo(contentId: TempleVC.contentId) { data in
-            guard let xmlData = data else { // 통신 오류시
-                DispatchQueue.main.async {
-                    CustomLoading.hide()
-                    self.showErrorAlert()
-                }
-                return
+        dispatchGroup.notify(queue: dispatchQueue) {
+            print("통신 끝")
+            DispatchQueue.main.async {
+                self.setLineSpacing()
+                self.hideNonDetailSection()
+                CustomLoading.hide()
             }
-            self.parseData(data: xmlData)
         }
+        
     }
     
     // MARK: - Privates
@@ -115,12 +120,14 @@ class TempleVC: BaseVC {
         parser.delegate = self
         DispatchQueue.main.async {
             parser.parse()
-            self.setLineSpacing()
-            self.hideNonDetailSection()
+            print("파싱 끝")
+            self.dispatchGroup.leave()
         }
     }
     
     private func addMapView() {
+        dispatchGroup.enter()
+        
         let camera = GMSCameraPosition.camera(withLatitude: Double(mapY)!, longitude: Double(mapX)!, zoom: 15.0)
         let map = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
         mapView.addSubview(map)
@@ -138,8 +145,8 @@ class TempleVC: BaseVC {
         button.addTarget(self, action: #selector(launchGoogleMap(_:)), for: .touchUpInside)
         mapView.addSubview(button)
         
-        isMapLoad = true
-        checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad, checkDetail: self.isDetailLoad)
+        print("맵뷰 끝")
+        dispatchGroup.leave()
     }
     
     @objc private func launchGoogleMap(_ sender: UIButton) {
@@ -155,14 +162,15 @@ class TempleVC: BaseVC {
     }
     
     private func fillImageView(searchText: String) {
+        dispatchGroup.enter()
         CommonHttp.getNaverImage(searchText: searchText) { imageURL in
             if let imageURL = imageURL, CommonUtil.verifyImageURL(urlString: imageURL) {
                 self.updateImage(imageURL: imageURL, isNaverImage: true)
             } else {
                 self.updateImage(imageURL: nil, isNaverImage: false)
             }
-            self.isImageLoad = true
-            self.checkLoadingEnd(checkImage: self.isImageLoad, checkMap: self.isMapLoad, checkDetail: self.isDetailLoad)
+            print("이미지 끝")
+            self.dispatchGroup.leave()
         }
     }
     
@@ -174,14 +182,6 @@ class TempleVC: BaseVC {
                 self.thumbnailImageView.image = UIImage(named: "noimage")
             }
             self.imageWarningView.isHidden = !isNaverImage
-        }
-    }
-    
-    private func checkLoadingEnd(checkImage: Bool, checkMap: Bool, checkDetail: Bool) {
-        if checkImage && checkMap && checkDetail {
-            DispatchQueue.main.async {
-                CustomLoading.hide()
-            }
         }
     }
     
@@ -214,7 +214,6 @@ class TempleVC: BaseVC {
     }
     
     private func hideNonDetailSection() {
-        detailRequestCount += 1
         detailStackView.arrangedSubviews.forEach { section in
             section.subviews.forEach { view in
                 section.isHidden = false
@@ -225,17 +224,16 @@ class TempleVC: BaseVC {
                 }
             }
         }
-        if detailRequestCount == 3 {
-            isDetailLoad = true
-        }
-        checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad, checkDetail: isDetailLoad)
     }
     
-    private func showErrorAlert() {
-        let action: UIAlertAction = UIAlertAction(title: "확인", style: .default)
-        let alert: UIAlertController = UIAlertController(title: "알림", message: "오류가 발생했습니다. 다시 시도해주세요.", preferredStyle: .alert)
-        alert.addAction(action)
-        self.present(alert, animated: true)
+    private func handleHttpfailure() {
+        DispatchQueue.main.async {
+            CustomLoading.hide()
+            let action: UIAlertAction = UIAlertAction(title: "확인", style: .default)
+            let alert: UIAlertController = UIAlertController(title: "알림", message: "오류가 발생했습니다. 다시 시도해주세요.", preferredStyle: .alert)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        }
     }
     
 }
@@ -261,7 +259,6 @@ extension TempleVC: XMLParserDelegate {
         case "firstimage":
             thumbnailImageView.setImage(with: string)
             isImageLoad = true
-            checkLoadingEnd(checkImage: isImageLoad, checkMap: isMapLoad, checkDetail: isDetailLoad)
             
         case "homepage":
             if string.contains("http") && homepageUrl.isEmpty {
